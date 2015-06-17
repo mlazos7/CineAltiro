@@ -18,13 +18,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Categoria_Pelicula',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('id_categoria', models.ForeignKey(to='CineAltiro.Categoria')),
-            ],
-        ),
-        migrations.CreateModel(
             name='Categoria_Usuario',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -39,7 +32,7 @@ class Migration(migrations.Migration):
                 ('direccion', models.CharField(default=b'', max_length=100)),
                 ('link', models.CharField(default=b'', max_length=100)),
                 ('precio', models.CharField(default=b'', max_length=50)),
-                ('imagen', models.CharField(default=b'', max_length=100)),
+                ('imagen', models.ImageField(upload_to=b'imagenes/cines')),
             ],
         ),
         migrations.CreateModel(
@@ -72,10 +65,11 @@ class Migration(migrations.Migration):
                 ('titulo', models.CharField(default=b'', max_length=200)),
                 ('calificacion', models.IntegerField(default=-1)),
                 ('cantidad_comentarios', models.IntegerField(default=-1)),
-                ('resumen', models.TextField(default=b'', max_length=2000)),
+                ('sinopsis', models.TextField(default=b'', max_length=2000)),
                 ('detalles', models.TextField(default=b'', max_length=2000)),
                 ('fecha_publicacion', models.DateTimeField(verbose_name=b'publicacion de la pelicula')),
-                ('imagen', models.IntegerField(default=-1)),
+                ('imagen', models.ImageField(upload_to=b'imagenes/peliculas')),
+                ('categoria', models.ForeignKey(to='CineAltiro.Categoria')),
             ],
         ),
         migrations.CreateModel(
@@ -111,10 +105,5 @@ class Migration(migrations.Migration):
             model_name='categoria_usuario',
             name='id_usuario',
             field=models.ForeignKey(to='CineAltiro.Usuario'),
-        ),
-        migrations.AddField(
-            model_name='categoria_pelicula',
-            name='id_pelicula',
-            field=models.ForeignKey(to='CineAltiro.Pelicula'),
         ),
     ]
