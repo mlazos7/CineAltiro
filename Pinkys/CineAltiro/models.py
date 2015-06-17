@@ -73,7 +73,7 @@ class Cine(models.Model):
 	direccion = models.CharField(max_length = 100, default = '')
 	link = models.CharField(max_length = 100, default = '')
 	precio = models.CharField(max_length = 50, default = '')
-	imagen = models.CharField(max_length  = 100, default = '')
+	imagen = models.ImageField(upload_to="imagenes")
 	def __unicode__(self):
 		return self.nombre
 
