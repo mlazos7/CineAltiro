@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>Cine Altiro</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -62,8 +62,11 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Cine Altiro</h1>
-        <p>Cine altiro es una plataforma virtual gratuita de información y opiniones de las distintas peliculas que se encuentran en cartelera en los cines chilenos.</p>
+
+        <h1 style="color: rgb(222, 240, 227);">
+            Cine Altiro</h1>
+
+        <p style = "color: white;"> Cine altiro es una plataforma virtual gratuita de información y opiniones de las distintas peliculas que se encuentran en cartelera en los cines chilenos.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
@@ -72,13 +75,13 @@
       <!-- Example row of columns -->
       <div class="row">
 
-      	{% for Pelicula in variable reversed %}
-      	{% if forloop.counter0 < 5 %}
-        <div class="col-md-4">
+      	{% for Pelicula in pelis reversed %}
+      	{% if forloop.counter0 < 12 %}
+        <div class="col-md-3">
         	<a href = class="thumbnail">
 
         		<div class = "caption">
-        			<h3> {{Pelicula.titulo}}</h3>
+        			 <!-- <h3> {{Pelicula.titulo}}</h3> -->
         			<p>
         				<img src="{{Pelicula.imagen.url}}"/> 
         			</p>

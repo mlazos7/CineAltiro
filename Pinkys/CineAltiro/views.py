@@ -13,4 +13,4 @@ def base(request):
 	return render_to_response("base.html")
 
 def prueba1(request):
-	return render_to_response("prueba1.html",{"variable": Pelicula.objects.all()})
+	return render_to_response("prueba1.html",{"pelis": Pelicula.objects.all()})
