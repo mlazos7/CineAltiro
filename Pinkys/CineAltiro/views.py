@@ -1,8 +1,9 @@
 from django.shortcuts import render_to_response,render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.context_processors import csrf
-from django.template import Context,loader
+from django.template import Context,loader, RequestContext
 from CineAltiro.models import *
+from .models import Categoria
 
 # Create your views here.
 def home(request):
@@ -10,3 +11,6 @@ def home(request):
 
 def base(request):
 	return render_to_response("base.html")
+
+def prueba1(request):
+	return render_to_response("prueba1.html",{"variable": Pelicula.objects.all()})

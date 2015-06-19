@@ -35,9 +35,12 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',    
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
     'CineAltiro',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -104,6 +107,7 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+SITE_ID = 1
 STATIC_URL = '/static/'
 
 if DEBUG:
@@ -112,3 +116,10 @@ if DEBUG:
     MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static', 'static'),
         )
+
+
+
+#Django Regitration redux settings
+ACCOUNT_ACTIVATION_DAYS = 7  #This is the number of days users will have to activate their accounts after registering.
+
+REGISTRATION_AUTO_LOGIN = True
