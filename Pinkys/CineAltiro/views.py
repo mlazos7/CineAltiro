@@ -2,10 +2,10 @@ from django.shortcuts import render_to_response,render, get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.template import Context,loader, RequestContext
-from CineAltiro.models import *
 from .models import Categoria,Pelicula,Cine,Cine_Pelicula
+from .forms import RegistroForm 
 
-# Create your views here.
+
 def home(request):
 	return render_to_response("home.html",{"main":Pelicula.objects.all()})
 
@@ -21,8 +21,20 @@ def peliculas(request,idPel):
 
 def cines(request):
 	cin = Cine.objects.all() #Capturo todos los cines
-	return render_to_response("cines.html",{'dicCines':cin}) #Se usa la platilla indicada y le pasamos un diccionario
+	return render_to_response("cines.html",{'dicCines':cin}) 
+	#Se usa la platilla indicada y le pasamos un diccionario
 
 def cinespel(request):
 	variable = Cine_Pelicula.objects.all()
 	return render_to_response("cinesPel.html",{'dcinespel':variable,})
+
+def registro(request):
+	formulario = RegistroForm(request.POST or None)
+	if formulario.is_valid():
+		new_Usuario = formulario.save(commit=False)
+		new_Usuario.save()
+	context = {"formulario":formulario}
+	template = "registro.html"
+	return render(request,template,context)
+
+

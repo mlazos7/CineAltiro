@@ -27,5 +27,9 @@
 	 
 	</ul>
 	{% endfor %}
+	<p>actualmente tenemos {%with total=dicCines.count %}
+		{{total}} Cines{{total|pluralize}}
+		{%endwith%}
+	</p>
   </body>
 </html>

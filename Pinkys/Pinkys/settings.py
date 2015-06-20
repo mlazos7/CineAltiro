@@ -123,3 +123,10 @@ if DEBUG:
 ACCOUNT_ACTIVATION_DAYS = 7  #This is the number of days users will have to activate their accounts after registering.
 
 REGISTRATION_AUTO_LOGIN = True
+
+
+#EMAIL_USE_TLS = True
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_USER = 'remitente@.gmail.com'
+#EMAIL_HOST_PASSWORD = 'clave'
+#EMAIL_PORT = '587'

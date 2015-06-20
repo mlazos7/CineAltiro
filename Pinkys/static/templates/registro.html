@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang='es'>
+  <head>
+	<title>Registro</title>
+	<meta charset='utf-8'>
+  </head>
+  <body>
+  		<nav>
+  			<ul>
+  				<li><a href="/prueba1">home</a></li>
+  			</ul>		
+  		</nav>	
+    <h1>Registro de usuario</h1>
+	
+       	<form method="POST"  action="">{% csrf_token %}
+    		{{formulario.as_p}}
+    		<p><input type='submit' value='Confirmar'/></p>
+    	</form>
+    
+  </body>
+</html>
