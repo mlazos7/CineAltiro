@@ -25,6 +25,11 @@ urlpatterns = [
     url(r'^base/$','CineAltiro.views.base'),
     url(r'^prueba1/$','CineAltiro.views.prueba1'),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^prueba1/(?P<idPel>\d+)$','CineAltiro.views.peliculas'),
+    url(r'^cines/$','CineAltiro.views.cines'),
+    url(r'^cinesPel/$','CineAltiro.views.cinespel'),
+
+
 
 ]
 

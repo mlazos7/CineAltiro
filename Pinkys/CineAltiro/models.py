@@ -53,6 +53,7 @@ class Comentario(models.Model):
 
 
 	id_usuario = models.ForeignKey(Usuario)
+	id_pelicula = models.ForeignKey(Pelicula,default=-1)
 	contenido = models.TextField(max_length = 2000,default='')
 	fecha_comentario = models.DateTimeField('publicacion del comentario')
 	def __unicode__(self):
@@ -82,3 +83,4 @@ class Cine_Pelicula(models.Model):
 	id_pelicula =  models.ForeignKey(Pelicula)
 	id_cine	= models.ForeignKey(Cine)
 	funciones = models.CharField(max_length= 100, default = '')
+	
