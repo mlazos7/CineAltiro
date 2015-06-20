@@ -3,17 +3,16 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.template import Context,loader, RequestContext
 from .models import Categoria,Pelicula,Cine,Cine_Pelicula
-from .forms import RegistroForm 
+from .forms import RegistroForm, SignUpForm
+from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
-
-def home(request):
-	return render_to_response("home.html",{"main":Pelicula.objects.all()})
 
 def base(request):
 	return render_to_response("base.html")
 
-def prueba1(request):
-	return render_to_response("prueba1.html",{"pelis": Pelicula.objects.all()})
+def home(request):
+	return render_to_response("home.html",{"pelis": Pelicula.objects.all()})
 
 def peliculas(request,idPel):
 	dato = get_object_or_404(Pelicula, pk=idPel)
@@ -36,5 +35,6 @@ def registro(request):
 	context = {"formulario":formulario}
 	template = "registro.html"
 	return render(request,template,context)
+
 
 

@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth', #Framework para la  autentificacion 
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',    
@@ -124,6 +124,9 @@ ACCOUNT_ACTIVATION_DAYS = 7  #This is the number of days users will have to acti
 
 REGISTRATION_AUTO_LOGIN = True
 
+
+LOGIN_REDIRECT_URL = "/home_test"
+LOGIN_URL = '/'
 
 #EMAIL_USE_TLS = True
 #EMAIL_HOST = 'smtp.gmail.com'
