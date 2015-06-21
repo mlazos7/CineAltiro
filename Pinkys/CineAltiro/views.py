@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response,render, get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.template import Context,loader, RequestContext
-from .models import Categoria,Pelicula,Cine,Cine_Pelicula
+from .models import Categoria,Pelicula,Cine
 from .forms import RegistroForm, SignUpForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -35,6 +35,10 @@ def registro(request):
 	context = {"formulario":formulario}
 	template = "registro.html"
 	return render(request,template,context)
+
+def lista_peliculas(request):
+	pelis = Pelicula.objects.all()
+	return render_to_response("lista_peliculas.html",{'pelis':pelis})
 
 
 

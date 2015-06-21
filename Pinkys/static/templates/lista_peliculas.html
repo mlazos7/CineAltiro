@@ -1,0 +1,145 @@
+<!-- <!DOCTYPE html>
+<html lang='es'>
+  <head>
+	<title>Lista de Peliculas</title>
+	<meta charset='utf-8'>
+  </head>
+  <body>
+
+  		<nav>
+
+  			<ul>
+  				<li><a href="/home">home</a></li>
+  			</ul>		
+
+  		</nav>	
+
+    <h1>Peliculas en cartelera</h1>
+	{% for item in pelis %}
+	<ul>
+	  <li><strong>{{item.titulo}}</strong></li>
+	  <li>{{item.subtitulo}}</li>
+	  
+	</ul>
+	{% endfor %}
+	<p>actualmente tenemos {%with total=pelis.count %}
+		{{total}} Peliculas{{total|pluralize}}
+		{%endwith%}
+	</p>
+  </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Cine Altiro</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/jumbotron.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/custom.css" rel="stylesheet">
+
+    <!--  FontAwesome -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    
+    <script src="/static/js/ie8-responsive-file-warning.js"></script>
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+
+  </head>
+
+  <body>
+
+	    <nav class="navbar navbar-inverse navbar-fixed-top">
+		      <div class="container">
+		        <div class="navbar-header">
+		          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		          </button>
+		          <a class="navbar-brand" href="/home">Cine Altiro</a>
+		        </div>
+		        <div id="navbar" class="navbar-collapse collapse">
+		          <form class="navbar-form navbar-right">
+		            <div class="form-group">
+		              <input type="text" placeholder="Email" class="form-control">
+		            </div>
+		            <div class="form-group">
+		              <input type="password" placeholder="Password" class="form-control">
+		            </div>
+		            <button type="submit" class="btn btn-success">Sign in</button>
+		          </form>
+		        </div><!--/.navbar-collapse -->
+		      </div>
+	    </nav>
+
+
+
+	    <div class="jumbotron">
+		      <div class="container">
+			        <h2 style="color: rgb(255, 128, 128);">Nuestra Cartelera</h2>
+					<p style="color: rgb(252, 229, 229);">Contamos con{%with total=pelis.count %}
+					{{total}} peliculas en cartelera a lo largo del país.{%endwith%}</p>
+		      </div> <!-- END CONTAINER -->
+	    </div>	<!-- END JUMBOTRON -->
+
+
+
+
+	    <div class="container">
+	          <!-- Example row of columns -->
+	          <div class="row">
+	          	{% for Pelicula in pelis reversed %}
+	              <div class="col-md-3">
+	              	<a href ="/pelicula/{{Pelicula.id}}"  class = "thumbnail">
+	              		<img src="{{Pelicula.imagen.url}}"/>  
+	              	</a>
+	              </div>
+	            {% endfor %}	
+	          </div>
+	          <hr>
+	    </div> <!-- /container -->
+
+	   
+	    
+
+      <div class ="container">
+        <footer>
+            <div class  ="navbar-text pull-left">
+                  <p> © CineAltiro 2015,Todos los Derechos Reservados.</p>
+            </div>
+            <div class ="navbar-text pull-right">
+                  <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>
+                  <a href="#"><i class="fa fa-twitter fa-3x"></i></a>
+                  <a href="#"><i class="fa fa-google-plus fa-3x"></i></a>
+            </div>    
+        </footer>
+      </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/jsie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

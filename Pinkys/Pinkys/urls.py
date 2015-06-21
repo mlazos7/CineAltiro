@@ -29,6 +29,9 @@ urlpatterns = [
     url(r'^cines/$','CineAltiro.views.cines'),
     url(r'^cinesPel/$','CineAltiro.views.cinespel'),
     url(r'^registro/$','CineAltiro.views.registro'),
+    url(r'^registro/$','CineAltiro.views.registro'),
+    url(r'^peliculas/$','CineAltiro.views.lista_peliculas'),
+
     
 ]
 
