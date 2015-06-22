@@ -60,31 +60,58 @@
       </div>
     </nav>
 
-
-    <div class = "jumbotron "style ="background-color:white">
-        <div class= "container">
-
-          
-            <div class = "page-header">
-            <h1> {{cine.nombre}} </h1>
-            </div>
-            <li><p>{{cine.direccion}}</p></li>
-            <li><p>{{cine.link}}</p></li>
-            <li><p>{{cine.precio}}</p></li>
-            <br>
-            <br>
-
-            {%for elemento in pelis%}
-                {%for item in elemento.cines.all%}
-                  {%ifequal item.nombre cine.nombre %}
-                    <p>{{elemento.titulo}}<p>
-                  {%endifequal%}
-              {%endfor%}            
-            {%endfor%}          
-
-
+    <div class= "container">
+        <div class = "page-header">
+          <h1> {{cine.nombre}} </h1>
         </div>
-    </div>
+        <div class = "row">
+          <div class ="col-md-6">
+            <div class ="panel panel-default">
+              <div class = "panel-heading">                    
+                  <h4 class = "panel-tittle"> Detalles</h4>
+              </div> 
+              <table class = "table table-bordered table-striped">
+                <tbody>
+                  <tr>
+                    <td><strong>Dirrección:</strong> {{cine.direccion}} </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Página web:</strong> <a href="{{cine.link}}"> {{cine.nombre}}</a> </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Precio:</strong> </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+
+<!--             <li><p>{{cine.direccion}}</p></li>
+            <li><p>{{cine.link}}</p></li>
+            <li><p>{{cine.precio}}</p></li> -->
+            <br>
+            <br>
+            <div class = "container">
+              <div class = "jumbotron "style ="background-color:rgb(231, 223, 223);">
+                  <div class = "row">
+                    {%for elemento in pelis%}
+                        {%for item in elemento.cines.all%}
+                          {%ifequal item.nombre cine.nombre %}
+                          <div class="col-md-3">
+                            <a href ="/pelicula/{{elemento.id}}"  class = "thumbnail">
+                              <img src="{{elemento.imagen.url}}"/>  
+                            </a>
+                          </div>
+                          {%endifequal%}
+                      {%endfor%}            
+                    {%endfor%}  
+                  </div>        
+              </div>
+            </div>
+
     
 
 

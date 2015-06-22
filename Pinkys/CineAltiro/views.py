@@ -3,7 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.template import Context,loader, RequestContext
 from .models import Categoria,Pelicula,Cine
-from .forms import RegistroForm, SignUpForm
+from .forms import  SignUpForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
@@ -22,15 +22,6 @@ def cines(request):
 	cin = Cine.objects.all() #Capturo todos los cines
 	return render_to_response("cines.html",{'dicCines':cin}) 
 	#Se usa la platilla indicada y le pasamos un diccionario
-
-def registro(request):
-	formulario = RegistroForm(request.POST or None)
-	if formulario.is_valid():
-		new_Usuario = formulario.save(commit=False)
-		new_Usuario.save()
-	context = {"formulario":formulario}
-	template = "registro.html"
-	return render(request,template,context)
 
 def lista_peliculas(request):
 	pelis = Pelicula.objects.all()

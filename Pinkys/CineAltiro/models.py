@@ -11,25 +11,9 @@ class Categoria(models.Model):
 		return self.nombre
 
 
-class Usuario(models.Model):
-    
-    nombre 			= models.CharField(max_length=100,default = '')
-    apellido	 	= models.CharField(max_length=100,default = '')
-    nick 			= models.CharField(max_length=200,default = '')
-    email 			= models.EmailField(max_length=200,default = 'email@')
-    password 		= models.CharField(max_length=100,default = '')
-    direccion 		= models.CharField(max_length=200,default = '')
-    fecha_registro 	= models.DateTimeField('fecha de registro ')
-    status 			= models.BooleanField(default = '')
-
-
-    def __unicode__(self):
-		return self.nombre
-
-
 class Categoria_Usuario(models.Model):
 
-	id_usuario = models.ForeignKey(Usuario)
+	# id_usuario = models.ForeignKey(Usuario)
 	id_categoria = models.ForeignKey(Categoria)
 
 class Cine(models.Model):
@@ -67,7 +51,6 @@ class Pelicula(models.Model):
 class Comentario(models.Model):
 
 
-	id_usuario 			= models.ForeignKey(Usuario)
 	id_pelicula 		= models.ForeignKey(Pelicula,default=-1)
 	contenido 			= models.TextField(max_length = 2000,default='')
 	fecha_comentario 	= models.DateTimeField('publicacion del comentario')
@@ -81,4 +64,21 @@ class Comentario_Pelicula(models.Model):
 	id_comentario 		= models.ForeignKey(Comentario)
 
 
-	
+class Horario(models.Model):
+	horario = models.CharField(max_length = 10,default='00:00')
+	def __unicode__(self):
+		return self.horario
+
+
+
+class ShowTime(models.Model):
+ 	cines 		= models.ForeignKey(Cine)
+ 	peliculas 	= models.ForeignKey(Pelicula)
+ 	horarios 	= models.ManyToManyField(Horario)
+ 	tipo 		= models.CharField(max_length = 2000,default='')
+ 	date 		= models.DateField('Fecha funcion')
+
+
+
+
+
