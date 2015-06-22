@@ -27,10 +27,8 @@
 
   </head>
 
-  <!-- ********************************************************************************************************************-->
-
   <body>
-
+  		<!-- NAVBAR -->
 	    <nav class="navbar navbar-inverse navbar-fixed-top">
 		      <div class="container">
 		        <div class="navbar-header">
@@ -57,30 +55,31 @@
 	    </nav>
 
    
-   
-    	<div class="jumbotron text-center">
+   		<!-- ENCABEZADO -->
+   		<div class =" container">
+    	<div class="jumbotron text-center" style="background-color: rgb(218, 215, 215);">
     		<div class="container">
 		        <h1>Cines</h1>
 		        <p>Cine Altiro trabaja con los tres cines principales del país, teniendo un total de
 		        	{%with total=dicCines.count %}{{total}} cines a lo largo del país{%endwith%} </p>
 		    </div>
 		</div>
-
+		</div>
     
 		<!-- HOYTS -->
     	<div class="container">
     		<h2>Cine Hoyts</h2>
     		<div class="jumbotron" style="background-color: rgb(218, 215, 215);">
     			<div class="row">
-    				 {% for item in dicCines %}
-		  					<div class="col-md-3">
-		  						 {% ifequal item.empresa "hoyts" %}
-				  					<p style="font-size: smaller;"><strong>{{item.nombre}}</strong></p>
-								 	<p style="font-size: x-small;">{{item.direccion}}</p> 
-								{% endifequal %}
-		  					</div>
-    				{% endfor %}
-		 	 	</div>
+				 {% for item in dicCines %}
+  					<div class="col-md-3">
+  						 {% ifequal item.empresa "hoyts" %}
+		  					<a href="/cartelera/cine/{{item.id}}"><p style="font-size: smaller;"><strong>{{item.nombre}}</strong></p></a>
+						 	<p style="font-size: x-small;">{{item.direccion}}</p> 
+						{% endifequal %}
+  					</div>
+				{% endfor %}
+	 	 	</div>
 			</div>
 		</div>
 
@@ -89,14 +88,15 @@
 			<h2>Cine Mark</h2>
     		<div class="jumbotron" style="background-color: rgb(218, 215, 215);">
 	    		<div class="row">
-	    				 {% for item in dicCines %}
-			  					<div class="col-md-3">
-			  						 {% ifequal item.empresa "mark" %}
-					  					<p style="font-size: smaller;"><strong>{{item.nombre}}</strong></p>
-									 	<p style="font-size: x-small;">{{item.direccion}}</p> 
-									{% endifequal %}
-			  					</div>
-	    				{% endfor %}
+	    			{% for item in dicCines %}
+			  			<div class="col-md-3">
+			  				{% ifequal item.empresa "mark" %}
+			  					<a href="/cartelera/cine/{{item.id}}">
+					  			<p style="font-size: smaller;"><strong>{{item.nombre}}</strong></p></a>
+								<p style="font-size: x-small;">{{item.direccion}}</p>
+							{% endifequal %}
+			  			</div>
+	    			{% endfor %}
 			 	 </div>
 			</div>
 		</div>
@@ -106,14 +106,15 @@
 			<h2>Cine Planet</h2>
    			 <div class="jumbotron" style="background-color: rgb(218, 215, 215);">
 	    		<div class="row">
-	    				 {% for item in dicCines %}
-			  					<div class="col-md-3">
-			  						 {% ifequal item.empresa "planet" %}
-					  					<p style="font-size: smaller;"><strong>{{item.nombre}}</strong></p>
-									 	<p style="font-size: x-small;">{{item.direccion}}</p> 
-									{% endifequal %}
-			  					</div>
-	    				{% endfor %}
+					 {% for item in dicCines %}
+	  					<div class="col-md-3">
+	  						 {% ifequal item.empresa "planet" %}
+	  						 	<a href="/cartelera/cine/{{item.id}}">
+			  					<p style="font-size: smaller;"><strong>{{item.nombre}}</strong></p></a>
+							 	<p style="font-size: x-small;">{{item.direccion}}</p>
+							{% endifequal %}
+	  					</div>
+					{% endfor %}
 			 	 </div>
 			</div>
 		</div>

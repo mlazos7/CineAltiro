@@ -20,7 +20,7 @@
     <!-- Custom CSS -->
     <link href="/static/css/custom.css" rel="stylesheet">
 
-     <!--  FontAwesome -->
+     <!-- FontAwesome -->
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     
@@ -32,6 +32,7 @@
 
   <body>
     
+    <!-- NAVBAR -->
       <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container">
             <div class="navbar-header">
@@ -59,26 +60,28 @@
     
 
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    
+    <!-- ENCABEZADO -->
+      <div class="container">
       <div class="jumbotron ">
-          <div class="container">
+          
                 <h1 style="color: rgb(222, 240, 227);">
                 Cine Altiro</h1>
                 <p style = "color: white;"> Cine altiro es una plataforma virtual gratuita de información y opiniones de las distintas peliculas que se encuentran en cartelera en los cines chilenos.</p>
 
-                <a class="btn btn-primary btn-lg" href="/cines" role="button">Cines &raquo;</a>
-                <a class="btn btn-primary btn-lg" href="/peliculas" role="button">Peliculas &raquo;</a>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
+                <a class="btn btn-default btn-lg" href="/cines" role="button"><i class="fa fa-film"></i> Cines </a>
+                <a class="btn btn-default btn-lg" href="/peliculas" role="button">
+                  <i class="fa fa-play"></i> Peliculas</a>
+                
           </div>  <!-- END CONTAINER -->
       </div> <!-- END JUMBOTROM-->
 
 
 
 
-    
-              
+     <!--  PELICULAS -->
       <div class="container ">
+      <div class="jumbotron " style= "background-color: rgba(191, 170, 171, 0.05);">        
+      
                 <div class="row">
                 	{% for Pelicula in pelis reversed %}
                 	{% if forloop.counter0 < 8 %}
@@ -91,11 +94,12 @@
                   {% endfor %}	
                 </div>
                 <hr>
-      </div> <!-- END CONTAINER -->
+      </div> 
+    </dib>
+  
 
-     
 
-   
+      <!-- PIE DE PAGINA  -->
 
       <div class ="container">
         <footer>
@@ -103,7 +107,7 @@
                   <p> © 2015 CineAltiro. Terminos & Condiciones.</p>
             </div>
             <div class ="navbar-text pull-right">
-                  <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>
+                  <a href="#"><i class="fa fa-facebook fa-3x"></i></a>
                   <a href="#"><i class="fa fa-twitter fa-3x"></i></a>
                   <a href="#"><i class="fa fa-google-plus fa-3x"></i></a>
             </div>    

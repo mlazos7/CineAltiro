@@ -23,10 +23,6 @@ def cines(request):
 	return render_to_response("cines.html",{'dicCines':cin}) 
 	#Se usa la platilla indicada y le pasamos un diccionario
 
-def cinespel(request):
-	variable = Cine_Pelicula.objects.all()
-	return render_to_response("cinesPel.html",{'dcinespel':variable,})
-
 def registro(request):
 	formulario = RegistroForm(request.POST or None)
 	if formulario.is_valid():
@@ -39,6 +35,11 @@ def registro(request):
 def lista_peliculas(request):
 	pelis = Pelicula.objects.all()
 	return render_to_response("lista_peliculas.html",{'pelis':pelis})
+
+def cartelera_cine(request,idCine):
+	pelis = Pelicula.objects.all()
+	cine = get_object_or_404(Cine,pk=idCine)
+	return render_to_response("cartelera_cine.html",{'cine':cine,'pelis':pelis})
 
 
 
