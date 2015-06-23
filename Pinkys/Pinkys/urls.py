@@ -22,16 +22,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^base/$','CineAltiro.views.base'),
     url(r'^home/$','CineAltiro.views.home'),
-    url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^pelicula/(?P<idPel>\d+)$','CineAltiro.views.peliculas'),
     url(r'^cines/$','CineAltiro.views.cines'),
     url(r'^peliculas/$','CineAltiro.views.lista_peliculas'),
     url(r'^cartelera/cine/(?P<idCine>\d+)$','CineAltiro.views.cartelera_cine'),
+    url(r'^accounts/', include('registration.urls')),
 
-
-    
 ]
 
 

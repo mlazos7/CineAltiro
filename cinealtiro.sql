@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2015 a las 00:15:42
--- Versión del servidor: 5.6.24
--- Versión de PHP: 5.6.8
+-- Host: 127.0.0.1
+-- Generation Time: Jun 23, 2015 at 07:20 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,28 +17,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `cinealtiro`
+-- Database: `cinealtiro`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `auth_group`
+-- Table structure for table `auth_group`
 --
 
 CREATE TABLE IF NOT EXISTS `auth_group` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `name` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `auth_group_permissions`
+-- Table structure for table `auth_group_permissions`
 --
 
 CREATE TABLE IF NOT EXISTS `auth_group_permissions` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -46,18 +46,18 @@ CREATE TABLE IF NOT EXISTS `auth_group_permissions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `auth_permission`
+-- Table structure for table `auth_permission`
 --
 
 CREATE TABLE IF NOT EXISTS `auth_permission` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `content_type_id` int(11) NOT NULL,
   `codename` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `auth_permission`
+-- Dumping data for table `auth_permission`
 --
 
 INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALUES
@@ -113,11 +113,11 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `auth_user`
+-- Table structure for table `auth_user`
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `password` varchar(128) NOT NULL,
   `last_login` datetime DEFAULT NULL,
   `is_superuser` tinyint(1) NOT NULL,
@@ -128,24 +128,26 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `auth_user`
+-- Dumping data for table `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
 (1, 'pbkdf2_sha256$20000$61XAD0upWpHY$crPmnyfcK0IelDOOn7IhwKwb+C1/GaLAaM+G8IJVtTk=', '2015-06-22 01:04:15', 1, 'matias', '', '', 'matias.lazos@gmail.com', 1, 1, '2015-06-17 17:13:54'),
-(3, 'pbkdf2_sha256$20000$v3y9pN4FJJem$VuQA5HVbtXGBHKnYFYtiuy+Yntx1lvi61iGq1SUW64s=', NULL, 0, 'caca', 'cacaca', 'cacacaca', 'caca@gmail.com', 0, 1, '2015-06-20 17:40:07');
+(3, 'pbkdf2_sha256$20000$v3y9pN4FJJem$VuQA5HVbtXGBHKnYFYtiuy+Yntx1lvi61iGq1SUW64s=', NULL, 0, 'caca', 'cacaca', 'cacacaca', 'caca@gmail.com', 0, 1, '2015-06-20 17:40:07'),
+(4, 'pbkdf2_sha256$20000$Gmc7HgKgKPar$4FJ5J59ECYETY01I3di5A1QhWJMHD5gLwzG6RXBM3Fo=', '2015-06-23 00:46:18', 0, 'pablomon', '', '', 'p@p.com', 0, 1, '2015-06-22 22:10:25'),
+(5, 'pbkdf2_sha256$20000$Yo9z7bNt1U4I$xU1345KklgGxuBV8U5yCSWIz9zyLYw12Yaox5tfFAHg=', '2015-06-22 22:32:15', 0, 'p', '', '', 'p@p.com', 0, 1, '2015-06-22 22:32:00');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `auth_user_groups`
+-- Table structure for table `auth_user_groups`
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user_groups` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -153,11 +155,11 @@ CREATE TABLE IF NOT EXISTS `auth_user_groups` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `auth_user_user_permissions`
+-- Table structure for table `auth_user_user_permissions`
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -165,16 +167,16 @@ CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cinealtiro_categoria`
+-- Table structure for table `cinealtiro_categoria`
 --
 
 CREATE TABLE IF NOT EXISTS `cinealtiro_categoria` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `nombre` varchar(200) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `cinealtiro_categoria`
+-- Dumping data for table `cinealtiro_categoria`
 --
 
 INSERT INTO `cinealtiro_categoria` (`id`, `nombre`) VALUES
@@ -189,22 +191,22 @@ INSERT INTO `cinealtiro_categoria` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cinealtiro_categoria_usuario`
+-- Table structure for table `cinealtiro_categoria_usuario`
 --
 
 CREATE TABLE IF NOT EXISTS `cinealtiro_categoria_usuario` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `id_categoria_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cinealtiro_cine`
+-- Table structure for table `cinealtiro_cine`
 --
 
 CREATE TABLE IF NOT EXISTS `cinealtiro_cine` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `link` varchar(100) NOT NULL,
@@ -214,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `cinealtiro_cine` (
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `cinealtiro_cine`
+-- Dumping data for table `cinealtiro_cine`
 --
 
 INSERT INTO `cinealtiro_cine` (`id`, `nombre`, `direccion`, `link`, `precio`, `imagen`, `empresa`) VALUES
@@ -270,11 +272,11 @@ INSERT INTO `cinealtiro_cine` (`id`, `nombre`, `direccion`, `link`, `precio`, `i
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cinealtiro_comentario`
+-- Table structure for table `cinealtiro_comentario`
 --
 
 CREATE TABLE IF NOT EXISTS `cinealtiro_comentario` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `contenido` longtext NOT NULL,
   `fecha_comentario` datetime NOT NULL,
   `id_pelicula_id` int(11) NOT NULL
@@ -283,11 +285,11 @@ CREATE TABLE IF NOT EXISTS `cinealtiro_comentario` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cinealtiro_comentario_pelicula`
+-- Table structure for table `cinealtiro_comentario_pelicula`
 --
 
 CREATE TABLE IF NOT EXISTS `cinealtiro_comentario_pelicula` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `id_comentario_id` int(11) NOT NULL,
   `id_pelicula_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -295,16 +297,16 @@ CREATE TABLE IF NOT EXISTS `cinealtiro_comentario_pelicula` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cinealtiro_horario`
+-- Table structure for table `cinealtiro_horario`
 --
 
 CREATE TABLE IF NOT EXISTS `cinealtiro_horario` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `horario` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=184 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `cinealtiro_horario`
+-- Dumping data for table `cinealtiro_horario`
 --
 
 INSERT INTO `cinealtiro_horario` (`id`, `horario`) VALUES
@@ -312,16 +314,191 @@ INSERT INTO `cinealtiro_horario` (`id`, `horario`) VALUES
 (4, '10:05'),
 (5, '10:10'),
 (6, '10:15'),
-(8, '10:20');
+(8, '10:20'),
+(9, '10:25'),
+(10, '10:30'),
+(11, '10:35'),
+(12, '10:40'),
+(13, '10:45'),
+(14, '10:50'),
+(15, '10:55'),
+(16, '11:00'),
+(17, '11:05'),
+(18, '11:11'),
+(19, '11:15'),
+(20, '11:20'),
+(21, '11:25'),
+(22, '11:30'),
+(23, '11:35'),
+(24, '11:40'),
+(25, '11:45'),
+(26, '11:50'),
+(27, '11:55'),
+(28, '12:00'),
+(29, '12:05'),
+(30, '12:12'),
+(31, '12:15'),
+(32, '12:20'),
+(33, '12:25'),
+(34, '12:30'),
+(35, '12:35'),
+(36, '12:40'),
+(37, '12:45'),
+(38, '12:50'),
+(39, '12:55'),
+(40, '13:00'),
+(41, '13:05'),
+(42, '13:13'),
+(43, '13:15'),
+(44, '13:20'),
+(45, '13:25'),
+(46, '13:30'),
+(47, '13:35'),
+(48, '13:40'),
+(49, '13:45'),
+(50, '13:50'),
+(51, '13:55'),
+(52, '14:00'),
+(53, '14:05'),
+(54, '14:14'),
+(55, '14:15'),
+(56, '14:20'),
+(57, '14:25'),
+(58, '14:30'),
+(59, '14:35'),
+(60, '14:40'),
+(61, '14:45'),
+(62, '14:50'),
+(63, '14:55'),
+(64, '15:00'),
+(65, '15:05'),
+(66, '15:15'),
+(67, '15:15'),
+(68, '15:20'),
+(69, '15:25'),
+(70, '15:30'),
+(71, '15:35'),
+(72, '15:40'),
+(73, '15:45'),
+(74, '15:50'),
+(75, '15:55'),
+(76, '16:00'),
+(77, '16:05'),
+(78, '16:16'),
+(79, '16:15'),
+(80, '16:20'),
+(81, '16:25'),
+(82, '16:30'),
+(83, '16:35'),
+(84, '16:40'),
+(85, '16:45'),
+(86, '16:50'),
+(87, '16:55'),
+(88, '17:00'),
+(89, '17:05'),
+(90, '17:17'),
+(91, '17:15'),
+(92, '17:20'),
+(93, '17:25'),
+(94, '17:30'),
+(95, '17:35'),
+(96, '17:40'),
+(97, '17:45'),
+(98, '17:50'),
+(99, '17:55'),
+(100, '18:00'),
+(101, '18:05'),
+(102, '18:18'),
+(103, '18:15'),
+(104, '18:20'),
+(105, '18:25'),
+(106, '18:30'),
+(107, '18:35'),
+(108, '18:40'),
+(109, '18:45'),
+(110, '18:50'),
+(111, '18:55'),
+(112, '19:00'),
+(113, '19:05'),
+(114, '19:19'),
+(115, '19:15'),
+(116, '19:20'),
+(117, '19:25'),
+(118, '19:30'),
+(119, '19:35'),
+(120, '19:40'),
+(121, '19:45'),
+(122, '19:50'),
+(123, '19:55'),
+(124, '20:00'),
+(125, '20:05'),
+(126, '20:20'),
+(127, '20:15'),
+(128, '20:20'),
+(129, '20:25'),
+(130, '20:30'),
+(131, '20:35'),
+(132, '20:40'),
+(133, '20:45'),
+(134, '20:50'),
+(135, '20:55'),
+(136, '21:00'),
+(137, '21:05'),
+(138, '21:21'),
+(139, '21:15'),
+(140, '21:20'),
+(141, '21:25'),
+(142, '21:30'),
+(143, '21:35'),
+(144, '21:40'),
+(145, '21:45'),
+(146, '21:50'),
+(147, '21:55'),
+(148, '22:00'),
+(149, '22:05'),
+(150, '22:22'),
+(151, '22:15'),
+(152, '22:20'),
+(153, '22:25'),
+(154, '22:30'),
+(155, '22:35'),
+(156, '22:40'),
+(157, '22:45'),
+(158, '22:50'),
+(159, '22:55'),
+(160, '23:00'),
+(161, '23:05'),
+(162, '23:23'),
+(163, '23:15'),
+(164, '23:20'),
+(165, '23:25'),
+(166, '23:30'),
+(167, '23:35'),
+(168, '23:40'),
+(169, '23:45'),
+(170, '23:50'),
+(171, '23:55'),
+(172, '24:00'),
+(173, '24:05'),
+(174, '24:24'),
+(175, '24:15'),
+(176, '24:20'),
+(177, '24:25'),
+(178, '24:30'),
+(179, '24:35'),
+(180, '24:40'),
+(181, '24:45'),
+(182, '24:50'),
+(183, '24:55');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cinealtiro_pelicula`
+-- Table structure for table `cinealtiro_pelicula`
 --
 
 CREATE TABLE IF NOT EXISTS `cinealtiro_pelicula` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `titulo` varchar(200) NOT NULL,
   `calificacion` int(11) NOT NULL,
   `cantidad_comentarios` int(11) NOT NULL,
@@ -334,7 +511,7 @@ CREATE TABLE IF NOT EXISTS `cinealtiro_pelicula` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `cinealtiro_pelicula`
+-- Dumping data for table `cinealtiro_pelicula`
 --
 
 INSERT INTO `cinealtiro_pelicula` (`id`, `titulo`, `calificacion`, `cantidad_comentarios`, `sinopsis`, `detalles`, `fecha_publicacion`, `imagen`, `categoria_id`, `subtitulo`) VALUES
@@ -355,17 +532,17 @@ INSERT INTO `cinealtiro_pelicula` (`id`, `titulo`, `calificacion`, `cantidad_com
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cinealtiro_pelicula_cines`
+-- Table structure for table `cinealtiro_pelicula_cines`
 --
 
 CREATE TABLE IF NOT EXISTS `cinealtiro_pelicula_cines` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `pelicula_id` int(11) NOT NULL,
   `cine_id` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `cinealtiro_pelicula_cines`
+-- Dumping data for table `cinealtiro_pelicula_cines`
 --
 
 INSERT INTO `cinealtiro_pelicula_cines` (`id`, `pelicula_id`, `cine_id`) VALUES
@@ -489,12 +666,11 @@ INSERT INTO `cinealtiro_pelicula_cines` (`id`, `pelicula_id`, `cine_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cinealtiro_showtime`
+-- Table structure for table `cinealtiro_showtime`
 --
 
 CREATE TABLE IF NOT EXISTS `cinealtiro_showtime` (
-  `id` int(11) NOT NULL,
-  `hola` varchar(2000) NOT NULL,
+`id` int(11) NOT NULL,
   `tipo` varchar(2000) NOT NULL,
   `date` date NOT NULL,
   `cines_id` int(11) NOT NULL,
@@ -502,26 +678,26 @@ CREATE TABLE IF NOT EXISTS `cinealtiro_showtime` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `cinealtiro_showtime`
+-- Dumping data for table `cinealtiro_showtime`
 --
 
-INSERT INTO `cinealtiro_showtime` (`id`, `hola`, `tipo`, `date`, `cines_id`, `peliculas_id`) VALUES
-(1, 'caca', 'Normal', '2015-07-22', 1, 1);
+INSERT INTO `cinealtiro_showtime` (`id`, `tipo`, `date`, `cines_id`, `peliculas_id`) VALUES
+(1, 'Normal', '2015-07-22', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cinealtiro_showtime_horarios`
+-- Table structure for table `cinealtiro_showtime_horarios`
 --
 
 CREATE TABLE IF NOT EXISTS `cinealtiro_showtime_horarios` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `showtime_id` int(11) NOT NULL,
   `horario_id` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `cinealtiro_showtime_horarios`
+-- Dumping data for table `cinealtiro_showtime_horarios`
 --
 
 INSERT INTO `cinealtiro_showtime_horarios` (`id`, `showtime_id`, `horario_id`) VALUES
@@ -531,11 +707,11 @@ INSERT INTO `cinealtiro_showtime_horarios` (`id`, `showtime_id`, `horario_id`) V
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `django_admin_log`
+-- Table structure for table `django_admin_log`
 --
 
 CREATE TABLE IF NOT EXISTS `django_admin_log` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `action_time` datetime NOT NULL,
   `object_id` longtext,
   `object_repr` varchar(200) NOT NULL,
@@ -546,7 +722,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
 ) ENGINE=InnoDB AUTO_INCREMENT=183 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `django_admin_log`
+-- Dumping data for table `django_admin_log`
 --
 
 INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
@@ -726,17 +902,17 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `django_content_type`
+-- Table structure for table `django_content_type`
 --
 
 CREATE TABLE IF NOT EXISTS `django_content_type` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `app_label` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `django_content_type`
+-- Dumping data for table `django_content_type`
 --
 
 INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
@@ -760,18 +936,18 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `django_migrations`
+-- Table structure for table `django_migrations`
 --
 
 CREATE TABLE IF NOT EXISTS `django_migrations` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `applied` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `django_migrations`
+-- Dumping data for table `django_migrations`
 --
 
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
@@ -802,12 +978,13 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (25, 'CineAltiro', '0011_funciones', '2015-06-22 17:08:12'),
 (26, 'CineAltiro', '0011_auto_20150622_1813', '2015-06-22 18:14:05'),
 (27, 'CineAltiro', '0011_horario_showtime', '2015-06-22 18:41:07'),
-(28, 'CineAltiro', '0012_auto_20150622_1848', '2015-06-22 18:48:22');
+(28, 'CineAltiro', '0012_auto_20150622_1848', '2015-06-22 18:48:22'),
+(29, 'CineAltiro', '0013_remove_showtime_hola', '2015-06-22 21:45:53');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `django_session`
+-- Table structure for table `django_session`
 --
 
 CREATE TABLE IF NOT EXISTS `django_session` (
@@ -817,27 +994,29 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `django_session`
+-- Dumping data for table `django_session`
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('1e6xf6nlobxcjdq1cv6fl65jllf5sqgd', 'NGFiNjUzZDU3NWY2ZDViZTI5ZWNhZGIyOWQxNzA5MTljZWVmYWNmNTp7Il9zZXNzaW9uX2V4cGlyeSI6MzAwLCJfYXV0aF91c2VyX2hhc2giOiJlM2RhMmNmMzQ2MGRlZDkxNTU0NmNlNGY2MDBkZmZjNmJjNzdmN2MwIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoiNCJ9', '2015-06-23 00:51:18'),
+('9rglww7d98lt2rvr7ze1og2h63ydw1dm', 'NGFiNjUzZDU3NWY2ZDViZTI5ZWNhZGIyOWQxNzA5MTljZWVmYWNmNTp7Il9zZXNzaW9uX2V4cGlyeSI6MzAwLCJfYXV0aF91c2VyX2hhc2giOiJlM2RhMmNmMzQ2MGRlZDkxNTU0NmNlNGY2MDBkZmZjNmJjNzdmN2MwIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoiNCJ9', '2015-06-23 00:45:25'),
 ('dv39pvxp1zz32mkm12fw0dfakcga1ke1', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-01 17:14:10'),
 ('to9duuqprw0zhl134h7cgx8htnk2ogah', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-06 01:04:15');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `django_site`
+-- Table structure for table `django_site`
 --
 
 CREATE TABLE IF NOT EXISTS `django_site` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `domain` varchar(100) NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `django_site`
+-- Dumping data for table `django_site`
 --
 
 INSERT INTO `django_site` (`id`, `domain`, `name`) VALUES
@@ -846,340 +1025,340 @@ INSERT INTO `django_site` (`id`, `domain`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `registration_registrationprofile`
+-- Table structure for table `registration_registrationprofile`
 --
 
 CREATE TABLE IF NOT EXISTS `registration_registrationprofile` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `activation_key` varchar(40) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `auth_group`
+-- Indexes for table `auth_group`
 --
 ALTER TABLE `auth_group`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indices de la tabla `auth_group_permissions`
+-- Indexes for table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `group_id` (`group_id`,`permission_id`), ADD KEY `auth_group_permissi_permission_id_23962d04_fk_auth_permission_id` (`permission_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `group_id` (`group_id`,`permission_id`), ADD KEY `auth_group_permissi_permission_id_23962d04_fk_auth_permission_id` (`permission_id`);
 
 --
--- Indices de la tabla `auth_permission`
+-- Indexes for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `content_type_id` (`content_type_id`,`codename`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `content_type_id` (`content_type_id`,`codename`);
 
 --
--- Indices de la tabla `auth_user`
+-- Indexes for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indices de la tabla `auth_user_groups`
+-- Indexes for table `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`,`group_id`), ADD KEY `auth_user_groups_group_id_30a071c9_fk_auth_group_id` (`group_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`,`group_id`), ADD KEY `auth_user_groups_group_id_30a071c9_fk_auth_group_id` (`group_id`);
 
 --
--- Indices de la tabla `auth_user_user_permissions`
+-- Indexes for table `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`,`permission_id`), ADD KEY `auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id` (`permission_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`,`permission_id`), ADD KEY `auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id` (`permission_id`);
 
 --
--- Indices de la tabla `cinealtiro_categoria`
+-- Indexes for table `cinealtiro_categoria`
 --
 ALTER TABLE `cinealtiro_categoria`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `cinealtiro_categoria_usuario`
+-- Indexes for table `cinealtiro_categoria_usuario`
 --
 ALTER TABLE `cinealtiro_categoria_usuario`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_c_id_categoria_id_7d36b634_fk_CineAltiro_categoria_id` (`id_categoria_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_c_id_categoria_id_7d36b634_fk_CineAltiro_categoria_id` (`id_categoria_id`);
 
 --
--- Indices de la tabla `cinealtiro_cine`
+-- Indexes for table `cinealtiro_cine`
 --
 ALTER TABLE `cinealtiro_cine`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `cinealtiro_comentario`
+-- Indexes for table `cinealtiro_comentario`
 --
 ALTER TABLE `cinealtiro_comentario`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_comentario_49ef5164` (`id_pelicula_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_comentario_49ef5164` (`id_pelicula_id`);
 
 --
--- Indices de la tabla `cinealtiro_comentario_pelicula`
+-- Indexes for table `cinealtiro_comentario_pelicula`
 --
 ALTER TABLE `cinealtiro_comentario_pelicula`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_id_comentario_id_7d7b60b6_fk_CineAltiro_comentario_id` (`id_comentario_id`), ADD KEY `CineAltiro_comentario_pelicula_49ef5164` (`id_pelicula_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_id_comentario_id_7d7b60b6_fk_CineAltiro_comentario_id` (`id_comentario_id`), ADD KEY `CineAltiro_comentario_pelicula_49ef5164` (`id_pelicula_id`);
 
 --
--- Indices de la tabla `cinealtiro_horario`
+-- Indexes for table `cinealtiro_horario`
 --
 ALTER TABLE `cinealtiro_horario`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `cinealtiro_pelicula`
+-- Indexes for table `cinealtiro_pelicula`
 --
 ALTER TABLE `cinealtiro_pelicula`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_pelicula_daf3833b` (`categoria_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_pelicula_daf3833b` (`categoria_id`);
 
 --
--- Indices de la tabla `cinealtiro_pelicula_cines`
+-- Indexes for table `cinealtiro_pelicula_cines`
 --
 ALTER TABLE `cinealtiro_pelicula_cines`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `pelicula_id` (`pelicula_id`,`cine_id`), ADD KEY `CineAltiro_pelicula_cines_cine_id_1f02bdf3_fk_CineAltiro_cine_id` (`cine_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `pelicula_id` (`pelicula_id`,`cine_id`), ADD KEY `CineAltiro_pelicula_cines_cine_id_1f02bdf3_fk_CineAltiro_cine_id` (`cine_id`);
 
 --
--- Indices de la tabla `cinealtiro_showtime`
+-- Indexes for table `cinealtiro_showtime`
 --
 ALTER TABLE `cinealtiro_showtime`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_showtime_cines_id_1bf92fad_fk_CineAltiro_cine_id` (`cines_id`), ADD KEY `CineAltiro_showt_peliculas_id_159ec23d_fk_CineAltiro_pelicula_id` (`peliculas_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_showtime_cines_id_1bf92fad_fk_CineAltiro_cine_id` (`cines_id`), ADD KEY `CineAltiro_showt_peliculas_id_159ec23d_fk_CineAltiro_pelicula_id` (`peliculas_id`);
 
 --
--- Indices de la tabla `cinealtiro_showtime_horarios`
+-- Indexes for table `cinealtiro_showtime_horarios`
 --
 ALTER TABLE `cinealtiro_showtime_horarios`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `showtime_id` (`showtime_id`,`horario_id`), ADD KEY `CineAltiro_showtime_horario_id_10f8c6e4_fk_CineAltiro_horario_id` (`horario_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `showtime_id` (`showtime_id`,`horario_id`), ADD KEY `CineAltiro_showtime_horario_id_10f8c6e4_fk_CineAltiro_horario_id` (`horario_id`);
 
 --
--- Indices de la tabla `django_admin_log`
+-- Indexes for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  ADD PRIMARY KEY (`id`), ADD KEY `django_admin__content_type_id_5151027a_fk_django_content_type_id` (`content_type_id`), ADD KEY `django_admin_log_user_id_1c5f563_fk_auth_user_id` (`user_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `django_admin__content_type_id_5151027a_fk_django_content_type_id` (`content_type_id`), ADD KEY `django_admin_log_user_id_1c5f563_fk_auth_user_id` (`user_id`);
 
 --
--- Indices de la tabla `django_content_type`
+-- Indexes for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `django_content_type_app_label_3ec8c61c_uniq` (`app_label`,`model`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `django_content_type_app_label_3ec8c61c_uniq` (`app_label`,`model`);
 
 --
--- Indices de la tabla `django_migrations`
+-- Indexes for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `django_session`
+-- Indexes for table `django_session`
 --
 ALTER TABLE `django_session`
-  ADD PRIMARY KEY (`session_key`), ADD KEY `django_session_de54fa62` (`expire_date`);
+ ADD PRIMARY KEY (`session_key`), ADD KEY `django_session_de54fa62` (`expire_date`);
 
 --
--- Indices de la tabla `django_site`
+-- Indexes for table `django_site`
 --
 ALTER TABLE `django_site`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `registration_registrationprofile`
+-- Indexes for table `registration_registrationprofile`
 --
 ALTER TABLE `registration_registrationprofile`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `auth_group`
+-- AUTO_INCREMENT for table `auth_group`
 --
 ALTER TABLE `auth_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `auth_group_permissions`
+-- AUTO_INCREMENT for table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `auth_permission`
+-- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
 --
--- AUTO_INCREMENT de la tabla `auth_user`
+-- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT de la tabla `auth_user_groups`
+-- AUTO_INCREMENT for table `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `auth_user_user_permissions`
+-- AUTO_INCREMENT for table `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `cinealtiro_categoria`
+-- AUTO_INCREMENT for table `cinealtiro_categoria`
 --
 ALTER TABLE `cinealtiro_categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT de la tabla `cinealtiro_categoria_usuario`
+-- AUTO_INCREMENT for table `cinealtiro_categoria_usuario`
 --
 ALTER TABLE `cinealtiro_categoria_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `cinealtiro_cine`
+-- AUTO_INCREMENT for table `cinealtiro_cine`
 --
 ALTER TABLE `cinealtiro_cine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
 --
--- AUTO_INCREMENT de la tabla `cinealtiro_comentario`
+-- AUTO_INCREMENT for table `cinealtiro_comentario`
 --
 ALTER TABLE `cinealtiro_comentario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `cinealtiro_comentario_pelicula`
+-- AUTO_INCREMENT for table `cinealtiro_comentario_pelicula`
 --
 ALTER TABLE `cinealtiro_comentario_pelicula`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `cinealtiro_horario`
+-- AUTO_INCREMENT for table `cinealtiro_horario`
 --
 ALTER TABLE `cinealtiro_horario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=184;
 --
--- AUTO_INCREMENT de la tabla `cinealtiro_pelicula`
+-- AUTO_INCREMENT for table `cinealtiro_pelicula`
 --
 ALTER TABLE `cinealtiro_pelicula`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT de la tabla `cinealtiro_pelicula_cines`
+-- AUTO_INCREMENT for table `cinealtiro_pelicula_cines`
 --
 ALTER TABLE `cinealtiro_pelicula_cines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=120;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=120;
 --
--- AUTO_INCREMENT de la tabla `cinealtiro_showtime`
+-- AUTO_INCREMENT for table `cinealtiro_showtime`
 --
 ALTER TABLE `cinealtiro_showtime`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `cinealtiro_showtime_horarios`
+-- AUTO_INCREMENT for table `cinealtiro_showtime_horarios`
 --
 ALTER TABLE `cinealtiro_showtime_horarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `django_admin_log`
+-- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=183;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=183;
 --
--- AUTO_INCREMENT de la tabla `django_content_type`
+-- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
--- AUTO_INCREMENT de la tabla `django_migrations`
+-- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
--- AUTO_INCREMENT de la tabla `django_site`
+-- AUTO_INCREMENT for table `django_site`
 --
 ALTER TABLE `django_site`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `registration_registrationprofile`
+-- AUTO_INCREMENT for table `registration_registrationprofile`
 --
 ALTER TABLE `registration_registrationprofile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `auth_group_permissions`
+-- Constraints for table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
 ADD CONSTRAINT `auth_group_permissi_permission_id_23962d04_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
 ADD CONSTRAINT `auth_group_permissions_group_id_58c48ba9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
 
 --
--- Filtros para la tabla `auth_permission`
+-- Constraints for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
 ADD CONSTRAINT `auth_permissi_content_type_id_51277a81_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
 
 --
--- Filtros para la tabla `auth_user_groups`
+-- Constraints for table `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
 ADD CONSTRAINT `auth_user_groups_group_id_30a071c9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
 ADD CONSTRAINT `auth_user_groups_user_id_24702650_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
--- Filtros para la tabla `auth_user_user_permissions`
+-- Constraints for table `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
 ADD CONSTRAINT `auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
 ADD CONSTRAINT `auth_user_user_permissions_user_id_7cd7acb6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
--- Filtros para la tabla `cinealtiro_categoria_usuario`
+-- Constraints for table `cinealtiro_categoria_usuario`
 --
 ALTER TABLE `cinealtiro_categoria_usuario`
 ADD CONSTRAINT `CineAltiro_c_id_categoria_id_7d36b634_fk_CineAltiro_categoria_id` FOREIGN KEY (`id_categoria_id`) REFERENCES `cinealtiro_categoria` (`id`);
 
 --
--- Filtros para la tabla `cinealtiro_comentario`
+-- Constraints for table `cinealtiro_comentario`
 --
 ALTER TABLE `cinealtiro_comentario`
 ADD CONSTRAINT `CineAltiro_com_id_pelicula_id_1fb4e38d_fk_CineAltiro_pelicula_id` FOREIGN KEY (`id_pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`);
 
 --
--- Filtros para la tabla `cinealtiro_comentario_pelicula`
+-- Constraints for table `cinealtiro_comentario_pelicula`
 --
 ALTER TABLE `cinealtiro_comentario_pelicula`
 ADD CONSTRAINT `CineAltiro_com_id_pelicula_id_4948ebd6_fk_CineAltiro_pelicula_id` FOREIGN KEY (`id_pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`),
 ADD CONSTRAINT `CineAltiro_id_comentario_id_7d7b60b6_fk_CineAltiro_comentario_id` FOREIGN KEY (`id_comentario_id`) REFERENCES `cinealtiro_comentario` (`id`);
 
 --
--- Filtros para la tabla `cinealtiro_pelicula_cines`
+-- Constraints for table `cinealtiro_pelicula_cines`
 --
 ALTER TABLE `cinealtiro_pelicula_cines`
 ADD CONSTRAINT `CineAltiro_pelicu_pelicula_id_42d01fc1_fk_CineAltiro_pelicula_id` FOREIGN KEY (`pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`),
 ADD CONSTRAINT `CineAltiro_pelicula_cines_cine_id_1f02bdf3_fk_CineAltiro_cine_id` FOREIGN KEY (`cine_id`) REFERENCES `cinealtiro_cine` (`id`);
 
 --
--- Filtros para la tabla `cinealtiro_showtime`
+-- Constraints for table `cinealtiro_showtime`
 --
 ALTER TABLE `cinealtiro_showtime`
 ADD CONSTRAINT `CineAltiro_showt_peliculas_id_159ec23d_fk_CineAltiro_pelicula_id` FOREIGN KEY (`peliculas_id`) REFERENCES `cinealtiro_pelicula` (`id`),
 ADD CONSTRAINT `CineAltiro_showtime_cines_id_1bf92fad_fk_CineAltiro_cine_id` FOREIGN KEY (`cines_id`) REFERENCES `cinealtiro_cine` (`id`);
 
 --
--- Filtros para la tabla `cinealtiro_showtime_horarios`
+-- Constraints for table `cinealtiro_showtime_horarios`
 --
 ALTER TABLE `cinealtiro_showtime_horarios`
 ADD CONSTRAINT `CineAltiro_showtim_showtime_id_f3a4f2d_fk_CineAltiro_showtime_id` FOREIGN KEY (`showtime_id`) REFERENCES `cinealtiro_showtime` (`id`),
 ADD CONSTRAINT `CineAltiro_showtime_horario_id_10f8c6e4_fk_CineAltiro_horario_id` FOREIGN KEY (`horario_id`) REFERENCES `cinealtiro_horario` (`id`);
 
 --
--- Filtros para la tabla `django_admin_log`
+-- Constraints for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
 ADD CONSTRAINT `django_admin__content_type_id_5151027a_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
 ADD CONSTRAINT `django_admin_log_user_id_1c5f563_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
--- Filtros para la tabla `registration_registrationprofile`
+-- Constraints for table `registration_registrationprofile`
 --
 ALTER TABLE `registration_registrationprofile`
 ADD CONSTRAINT `registration_registrationprofil_user_id_3f7685bb_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);

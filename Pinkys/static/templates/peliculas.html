@@ -33,30 +33,33 @@
   <body>
 
       <!-- NAVBAR -->
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/home">Cine Altiro</a>
-              </div>
-              <div id="navbar" class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right">
-                  <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
-                  </div>
-                  <button type="submit" class="btn btn-success">Sign in</button>
-                </form>
-              </div><!--/.navbar-collapse -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/home/">Cine Altiro</a>     
+      
+                 </div>
+          {% if user.is_authenticated %}
+            <div class="navbar-nav navbar-right">
+                      <p style="text-align:center">Bienvenido {{user.username|capfirst}}   <a href="/accounts/logout" style="margin:auto; display:block">Salir</a></p>
             </div>
-      </nav>
+          {% else %}
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">      
+              <li><a href="/accounts/register">Inscríbete</a></li>
+              <li><a href="/accounts/login">Ingresar</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+          {% endif %}
+        </div>
+      </div>
 
 
 
@@ -66,64 +69,88 @@
             <h1> {{dpelis.titulo}} </h1>
           </div>
          
-
-          <div class = "col-sm-3">
-              <div class = "thumbnail">
-                <img src ="{{dpelis.imagen.url}}">
-                <div class ="caption text-center">
-                    <a href="#" class = "btn btn-primary" role="button"> Trailer</a>
+        <div class= "row">
+            <div class = "col-md-3">
+                <div class = "thumbnail">
+                  <img src ="{{dpelis.imagen.url}}">
                 </div>
-              </div>
-              
+                
+            </div> 
+
+          <div class = "col-md-1">
           </div>
+          <div class = "col-md-8" >
+                <iframe width="650" height="350" 
+                src="https://www.youtube.com/embed/4OlGpS2LG_M?list=PLEsfXFp6DpzRcd-q4vR5qAgOZUuz8041S" frameborder="0" allowfullscreen></iframe>
 
-          <div class = "col-sm-9">
-
-
-              <div class ="panel panel-default">
-                      <div class = "panel-heading">                    
-                          <h4 class = "panel-tittle"> Sinópsis</h4>
-                      </div>  
-                      <div class = "panel-body">
-                          <p> {{dpelis.sinopsis}} </p>
-                      </div>
-              </div>
-
-
-              <div class ="panel panel-default">
-                      <div class = "panel-heading">                    
-                          <h4 class = "panel-tittle"> Detalles</h4>
-                      </div> 
-
+          </div>
            
-                    <table class = "table table-bordered table-striped">
+        </div> <!--ENDROW --> 
 
-                        <tbody>
-                          <tr>
-                            <td>Categoria</td>
-                          </tr>
-                          <tr>
-                            <td>Año</td>
-                          </tr>
-                          <tr>
-                            <td>País</td>
-                          </tr>
-                          <tr>
-                            <td>Reparto</td>
-                          </tr>
-      
-                        </tbody>
-                    </table>
+
+        <div class = "row">
+          <div class = "col-md-3">
+
+            <div class ="panel panel-default">
+                            <div class = "panel-heading">                    
+                                <h4 class = "panel-tittle"> Detalles</h4>
+                            </div> 
+
+                 
+                          <table class = "table table-bordered table-striped">
+
+                              <tbody>
+                                <tr>
+                                  <td>Categoria</td>
+                                </tr>
+                                <tr>
+                                  <td>Año</td>
+                                </tr>
+                                <tr>
+                                  <td>País</td>
+                                </tr>
+                                <tr>
+                                  <td>Reparto</td>
+                                </tr>
+            
+                              </tbody>
+                          </table>
               </div>
-
-
           </div>
 
+          <div class = "col-md-1">
+          </div>
+          <div class = "col-md-8">
+
+
+                  <div class ="panel panel-default">
+                          <div class = "panel-heading">                    
+                              <h4 class = "panel-tittle"> Sinópsis</h4>
+                          </div>  
+                          <div class = "panel-body">
+                              <p> {{dpelis.sinopsis}} </p>
+                          </div>
+                  </div>
+          </div>
+
+
+        </div> <!-- END ROW -->
+
+
+        
+
+          
+
+          
+
+
+
+
+        
       </div> <!-- END CONTAINER -->
 
 
       <hr>
-
       
 
     <!-- Bootstrap core JavaScript
