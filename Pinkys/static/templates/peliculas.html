@@ -61,9 +61,6 @@
         </div>
       </div>
 
-
-
-
       <div class = "container">
           <div class = "page-header">
             <h1> {{dpelis.titulo}} </h1>
@@ -80,9 +77,8 @@
           <div class = "col-md-1">
           </div>
           <div class = "col-md-8" >
-                <iframe width="650" height="350" 
-                src="https://www.youtube.com/embed/4OlGpS2LG_M?list=PLEsfXFp6DpzRcd-q4vR5qAgOZUuz8041S" frameborder="0" allowfullscreen></iframe>
-
+           
+            <iframe width="600" height="346" src= "{{dpelis.trailer}}" frameborder="0" allowfullscreen></iframe>
           </div>
            
         </div> <!--ENDROW --> 
@@ -133,25 +129,231 @@
                   </div>
           </div>
 
-
+        
         </div> <!-- END ROW -->
 
+    </div> <!-- END CONTAINER -->
 
+  
+
+
+   <div class = "container">
+    <h3>¿Donde verla ?</h3>           
+    <hr>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         
-
-          
-
-          
-
-
-
-
         
-      </div> <!-- END CONTAINER -->
+        <div class="panel panel-success">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a href="#collpaseone" data-toggle="collapse" data-parent="accordion">
+                  <strong>Cine Planet</strong></a>
+                </h4>
+              </div>
+
+              <div id="collpaseone" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class = "row">
+                        <div class = "col-md-3">
+                           <p><strong><i>Cines</i></strong></p>
+                        </div>
+
+                        <div class ="col-md-2">
+                           <p><strong><i>Función</i></strong></p>
+                        </div>
+
+                        <div class ="col-md-2">
+                            <p><strong><i>Día</i></strong></p>
+                        </div>
+
+                        
+                        <div class ="col-md-5">
+                             <p><strong><i>Hora</i></strong></p>
+                        </div>
+                 
+                    </div>
 
 
-      <hr>
+                  {%for item in dshowtimes%}
+                    <div class = "row">
+                    {%ifequal item.peliculas.titulo dpelis.titulo%}
+                      {%ifequal item.cines.empresa "planet" %} 
+                        <div class = "col-md-3">
+                           <p>{{item.cines}}</p>
+                        </div>
+
+                        <div class ="col-md-2">
+                                <p>{{item.tipo}}</p>
+                        </div>
+
+                        <div class ="col-md-2">
+                                <p>{{item.date}}</p>
+                        </div>
+
+                        <div class ="col-md-5">
+                          {%for elemento in item.horarios.all%} 
+                              {{elemento.horario}}&nbsp;  
+                          {%endfor%}
+                        </div>
+                       
+                        
+                       {%endifequal%} 
+                    {%endifequal%}
+                  </div>
+                  {%endfor%}
+
+                </div>
+              </div>
+        </div>
+
+
+
+
+
+        <div class="panel panel-success">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a href="#collpasetwo" data-toggle="collapse" data-parent="accordion">
+                  <strong>Cine Mark</strong></a>
+                </h4>
+              </div>
+
+              <div id="collpasetwo" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class = "row">
+                        <div class = "col-md-3">
+                           <p><strong><i>Cines</i></strong></p>
+                        </div>
+
+                        <div class ="col-md-2">
+                           <p><strong><i>Función</i></strong></p>
+                        </div>
+
+                        <div class ="col-md-2">
+                            <p><strong><i>Día</i></strong></p>
+                        </div>
+
+                        
+                        <div class ="col-md-5">
+                             <p><strong><i>Hora</i></strong></p>
+                        </div>
+                 
+                    </div>
+
+
+                    {%for item in dshowtimes%}
+                    <div class = "row">
+                    {%ifequal item.peliculas.titulo dpelis.titulo%}
+                      {%ifequal item.cines.empresa "mark" %}
+                        <div class = "col-md-3">
+                           <p>{{item.cines}}</p>
+                        </div>
+
+                        <div class ="col-md-2">
+                                <p>{{item.tipo}}</p>
+                        </div>
+
+                        <div class ="col-md-2">
+                                <p>{{item.date}}</p>
+                        </div>
+
+                        <div class ="col-md-5">
+                          {%for elemento in item.horarios.all%} 
+                              {{elemento.horario}}&nbsp; 
+                          {%endfor%}
+                        </div>
+                       
+                        
+                      {%endifequal%}
+                    {%endifequal%}
+                  </div>
+                  {%endfor%}
+
+                </div>
+              </div>
+        </div>
+
+
+
+
+        <div class="panel panel-success">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a href="#collpasethree" data-toggle="collapse" data-parent="accordion">
+                  <strong>Cine Hoyts</strong></a>
+                </h4>
+              </div>
+
+              <div id="collpasethree" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class = "row">
+                        <div class = "col-md-3">
+                           <p><strong><i>Cines</i></strong></p>
+                        </div>
+
+                        <div class ="col-md-2">
+                           <p><strong><i>Función</i></strong></p>
+                        </div>
+
+                        <div class ="col-md-2">
+                            <p><strong><i>Día</i></strong></p>
+                        </div>
+
+                        
+                        <div class ="col-md-5">
+                             <p><strong><i>Hora</i></strong></p>
+                        </div>
+                 
+                    </div>
+
+
+                    {%for item in dshowtimes%}
+                    <div class = "row">
+                    {%ifequal item.peliculas.titulo dpelis.titulo%}
+                      {%ifequal item.cines.empresa "hoyts" %}
+                        <div class = "col-md-3">
+                           <p>{{item.cines}}</p>
+                        </div>
+
+                        <div class ="col-md-2">
+                                <p>{{item.tipo}}</p>
+                        </div>
+
+                        <div class ="col-md-2">
+                                <p>{{item.date}}</p>
+                        </div>
+
+                        <div class ="col-md-5">
+                          {%for elemento in item.horarios.all%} 
+                              {{elemento.horario}}&nbsp; 
+                          {%endfor%}
+                        </div>
+                       
+                        
+                      {%endifequal%}
+                    {%endifequal%}
+                  </div>
+                  {%endfor%}
+
+                </div>
+              </div>
+        </div>
+
+
+    </div> <!-- END PANEL GRUOP -->
+    </div> <!-- END CONTAINER -->
       
+    <footer>
+      <div class="container">
+        <hr>
+          <p> <small><a href="http://facebook.com/askorama">Like me</a> On facebook</small></p>
+          <p> <small><a href="http://twitter.com/wiredwiki">Ask whatever </a> On Twitter</small></p>
+          <p> <small><a href="http://youtube.com/wiredwiki">Subscribe me</a> On Youtube</small></p>
+        
+   
+      </div> 
+    </footer>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -160,5 +362,7 @@
     <script src="/static/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/jsie10-viewport-bug-workaround.js"></script>
+
+
   </body>
 </html>

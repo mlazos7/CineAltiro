@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 
 class Categoria(models.Model):
 
@@ -13,7 +13,7 @@ class Categoria(models.Model):
 
 class Categoria_Usuario(models.Model):
 
-	# id_usuario = models.ForeignKey(Usuario)
+	
 	id_categoria = models.ForeignKey(Categoria)
 
 class Cine(models.Model):
@@ -39,6 +39,7 @@ class Pelicula(models.Model):
     detalles 			= models.TextField(max_length = 10000, default = '')
     fecha_publicacion 	= models.DateField('publicacion de la pelicula') 
     imagen 				= models.ImageField(upload_to="imagenes/peliculas")
+    trailer				= models.CharField(max_length=200,default='')
     cines 				= models.ManyToManyField(Cine)
     calificacion 		= models.IntegerField(default= -1)
     cantidad_comentarios= models.IntegerField(default = -1)

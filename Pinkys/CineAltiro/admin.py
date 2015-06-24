@@ -18,7 +18,7 @@ class UsuarioAdmin(admin.ModelAdmin):
 
 
 class ShowTimeAdmin(admin.ModelAdmin):
-	fields = ['cines','peliculas','tipo','date']
+	fields = ['cines','peliculas','horarios','tipo','date']
 	list_display = ('cines','peliculas','tipo','date')
 
 admin.site.register(ShowTime,ShowTimeAdmin) 

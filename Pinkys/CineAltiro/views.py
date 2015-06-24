@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response,render, get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.template import Context,loader, RequestContext
-from .models import Categoria,Pelicula,Cine
+from .models import Categoria,Pelicula,Cine,ShowTime
 from .forms import  SignUpForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -15,8 +15,10 @@ def home(request):
 	return render(request,"home.html",{"pelis": Pelicula.objects.all(), "usuario":User.objects.all()})
 
 def peliculas(request,idPel):
+
+	showtimes = ShowTime.objects.all()
 	dato = get_object_or_404(Pelicula, pk=idPel)
-	return render(request,"peliculas.html",{"dpelis":dato})
+	return render(request,"peliculas.html",{"dpelis":dato,"dshowtimes":showtimes})
 
 def cines(request):
 	cin = Cine.objects.all() #Capturo todos los cines
