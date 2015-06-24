@@ -1,33 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang='es'>
-  <head>
-	<title>Lista de Peliculas</title>
-	<meta charset='utf-8'>
-  </head>
-  <body>
-
-  		<nav>
-
-  			<ul>
-  				<li><a href="/home">home</a></li>
-  			</ul>		
-
-  		</nav>	
-
-    <h1>Peliculas en cartelera</h1>
-	{% for item in pelis %}
-	<ul>
-	  <li><strong>{{item.titulo}}</strong></li>
-	  <li>{{item.subtitulo}}</li>
-	  
-	</ul>
-	{% endfor %}
-	<p>actualmente tenemos {%with total=pelis.count %}
-		{{total}} Peliculas{{total|pluralize}}
-		{%endwith%}
-	</p>
-  </body>
-</html> -->
 
 
 <!DOCTYPE html>
@@ -36,7 +6,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
@@ -48,38 +17,43 @@
 
     <!-- Custom styles for this template -->
     <link href="/static/css/jumbotron.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="/static/css/custom.css" rel="stylesheet">
 
-    <!--  FontAwesome -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+     <!-- FontAwesome -->
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     
     <script src="/static/js/ie8-responsive-file-warning.js"></script>
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-
   </head>
 
   <body>
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+
+    <!-- NAVBAR -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
+              <span class="sr-only">Menu</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/home/">Cine Altiro</a>     
       
-                 </div>
+          </div>
           {% if user.is_authenticated %}
-            <div class="navbar-nav navbar-right">
-                      <p style="text-align:center">Bienvenido {{user.username|capfirst}}   <a href="/accounts/logout" style="margin:auto; display:block">Salir</a></p>
-            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                <li class = "active">  <a href="#">Bienvenido {{user.username|capfirst}} </a></li>   
+                <li>  <a href="/accounts/logout">Salir</a></li>
+                
+              </ul>
+            </div><!--/.nav-collapse -->
+
+          
           {% else %}
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">      
@@ -90,11 +64,11 @@
           </div><!--/.nav-collapse -->
           {% endif %}
         </div>
-      </div>
+    </div>
 
 
 
-	    <div class="jumbotron">
+	 <div class="jumbotron">
 		      <div class="container">
 			        <h2 style="color: rgb(255, 128, 128);">Nuestra Cartelera</h2>
 					<p style="color: rgb(252, 229, 229);">Contamos con{%with total=pelis.count %}
