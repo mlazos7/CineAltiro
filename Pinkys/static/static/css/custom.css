@@ -1,23 +1,16 @@
-.jumbotron {
-
-
-
-
-background-color: #414141;
-
-	
-}
-
-
 
 body{
 
 
-	padding-bottom: 0px;
+	padding-bottom: 0px; 
+
+
+}
 
 
 
-
+.navbar-static-top {
+  margin-bottom: 19px;
 }
 
 .navbar-text > a{
@@ -25,8 +18,14 @@ body{
 	color: inherit;
 	text-decoration: none;
 
+}
+
+.jumbotron {
 
 
+background-color: #414141;
+
+	
 }
 
 

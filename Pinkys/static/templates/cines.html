@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,131 +14,220 @@
 	    <!-- Bootstrap core CSS -->
 	    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
-	    <!-- Custom styles for this template -->
-	    <link href="/static/css/jumbotron.css" rel="stylesheet">
 
+	    <!-- Custom CSS -->
+	    <link href="/static/css/custom.css" rel="stylesheet">
 
 	     <!-- FontAwesome -->
 
 	    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 	    
 	    <script src="/static/js/ie8-responsive-file-warning.js"></script>
-	    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+	    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>		
 
+	</head>
 
-	 </head>
 	<body>
 
-	    <!-- NAVBAR -->
-	  	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	        <div class="container">
-	          <div class="navbar-header">
-	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	              <span class="sr-only">Menu</span>
-	              <span class="icon-bar"></span>
-	              <span class="icon-bar"></span>
-	              <span class="icon-bar"></span>
-	            </button>
-	           <a class="navbar-brand" href="/home/"><img src="/media/imagenes/logos/logocinealtiro.jpg"></a>     
-	      
-	          </div>
-	          {% if user.is_authenticated %}
-	            <div class="navbar-collapse collapse">
-	                <ul class="nav navbar-nav navbar-right">
-	               <li class = "active">  <a href="#">Bienvenido {{user.username|capfirst}} </a></li>    
-	                <li>  <a href="/accounts/logout">Salir</a></li>
-	                
+			<!-- NAVBAR -->
+	    <nav class="navbar navbar-default navbar-static-top">
+	          <div class="container">
+	            <div class="navbar-header">
+	              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
+	                <span class="sr-only">Menu</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	              </button>
+	              <a class="navbar-brand" href="/home/"><img src="/media/imagenes/logos/logocinealtiro.jpg"></a>     
+	        
+	            </div>
+	            {% if user.is_authenticated %}
+	              <div id = "navbar1" class="navbar-collapse collapse">
+	                  <ul class="nav navbar-nav navbar-right">
+	                  <li class = "active">  <a href="#">Bienvenido {{user.username|capfirst}} </a></li>        
+	                  <li>  <a href="/accounts/logout">Salir</a></li>
+	                  
+	                </ul>
+	              </div><!--/.nav-collapse -->
+
+	            
+	            {% else %}
+	            <div id = "navbar1" class="navbar-collapse collapse">
+	              <ul class="nav navbar-nav navbar-right">      
+	                <li><a href="/accounts/register">Inscríbete</a></li>
+	                <li><a href="/accounts/login">Ingresar</a></li>
+	                <li><a href="#">Contacto</a></li>
 	              </ul>
 	            </div><!--/.nav-collapse -->
+	            {% endif %}
+	          </div>
+	      </nav>
 
-	          
-	          {% else %}
-	          <div class="navbar-collapse collapse">
-	            <ul class="nav navbar-nav navbar-right">      
-	              <li><a href="/accounts/register">Inscríbete</a></li>
-	              <li><a href="/accounts/login">Ingresar</a></li>
-	              <li><a href="#">Contacto</a></li>
-	            </ul>
-	          </div><!--/.nav-collapse -->
-	          {% endif %}
-	        </div>
-	    </div>
 
-   
    		<!-- ENCABEZADO -->
    		<div class =" container">
-    	<div class="jumbotron text-center" >
-    		<div class="container">
-		        <h1>Cines</h1>
-		        <p>Cine Altiro trabaja con los tres cines principales del país, teniendo un total de
-		        	{%with total=dicCines.count %}{{total}} cines a lo largo del país{%endwith%} </p>
-		    </div>
-		</div>
-		</div>
-
-
-    
-		<!-- HOYTS -->
-    	<div class="container">
-    		<h2>Cine Hoyts</h2>
-    		<div class="jumbotron" style="background-color: rgb(218, 215, 215);">
-    			<div class="row">
-				 {% for item in dicCines %}
-  					<div class="col-md-3">
-  						 {% ifequal item.empresa "hoyts" %}
-		  					<a href="/cartelera/cine/{{item.id}}"><p style="font-size: smaller;"><strong>{{item.nombre}}</strong></p></a>
-						 	<p style="font-size: x-small;">{{item.direccion}}</p> 
-						{% endifequal %}
-  					</div>
-				{% endfor %}
-	 	 	</div>
+	    	<div class="jumbotron text-center" >
+	    		<div class="container">
+			        <h1>Cines</h1>
+			        <p>Cine Altiro trabaja con los tres cines principales del país, teniendo un total de
+			        	{%with total=dicCines.count %}{{total}} cines a lo largo del país{%endwith%} </p>
+			    </div>
 			</div>
 		</div>
 
-		<!-- MARK -->
-		<div class="container">
-			<h2>Cine Mark</h2>
-    		<div class="jumbotron" style="background-color: rgb(218, 215, 215);">
-	    		<div class="row">
-	    			{% for item in dicCines %}
-			  			<div class="col-md-3">
-			  				{% ifequal item.empresa "mark" %}
-			  					<a href="/cartelera/cine/{{item.id}}">
-					  			<p style="font-size: smaller;"><strong>{{item.nombre}}</strong></p></a>
-								<p style="font-size: x-small;">{{item.direccion}}</p>
-							{% endifequal %}
-			  			</div>
-	    			{% endfor %}
-			 	 </div>
-			</div>
-		</div>
-
-		<!-- PLANET -->
-		<div class="container">
-			<h2>Cine Planet</h2>
-   			 <div class="jumbotron" style="background-color: rgb(218, 215, 215);">
-	    		<div class="row">
-					 {% for item in dicCines %}
-	  					<div class="col-md-3">
-	  						 {% ifequal item.empresa "planet" %}
-	  						 	<a href="/cartelera/cine/{{item.id}}">
-			  					<p style="font-size: smaller;"><strong>{{item.nombre}}</strong></p></a>
-							 	<p style="font-size: x-small;">{{item.direccion}}</p>
-							{% endifequal %}
-	  					</div>
-					{% endfor %}
-			 	 </div>
-			</div>
-		</div>
+		
 
 
+		<div class = "container">
+				
+					<div role = "tabpanel">
+						<ul class = "nav nav-tabs" role = "tablist">
+							<li role = "presentation" class = "active">
+								<a href="#mark" aria-controls="mark" data-toggle = "tab" role = "tab" style = "color:#5C4A2F;"> <strong>Cine Mark</strong></a>
+							</li>
+							<li role = "presentation"><a href="#planet" aria-controls="planet" data-toggle = "tab" role = "tab" style = "color:#5C4A2F;">
+								<strong>Cine Planet</strong></a>
+							</li>
+							<li role = "presentation"><a href="#hoyts" aria-controls="hoyts" data-toggle ="tab" role ="tab" style = "color:#5C4A2F;">
+							 <strong>Cine Hoyts</strong></a>
+							</li>
+						</ul>
+
+				
+
+						<div class = "tab-content">
+
+							<!-- PANEL1 -->
+							<div role = "tabpanel" class = "tab-pane active" id = "mark">
+								<div class="row">
+					    		
+					    			<br>
+									 {% for item in dicCines %}
+					  						 {% ifequal item.empresa "mark" %}
+					  						 	<div class="col-md-4">
+						  						 	<a href="/cartelera/cine/{{item.id}}">
+								  					<p style="font-size: small;"><strong>{{item.nombre}}</strong></p></a>
+												 	<p style="font-size: smaller;">{{item.direccion}}</p>
+											 	</div>
+											{% endifequal %}
+									{% endfor %}
+					    		</div>
+							</div>
+							<!-- PANEL2 -->		
+							<div role = "tabpanel" class = "tab-pane" id = "planet">
+								<div class="row">
+					    		
+					    			<br>
+									 {% for item in dicCines %}
+					  						 {% ifequal item.empresa "planet" %}
+					  						 	<div class="col-md-4">
+						  						 	<a href="/cartelera/cine/{{item.id}}">
+								  					<p style="font-size: small;"><strong>{{item.nombre}}</strong></p></a>
+												 	<p style="font-size: smaller;">{{item.direccion}}</p>
+											 	</div>
+											{% endifequal %}
+									{% endfor %}
+					    		</div>
+							</div>
+							<!-- PANEL1 -->
+							<div role = "tabpanel" class = "tab-pane" id = "hoyts">
+					    		<div class="row">
+					    			<br>
+									 {% for item in dicCines %}
+					  						 {% ifequal item.empresa "hoyts" %}
+					  						 	<div class="col-md-4">
+						  						 	<a href="/cartelera/cine/{{item.id}}">
+								  					<p style="font-size: small;"><strong>{{item.nombre}}</strong></p></a>
+												 	<p style="font-size: smaller;">{{item.direccion}}</p>
+											 	</div>
+											{% endifequal %}
+									{% endfor %}
+					    		</div>
+							</div>
+
+						</div> <!-- END TABCONTENT -->
+					</div> <!-- END TAB PANEL -->
+		</div> <!-- END CONTAINER -->
+
+
+		<br>
+		<br>
+
+
+		<div class = "container">
+
+		  
+            <h3> Busca tu Cine mas cercano </h3>
+            <br>
+           
+				
+			<div role = "tabpanel">
+
+					<ul class = "nav nav-tabs" role = "tablist">
+						<li role = "presentation" class = "active">
+							<a href="#stgo" aria-controls="stgo" data-toggle = "tab" role = "tab" style = "color:#5C4A2F;"> <strong>Santiago</strong></a>
+						</li>
+						<li role = "presentation"><a href="#reg" aria-controls="reg" data-toggle = "tab" role = "tab" style = "color:#5C4A2F;">
+							<strong>Regiones</strong></a>
+						</li>
+					</ul>
+
+					
+
+					<div class = "tab-content">
+
+							
+								<div role = "tabpanel" class = "tab-pane active" id = "stgo">
+									<div class="row">
+					    			<br>
+									 {% for elemento in dicCines %}
+					  						 {% ifequal elemento.ciudad "Santiago" %}
+					  						 <div class="col-md-4">
+					  						 	<a href="/cartelera/cine/{{item.id}}">
+							  					<p style="font-size: small;"><strong>{{elemento.nombre}}</strong></p></a>
+											 	<p style="font-size: smaller;">{{elemento.comuna}}</p>
+											 </div>
+											{% endifequal %}
+					  			{% endfor %}	
+									</div>
+								</div>
+
+						
+								<div role = "tabpanel" class = "tab-pane" id = "reg">
+									<div class="row">
+			    					<br>
+							 		{% for item in dicCines %}
+			  						 		{% ifnotequal item.ciudad "Santiago" %}
+				  						 	<div class="col-md-4">
+					  						 	<a href="/cartelera/cine/{{item.id}}">
+							  					<p style="font-size: small;"><strong>{{item.nombre}}</strong></p></a>
+											 	<p style="font-size: smaller;">{{item.ciudad}}</p>
+											 </div>
+											{% endifnotequal %}
+									{% endfor %}
+									</div>
+								</div>
+
+
+					</div> <!-- END TAB CONTENT -->
+			</div> <!-- END TAB PANEL -->
+		</div> <!-- END CONTAINER -->
+
+		<br>
       
-
-      <hr>
-      <footer>
-        <p>&copy; Company 2014</p>
-      </footer>
-    
+	    <footer>
+	      <div class="container">
+	        <hr>
+	          <p> <small><a href="http://facebook.com/askorama">Like me</a> On facebook</small></p>
+	          <p> <small><a href="http://twitter.com/wiredwiki">Ask whatever </a> On Twitter</small></p>
+	          <p> <small><a href="http://youtube.com/wiredwiki">Subscribe me</a> On Youtube</small></p>
+	        
+	   
+	      </div> 
+	    </footer>
+	    
 
 
 	    <!-- Bootstrap core JavaScript
@@ -147,7 +235,7 @@
 	    <!-- Placed at the end of the document so the pages load faster -->
 	    <script src="/static/js/jquery.min.js"></script>
 	    <script src="/static/js/bootstrap.min.js"></script>
-	    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	   <!--  IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	    <script src="/static/jsie10-viewport-bug-workaround.js"></script>
 	    
 	</body>

@@ -12,17 +12,17 @@
 
     <title>Cine Altiro</title>
 
-    <!-- Bootstrap core CSS -->
+     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="/static/css/jumbotron.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="/static/css/custom.css" rel="stylesheet">
 
      <!-- FontAwesome -->
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     
     <script src="/static/js/ie8-responsive-file-warning.js"></script>
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
@@ -31,41 +31,41 @@
   <body>
 
 
+
     <!-- NAVBAR -->
-  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Menu</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-           <a class="navbar-brand" href="/home/"><img src="/media/imagenes/logos/logocinealtiro.jpg"></a>     
-      
-          </div>
-          {% if user.is_authenticated %}
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                <li class = "active">  <a href="#">Bienvenido {{user.username|capfirst}} </a></li>   
-                <li>  <a href="/accounts/logout">Salir</a></li>
-                
+    <nav class="navbar navbar-default navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/home/"><img src="/media/imagenes/logos/logocinealtiro.jpg"></a>     
+        
+            </div>
+            {% if user.is_authenticated %}
+              <div id = "navbar1" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                  <li class = "active">  <a href="#">Bienvenido {{user.username|capfirst}} </a></li>        
+                  <li>  <a href="/accounts/logout">Salir</a></li>
+                  
+                </ul>
+              </div><!--/.nav-collapse -->
+
+            
+            {% else %}
+            <div id = "navbar1" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">      
+                <li><a href="/accounts/register">Inscríbete</a></li>
+                <li><a href="/accounts/login">Ingresar</a></li>
+                <li><a href="#">Contacto</a></li>
               </ul>
             </div><!--/.nav-collapse -->
-
-          
-          {% else %}
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">      
-              <li><a href="/accounts/register">Inscríbete</a></li>
-              <li><a href="/accounts/login">Ingresar</a></li>
-              <li><a href="#">Contacto</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-          {% endif %}
-        </div>
-    </div>
-
+            {% endif %}
+          </div>
+      </nav>
 
    <div class="container">
 	   <div class="jumbotron">	     

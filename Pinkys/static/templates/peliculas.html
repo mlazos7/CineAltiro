@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load disqus_tags %}
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,17 +11,17 @@
 
     <title>Cine Altiro</title>
 
-    <!-- Bootstrap core CSS -->
+     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="/static/css/jumbotron.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="/static/css/custom.css" rel="stylesheet">
 
      <!-- FontAwesome -->
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 
     <script src="/static/js/ie8-responsive-file-warning.js"></script>
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
@@ -31,7 +32,8 @@
 
   <body>
 
-      <!-- NAVBAR -->
+  
+    <!-- NAVBAR -->
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -41,13 +43,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-          <a class="navbar-brand" href="/home/"><img src="/media/imagenes/logos/logocinealtiro.jpg"></a>       
+           <a class="navbar-brand" href="/home/"><img src="/media/imagenes/logos/logocinealtiro.jpg"></a>     
       
           </div>
           {% if user.is_authenticated %}
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                <li class = "active">  <a href="#">Bienvenido {{user.username|capfirst}} </a></li>     
+                <li class = "active">  <a href="#">Bienvenido {{user.username|capfirst}} </a></li>   
                 <li>  <a href="/accounts/logout">Salir</a></li>
                 
               </ul>
@@ -65,8 +67,8 @@
           {% endif %}
         </div>
     </div>
-
-    
+    <br>
+    <br>
 
       <div class = "container">
           <div class = "page-header">
@@ -104,18 +106,17 @@
 
                               <tbody>
                                 <tr>
-                                  <td>Categoria</td>
+                                  <td>Categoria {{dpelis.categoria}}</td>
                                 </tr>
                                 <tr>
-                                  <td>Año</td>
+                                  <td>Año {{dpelis.estreno}}</td>
                                 </tr>
                                 <tr>
-                                  <td>País</td>
+                                  <td>Reparto {{dpelis.elenco}}</td>
                                 </tr>
                                 <tr>
-                                  <td>Reparto</td>
-                                </tr>
-            
+                                  <td>Reparto {{dpelis.director}}</td>
+                                </tr>                                
                               </tbody>
                           </table>
               </div>
@@ -151,9 +152,9 @@
         
         
         <div class="panel panel-success">
-              <div class="panel-heading">
+              <div class="panel-heading" role = "tab">
                 <h4 class="panel-title">
-                  <a href="#collpaseone" data-toggle="collapse" data-parent="accordion">
+                  <a href="#collpaseone" data-toggle="collapse" data-parent="#accordion">
                   <strong>Cine Planet</strong></a>
                 </h4>
               </div>
@@ -218,14 +219,14 @@
 
 
         <div class="panel panel-success">
-              <div class="panel-heading">
+              <div class="panel-heading" role = "tab">
                 <h4 class="panel-title">
                   <a href="#collpasetwo" data-toggle="collapse" data-parent="accordion">
                   <strong>Cine Mark</strong></a>
                 </h4>
               </div>
 
-              <div id="collpasetwo" class="panel-collapse collapse in">
+              <div id="collpasetwo" class="panel-collapse collapse ">
                 <div class="panel-body">
                     <div class = "row">
                         <div class = "col-md-3">
@@ -284,14 +285,14 @@
 
 
         <div class="panel panel-success">
-              <div class="panel-heading">
+              <div class="panel-heading "role = "tab">
                 <h4 class="panel-title">
                   <a href="#collpasethree" data-toggle="collapse" data-parent="accordion">
                   <strong>Cine Hoyts</strong></a>
                 </h4>
               </div>
 
-              <div id="collpasethree" class="panel-collapse collapse in">
+              <div id="collpasethree" class="panel-collapse collapse ">
                 <div class="panel-body">
                     <div class = "row">
                         <div class = "col-md-3">
@@ -350,7 +351,29 @@
 
     </div> <!-- END PANEL GRUOP -->
     </div> <!-- END CONTAINER -->
-      
+
+    <hr>
+  <div class="container">  
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_url='http://localhost:8000/pelicula/'
+        var disqus_identifier ={{dpelis.id}};
+        var disqus_title='test';
+        var disqus_developer = 1;
+        var disqus_shortname = 'cinealtiro';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div> 
+
+         
     <footer>
       <div class="container">
         <hr>

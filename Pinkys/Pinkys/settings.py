@@ -38,10 +38,13 @@ INSTALLED_APPS = (
     'django.contrib.sites',    
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'disqus',
     'registration',
     'CineAltiro',
 
 )
+DISQUS_API_KEY = 'QODkAJfDTnAiyZXhgGFlgF0cj7XjQCGIhy6TvcOdapuOBNbeFbh7UJUO1zfhru8g'
+DISQUS_WEBSITE_SHORTNAME = 'cinealtiro'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

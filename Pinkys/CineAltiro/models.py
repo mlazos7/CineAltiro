@@ -24,6 +24,8 @@ class Cine(models.Model):
 	precio 			= models.CharField(max_length = 50, default = '')
 	imagen 			= models.ImageField(upload_to="imagenes/cines")
 	empresa 		= models.CharField(max_length = 10, default='')
+	ciudad 			= models.CharField(max_length = 20, default='')
+	comuna			= models.CharField(max_length = 20, default='')
 
 
 	def __unicode__(self):
@@ -37,6 +39,9 @@ class Pelicula(models.Model):
     categoria 			= models.ForeignKey(Categoria)
     sinopsis 			= models.TextField(max_length = 10000, default = '')
     detalles 			= models.TextField(max_length = 10000, default = '')
+    elenco 			    = models.CharField(max_length = 10000, default = '')
+    director 			= models.CharField(max_length = 10000, default = '')
+    estreno 			= models.DateField('fecha de estreno de la pelicula',default ='2015-01-01')
     fecha_publicacion 	= models.DateField('publicacion de la pelicula') 
     imagen 				= models.ImageField(upload_to="imagenes/peliculas")
     trailer				= models.CharField(max_length=200,default='')
