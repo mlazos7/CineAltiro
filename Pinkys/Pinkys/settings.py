@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'disqus',
     'registration',
     'CineAltiro',
+    'geoposition',
 
 )
 DISQUS_API_KEY = 'QODkAJfDTnAiyZXhgGFlgF0cj7XjQCGIhy6TvcOdapuOBNbeFbh7UJUO1zfhru8g'
@@ -131,8 +132,12 @@ REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = "/home_test"
 LOGIN_URL = '/'
 
-#EMAIL_USE_TLS = True
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_HOST_USER = 'remitente@.gmail.com'
-#EMAIL_HOST_PASSWORD = 'clave'
-#EMAIL_PORT = '587'
+
+GEOPOSITION_MAP_OPTIONS = {
+    'minZoom': 10,
+    'maxZoom': 20,
+}
+
+GEOPOSITION_MARKER_OPTIONS = {
+    'cursor': 'move'
+}

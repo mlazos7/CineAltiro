@@ -10,6 +10,11 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Cine Altiro</title>
+    <style>
+    #map-canvas {
+        height: 250px;
+    }
+    </style>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -72,56 +77,100 @@
 
     <div class= "container">
         <div class = "page-header">
-          <h1> {{cine.nombre}} </h1>
+          <h1> {{dcine.nombre}} </h1>
         </div>
         <div class = "row">
-          <div class ="col-md-6">
+          <div class ="col-md-4">
             <div class ="panel panel-default">
               <div class = "panel-heading">                    
-                  <h4 class = "panel-tittle"> Detalles</h4>
+                  <h4 class = "panel-tittle"> <i> Detalles</i></h4>
               </div> 
               <table class = "table table-bordered table-striped">
                 <tbody>
                   <tr>
-                    <td><strong>Dirrección:</strong> {{cine.direccion}} </td>
+                    <td><strong><i>Dirrección:</i></strong>&nbsp{{dcine.direccion}}</td>
                   </tr>
                   <tr>
-                    <td><strong>Página web:</strong> <a href="{{cine.link}}"> {{cine.nombre}}</a> </td>
+                    <td><strong><i>Ciudad:</i></strong>&nbsp{{dcine.ciudad}}</a></td>
+                  </tr>
+                  {%ifequal dcine.ciudad "Santiago" %}
+                  <tr>
+                    <td><strong><i>Comuna:</i> </strong>&nbsp{{dcine.comuna}}</td>
+                  </tr>
+                  {%endifequal%}
+                  <tr>
+                    <td><strong><i>Página web:</i></strong> <a href="{{dcine.link}}">&nbsp{{dcine.nombre}}</a></td>
                   </tr>
                   <tr>
-                    <td><strong>Precio:</strong> </td>
+                  <td><strong><i>Contacto:</i></strong>&nbsp{{dcine.contacto}}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
+          <div class = "col-md-6">
+            <div id="map-canvas"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
+            <script>
+                function initialize() {
+                    var map = new google.maps.Map(document.getElementById('map-canvas'));
+                    var bounds = new google.maps.LatLngBounds();
+                    function addMarker(lat, lng, title) {
+                        var position = new google.maps.LatLng(lat, lng);
+                        var marker = new google.maps.Marker({
+                            position: position,
+                            map: map,
+                            title: title
+                        });
+                        bounds.extend(position);
+                    }
+                    {% for cosa in dgeo %}
+                      {% ifequal cosa.cine.id dcine.id %}
+                        addMarker({{ cosa.position.latitude }}, {{ cosa.position.longitude }}, "{{ cosa.nombre }}");
+                      {% endifequal%}
+                    {% endfor %}
+                    map.fitBounds(bounds);
+                }
+                google.maps.event.addDomListener(window, 'load', initialize);
+            </script>            
+          </div>
         </div>
       </div>
  
 
-<!--             <li><p>{{cine.direccion}}</p></li>
-            <li><p>{{cine.link}}</p></li>
-            <li><p>{{cine.precio}}</p></li> -->
-            <br>
-            <br>
-            <div class = "container">
-              <div class = "jumbotron "style ="background-color:rgb(231, 223, 223);">
-                  <div class = "row">
-                    {%for elemento in pelis%}
-                        {%for item in elemento.cines.all%}
-                          {%ifequal item.nombre cine.nombre %}
-                          <div class="col-md-3">
-                            <a href ="/pelicula/{{elemento.id}}"  class = "thumbnail">
-                              <img src="{{elemento.imagen.url}}"/>  
-                            </a>
-                          </div>
-                          {%endifequal%}
-                      {%endfor%}            
-                    {%endfor%}  
-                  </div>        
-              </div>
-            </div>
 
+      <br>
+      <br>
+
+      <div class = "container">
+        <h1><i>Cartelera</i></h1>
+        <hr>
+        
+            <div class = "row">
+              {%for elemento in pelis%}
+                  {%for item in elemento.cines.all%}
+                    {%ifequal item.nombre dcine.nombre %}
+                    <div class="col-md-3">
+                      <a href ="/pelicula/{{elemento.id}}"  class = "thumbnail">
+                        <img src="{{elemento.imagen.url}}"/>  
+                      </a>
+                    </div>
+                    {%endifequal%}
+                {%endfor%}            
+              {%endfor%}  
+            </div>        
+       </div>
+   
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      
     
 
 
@@ -132,5 +181,6 @@
     <script src="/static/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/jsie10-viewport-bug-workaround.js"></script>
+
   </body>
 </html>

@@ -1,4 +1,5 @@
 from django.db import models
+from geoposition.fields import GeopositionField
 
 
 
@@ -16,6 +17,10 @@ class Categoria_Usuario(models.Model):
 	
 	id_categoria = models.ForeignKey(Categoria)
 
+
+
+
+
 class Cine(models.Model):
 
 	nombre 			= models.CharField(max_length = 100, default = '')
@@ -26,10 +31,22 @@ class Cine(models.Model):
 	empresa 		= models.CharField(max_length = 10, default='')
 	ciudad 			= models.CharField(max_length = 20, default='')
 	comuna			= models.CharField(max_length = 20, default='')
+	contacto		= models.CharField(max_length = 50, default='')
 
 
 	def __unicode__(self):
 		return self.nombre
+
+
+
+class Location(models.Model):
+	nombre 			= models.CharField(max_length=100)
+	cine   			= models.ForeignKey(Cine)
+	position 		= GeopositionField()
+
+	def __unicode__(self):
+		return self.nombre
+
 
 
 class Pelicula(models.Model):
