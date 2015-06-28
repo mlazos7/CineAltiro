@@ -2,11 +2,11 @@ from django.shortcuts import render_to_response,render, get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.template import Context,loader, RequestContext
-from .models import Categoria,Pelicula,Cine,ShowTime,Location
+from .models import Categoria,Pelicula,Cine,ShowTime,Location,Voto
 from .forms import  SignUpForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-
+import json
 
 
 
@@ -35,5 +35,30 @@ def cartelera_cine(request,idCine):
 	cine = get_object_or_404(Cine,pk=idCine)
 	return render(request,"cartelera_cine.html",{'dcine':cine,'pelis':pelis,'dgeo':geo})
 
+def estrellitas(request):
+	nota = int(request.POST.get("nota", ""))	
+	pelicula= int(request.POST.get("id", ""))
+	pelicula_real=get_object_or_404(Pelicula, pk=pelicula)
+	dato = get_object_or_404(Pelicula, pk=pelicula)
+	dato.calificacion = (dato.calificacion+nota)/2
+	usuario= request.user
+	try:
+		num = get_object_or_404(Voto, usuario=usuario.id, pelicula=pelicula)
+	except:
+		num = 0
+	if (num != 0):
+		print "caca"
+	else: 
+		rela= Voto(pelicula = pelicula_real, usuario= usuario, voto=nota)	
+		dato.save()
+		rela.save()
+	response_data = {}
+	try:
+		response_data['result']= 'funciono'
+		response_data['nota']=num
+	except:
+		response_data['result']='we lost'
+		response_data['message']='we fuken lost'
+	return HttpResponse(json.dumps(response_data),content_type="application/json")
 
 

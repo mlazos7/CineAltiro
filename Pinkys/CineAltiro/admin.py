@@ -3,14 +3,14 @@ from django.contrib import admin
 # Register your models here.
 
 
-from CineAltiro.models import Categoria,Comentario,Pelicula,Cine,ShowTime,Horario,Location
+from CineAltiro.models import Categoria,Comentario,Pelicula,Cine,ShowTime,Horario,Location,Voto
 admin.site.register(Comentario)
 admin.site.register(Categoria) 
 admin.site.register(Pelicula) 
 admin.site.register(Cine)
 admin.site.register(Location)
 admin.site.register(Horario)
- 
+admin.site.register(Voto)
 
 class UsuarioAdmin(admin.ModelAdmin):
 

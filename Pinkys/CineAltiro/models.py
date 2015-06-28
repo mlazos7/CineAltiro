@@ -1,5 +1,6 @@
 from django.db import models
 from geoposition.fields import GeopositionField
+from django.contrib.auth.models import User
 
 
 
@@ -101,7 +102,9 @@ class ShowTime(models.Model):
  	tipo 		= models.CharField(max_length = 2000,default='')
  	date 		= models.DateField('Fecha funcion')
 
-
-
+class Voto(models.Model):
+	pelicula 	= models.ForeignKey(Pelicula)
+	usuario     = models.ForeignKey(User)
+	voto 		= models.IntegerField(default=0)
 
 
