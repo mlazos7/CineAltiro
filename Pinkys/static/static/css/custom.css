@@ -10,7 +10,7 @@ body{
 
 
 .navbar-static-top {
-  margin-bottom: 19px;
+  margin-bottom: 0px;
 }
 
 .navbar-text > a{
@@ -20,13 +20,6 @@ body{
 
 }
 
-.jumbotron {
-
-
-background-color: #414141;
-
-	
-}
 
 
 .thumbnail img:hover{
@@ -34,3 +27,27 @@ background-color: #414141;
 transform: scale(1.09,1.09);
 }
 
+.jumbotron {
+	margin-bottom: 0px;
+	background-color:  #f8f8f8;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #FFFFFF;
+}
+
+.navbar-inverse {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.navbar-collapse.collapse {
+ 
+  padding-bottom: 18px;
+  
+}
+
+.navbar-nav > li > a {
+  font-size: 15px;
+    line-height: 37px;
+}
