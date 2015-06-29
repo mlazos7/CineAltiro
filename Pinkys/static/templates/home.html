@@ -46,9 +46,16 @@
             </div>
             {% if user.is_authenticated %}
               <div id = "navbar1" class="navbar-collapse collapse">
+                  <!-- IZQUERDA -->
+                  <ul class="nav navbar-nav">
+                      <li><a href="/cines"><i>Cines</i></a></li>
+                      <li><a href="/peliculas"><i>Cartelera</i></a></li>
+                      <li class="dropdown">
+                  </ul>
+                  <!-- DERECHA -->
                   <ul class="nav navbar-nav navbar-right">
-                  <li class = "active">  <a href="#">Bienvenido {{user.username|capfirst}} </a></li>        
-                  <li>  <a href="/accounts/logout">Salir</a></li>
+                  <li>  <a href="#"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
+                  <li>  <a href="/accounts/logout"><i>Salir</i></a></li>
                   
                 </ul>
               </div><!--/.nav-collapse -->
@@ -56,10 +63,16 @@
             
             {% else %}
             <div id = "navbar1" class="navbar-collapse collapse">
+              <!-- IZQUERDA -->
+              <ul class="nav navbar-nav">
+                  <li><a href="/cines"><i>Cines</i></a></li>
+                  <li><a href="/peliculas"><i>Cartelera</i></a></li>
+                  <li class="dropdown">
+              </ul>
+              <!-- DERECHA -->
               <ul class="nav navbar-nav navbar-right">      
-                <li><a href="/accounts/register">Inscríbete</a></li>
-                <li><a href="/accounts/login">Ingresar</a></li>
-                <li><a href="#">Contacto</a></li>
+                  <li><a href="/accounts/register"><i>Inscríbete</i></a></li>
+                  <li><a href="/accounts/login"><i>Ingresar</i></a></li>
               </ul>
             </div><!--/.nav-collapse -->
             {% endif %}
@@ -74,7 +87,7 @@
                 <h1 style="color: rgb(222, 240, 227);">
                 Cine Altiro</h1>
                 <!-- <img src="/media/imagenes/logo8.jpg"> -->
-                <p style = "color: white;"> Cine altiro es una plataforma virtual gratuita de información y opiniones de las distintas peliculas que se encuentran en cartelera en los cines chilenos.</p>
+                <p style = "color: white;"> Cine altiro es una plataforma virtual gratuita de información y opiniones de las distintas peliculas que se encuentran en cartelera en los cines del país</p>
 
                 <a class="btn btn-default btn-lg" href="/cines" role="button"><i class="fa fa-film"></i> Cines </a>
                 <a class="btn btn-default btn-lg" href="/peliculas" role="button">
@@ -88,22 +101,22 @@
 
      <!--  PELICULAS -->
       <div class="container ">
-      <div class="jumbotron " style= "background-color: rgba(191, 170, 171, 0.05);">        
-      
-                <div class="row">
-                  {% for Pelicula in pelis reversed %}
-                  {% if forloop.counter0 < 12 %}
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                      <a href ="/pelicula/{{Pelicula.id}}" class = "thumbnail">
-                          <img src="{{Pelicula.imagen.url}}"/> 
-                      </a>
-                    </div>
-                  {% endif %}
-                  {% endfor %}  
-                </div>
-                <hr>
-      </div> 
-    </div>
+        <div class="jumbotron " style= "background-color: rgba(191, 170, 171, 0.05);">        
+        
+                  <div class="row">
+                    {% for Pelicula in pelis reversed %}
+                    {% if forloop.counter0 < 12 %}
+                      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <a href ="/pelicula/{{Pelicula.id}}" class = "thumbnail">
+                            <img src="{{Pelicula.imagen.url}}"/> 
+                        </a>
+                      </div>
+                    {% endif %}
+                    {% endfor %}  
+                  </div>
+                  <hr>
+        </div> 
+      </div>
   
 
 
@@ -111,13 +124,19 @@
 
       <div class ="container">
         <footer>
+
             <div class  ="navbar-text pull-left">
-                  <p> © 2015 CineAltiro. Terminos & Condiciones.</p>
+        
+
+                  <p><strong>Cine Altiro ® 2015 <strong> </p>
+                   <a href="/quienes-somos"><strong>Acerca de Nosotros</strong> </a>
             </div>
+
+
             <div class ="navbar-text pull-right">
-                  <a href="#"><i class="fa fa-facebook fa-3x"></i></a>
-                  <a href="#"><i class="fa fa-twitter fa-3x"></i></a>
-                  <a href="#"><i class="fa fa-google-plus fa-3x"></i></a>
+                  <a href="#"><i class="fa fa-facebook-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-twitter-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-google-plus-square fa-4x"></i></a>
             </div>    
         </footer>
       </div>

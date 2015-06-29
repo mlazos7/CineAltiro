@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^peliculas/$','CineAltiro.views.lista_peliculas'),
     url(r'^cartelera/cine/(?P<idCine>\d+)$','CineAltiro.views.cartelera_cine'),
     url(r'^accounts/', include('registration.urls')),
+    url(r'^quienes-somos/$','CineAltiro.views.contacto'),
 
 ]
 

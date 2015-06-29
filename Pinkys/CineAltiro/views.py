@@ -62,3 +62,5 @@ def estrellitas(request):
 	return HttpResponse(json.dumps(response_data),content_type="application/json")
 
 
+def contacto(request):
+	return render(request,"contacto.html")

@@ -1,8 +1,7 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+  <head>   
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +11,7 @@
 
     <title>Cine Altiro</title>
 
-     <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -26,12 +25,12 @@
     
     <script src="/static/js/ie8-responsive-file-warning.js"></script>
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
   </head>
 
   <body>
-
-
-
+ 
+ 
       <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-static-top">
           <div class="container">
@@ -50,7 +49,7 @@
                   <!-- IZQUERDA -->
                   <ul class="nav navbar-nav">
                       <li><a href="/cines"><i>Cines</i></a></li>
-                      <li class = "active"><a href="/peliculas"><i>Cartelera</i></a></li>
+                      <li><a href="/peliculas"><i>Cartelera</i></a></li>
                       <li class="dropdown">
                   </ul>
                   <!-- DERECHA -->
@@ -67,7 +66,7 @@
               <!-- IZQUERDA -->
               <ul class="nav navbar-nav">
                   <li><a href="/cines"><i>Cines</i></a></li>
-                  <li class ="active"><a href="/peliculas"><i>Cartelera</i></a></li>
+                  <li><a href="/peliculas"><i>Cartelera</i></a></li>
                   <li class="dropdown">
               </ul>
               <!-- DERECHA -->
@@ -81,45 +80,47 @@
       </nav>
 
 
-   <div class="container">
-	   <div class="jumbotron">	     
-			        <h2 style="color: rgb(255, 128, 128);">Nuestra Cartelera</h2>
-					<p style="color: rgb(252, 229, 229);">Contamos con{%with total=pelis.count %}
-					{{total}} peliculas en cartelera a lo largo del país.{%endwith%}</p>
-		      </div> <!-- END CONTAINER -->
-	    </div>	<!-- END JUMBOTRON -->
+      <div class = "container">
+        <h1>¿Quiénes somos?</h1>
+            <p>Hola somos  Narf, el grupo desarrollador de  Cine Altiro, nuestro grupo está conformado por 6 personas con  diferentes talentos, los cuales a través de  nuestras fortalezas y debilidades hemos creado esta web para mantenerte informado sobre las películas de los cines nacionales, si bien comenzamos este proyecto bajo la exigencia de una asignatura de la universidad, somos alumnos de la universidad de Santiago de chile (USACH) y nuestra pasión por el cine hizo que nos decidiésemos por hacer Cine Altiro. A continuación te presento a los integrantes  del grupo.
+            Angus  (jefe de proyecto): de gran carácter, supo llevar el proyecto poner mano dura y comprender cuando se necesito.
+            Matias (Desarrollador): destino todo el tiempo que necesito para lograr la calidad presente en esta página, no se rindió cuando las cosas no funcionaron.
+            Diego/PUC (Diseñador): le dio una cara creativa y entretenida al proyecto.
+            Rosa (Diseñador): participo en la creación y control del proyecto.
+            Roció (Control de calidad): supo ver y pronunciar errores cuando los detecto, supo hacerlo con tacto y delicadeza.
+            Pablo (Analista): supo detectar el problema y modelarlo al lenguaje empleado por las maquinas atendiendo al detalle requerido. </p>
+
+        <h2>Contacto</h2>
+            <p>Te damos la bienvenida a la sección de contacto de Cine Altiro. Aquí podrás solicitar información, dejar tus sugerencias, reclamos o felicitaciones respecto al contenido presentado en esta  web. Este espacio garantiza un contacto directo y privado con los administradores de la web.  Para ponerte en contacto con ellos  debes completar el siguiente formulario.</p>
+         
+      </div>
 
 
-	    <div class="container">
-	    <div class="jumbotron">
-	          <!-- Example row of columns -->
-	          <div class="row">
-	          	{% for Pelicula in pelis reversed %}
-	              <div class="col-md-3">
-	              	<a href ="/pelicula/{{Pelicula.id}}"  class = "thumbnail">
-	              		<img src="{{Pelicula.imagen.url}}"/>  
-	              	</a>
-	              </div>
-	            {% endfor %}	
-	          </div>
-	          <hr>
-	    </div> <!-- /container -->
-		</div>
-	   
-	    
+
+
+
+
+      <!-- PIE DE PAGINA  -->
 
       <div class ="container">
         <footer>
+
             <div class  ="navbar-text pull-left">
-                  <p> © CineAltiro 2015,Todos los Derechos Reservados.</p>
+        
+
+                  <p><strong>Cine Altiro ® 2015 <strong> </p>
+                   <a href="#"><strong>Acerca de Nosotros</strong> </a>
             </div>
+
+
             <div class ="navbar-text pull-right">
-                  <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>
-                  <a href="#"><i class="fa fa-twitter fa-3x"></i></a>
-                  <a href="#"><i class="fa fa-google-plus fa-3x"></i></a>
+                  <a href="#"><i class="fa fa-facebook-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-twitter-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-google-plus-square fa-4x"></i></a>
             </div>    
         </footer>
       </div>
+
 
 
     <!-- Bootstrap core JavaScript
@@ -127,7 +128,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+   <!--  IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/jsie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
