@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-06-2015 a las 04:51:05
+-- Tiempo de generación: 30-06-2015 a las 00:48:33
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.6.8
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `auth_permission` (
   `name` varchar(255) NOT NULL,
   `content_type_id` int(11) NOT NULL,
   `codename` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `auth_permission`
@@ -111,7 +111,10 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (66, 'Can delete show time', 22, 'delete_showtime'),
 (70, 'Can add location', 24, 'add_location'),
 (71, 'Can change location', 24, 'change_location'),
-(72, 'Can delete location', 24, 'delete_location');
+(72, 'Can delete location', 24, 'delete_location'),
+(73, 'Can add voto', 25, 'add_voto'),
+(74, 'Can change voto', 25, 'change_voto'),
+(75, 'Can delete voto', 25, 'delete_voto');
 
 -- --------------------------------------------------------
 
@@ -131,20 +134,22 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$20000$61XAD0upWpHY$crPmnyfcK0IelDOOn7IhwKwb+C1/GaLAaM+G8IJVtTk=', '2015-06-26 06:00:42', 1, 'matias', '', '', 'matias.lazos@gmail.com', 1, 1, '2015-06-17 17:13:54'),
+(1, 'pbkdf2_sha256$20000$61XAD0upWpHY$crPmnyfcK0IelDOOn7IhwKwb+C1/GaLAaM+G8IJVtTk=', '2015-06-28 18:21:44', 1, 'matias', '', '', 'matias.lazos@gmail.com', 1, 1, '2015-06-17 17:13:54'),
 (3, 'pbkdf2_sha256$20000$v3y9pN4FJJem$VuQA5HVbtXGBHKnYFYtiuy+Yntx1lvi61iGq1SUW64s=', NULL, 0, 'caca', 'cacaca', 'cacacaca', 'caca@gmail.com', 0, 1, '2015-06-20 17:40:07'),
 (4, 'pbkdf2_sha256$20000$Gmc7HgKgKPar$4FJ5J59ECYETY01I3di5A1QhWJMHD5gLwzG6RXBM3Fo=', '2015-06-23 00:46:18', 0, 'pablomon', '', '', 'p@p.com', 0, 1, '2015-06-22 22:10:25'),
 (5, 'pbkdf2_sha256$20000$Yo9z7bNt1U4I$xU1345KklgGxuBV8U5yCSWIz9zyLYw12Yaox5tfFAHg=', '2015-06-24 03:43:37', 0, 'p', '', '', 'p@p.com', 0, 1, '2015-06-22 22:32:00'),
 (6, 'pbkdf2_sha256$20000$zWIgtOSUak17$bSXfFmqAl7jDnjaq5DVLLIeJhXHnCczwcqTG5itkEIQ=', '2015-06-23 03:36:16', 0, 'Carlos', '', '', 'c@c.com', 0, 1, '2015-06-23 02:59:49'),
 (7, 'pbkdf2_sha256$20000$brInnKJHHi6q$wT0Ef2oM0EcD2ytyW/aE0bXCw6BOsq9tV22sEWpTlPs=', NULL, 0, 'pico', '', '', 'pico@gmail.com', 0, 1, '2015-06-24 01:53:12'),
-(8, 'pbkdf2_sha256$20000$WeHr1YH3lxpp$a0c3WGro0EPP7GTRdUG/3m4vnfxErfuadihR58OHYPY=', '2015-06-24 18:49:06', 0, 'Daniela', '', '', 'danielasotov@hotmail.com', 0, 1, '2015-06-24 18:48:48');
+(8, 'pbkdf2_sha256$20000$WeHr1YH3lxpp$a0c3WGro0EPP7GTRdUG/3m4vnfxErfuadihR58OHYPY=', '2015-06-24 18:49:06', 0, 'Daniela', '', '', 'danielasotov@hotmail.com', 0, 1, '2015-06-24 18:48:48'),
+(9, 'pbkdf2_sha256$20000$7ZJwLWYfhOqN$qXyjBqMKUf0CVyDFyKE6kp7XWp7oplpSCrRWmGeQ788=', '2015-06-28 04:46:32', 0, 'test1', '', '', 'test1@test.com', 0, 1, '2015-06-28 04:46:21'),
+(10, 'pbkdf2_sha256$20000$6lhJakj9qyKw$E7A2tv4sizdANDAcf3Nmu5W1rluQ0cOd2qBwm6OHuIU=', '2015-06-28 04:48:24', 0, 'test2', '', '', 'test2@test.com', 0, 1, '2015-06-28 04:48:15');
 
 -- --------------------------------------------------------
 
@@ -588,7 +593,7 @@ INSERT INTO `cinealtiro_pelicula` (`id`, `titulo`, `calificacion`, `cantidad_com
 (15, 'La Noche del Demonio 3', -1, -1, 'El más reciente episodio en la terrorífica serie de horror fue escrito y dirigido por Leigh Whannell, co-creador de la franquicia. Esta escalofriante precuela, ubicada antes de que la familia Lambert sea hechizada, revela cómo la dotada psíquica Elise Rainier (Lin Shaye) accede renuentemente a usar su capacidad para contactar a los muertos con el fin de ayudar a una chica adolescente (Stefanie Scott) que es víctima de un peligroso ente sobrenatural.', NULL, '2015-06-23', 'imagenes/peliculas/Insidious3_270x370.jpg', 1, ' ', 'https://www.youtube.com/embed/Xhlxi0FY27E', '', '', '2015-01-01'),
 (16, 'Dios Mio: Que Hemos Hecho', -1, -1, 'Claude y Marie Verneuil, un matrimonio católico y muy conservador, tienen cuatro hijas, a las que han tratado de inculcar sus valores y principios. Sin embargo, las chicas sólo les han dado disgustos: la mayor se casó con un musulmán; la segunda, con un judío, y la tercera, con un chino. El matrimonio deposita todas sus esperanzas en la hija menor, esperando que al menos ella, se case por la iglesia.', NULL, '2015-06-23', 'imagenes/peliculas/Diosmio_270x370.jpg', 2, ' ', 'https://www.youtube.com/embed/0GQsvlHufbs', '', '', '2015-01-01'),
 (17, 'Home', -1, -1, 'Cuando Oh, un adorable inadaptado ser de otro mundo aterriza en la Tierra y tiene que huir de su misma especie, forma una amistad poco común con una aventurera niña llamada Tip, quien también está en una misión propia. Después de una serie de divertidas aventuras con Tip, Oh aprenderá que ser diferente y cometer errores es parte de ser humano y juntos descubrirán que no hay lugar como el hogar.', NULL, '2015-06-23', 'imagenes/peliculas/Home_270x370.jpg', 5, '  ', 'https://www.youtube.com/embed/_ZGmNYaJzYw', '', '', '2015-01-01'),
-(18, 'Dos Días, Una Noche', -1, -1, 'Durante dos días y una noche, con la ayuda de su marido, Sandra busca en la ciudad a colegas que estén dispuestos a sacrificar sus bonos para ayudarla a mantener su trabajo .', NULL, '2015-06-23', 'imagenes/peliculas/2dias1noche_270x377_jmRIAHU.jpg', 3, ' ', 'https://www.youtube.com/embed/Wd0OBcrZUwU', '', '', '2015-01-01');
+(18, 'Dos Días, Una Noche', 2, -1, 'Durante dos días y una noche, con la ayuda de su marido, Sandra busca en la ciudad a colegas que estén dispuestos a sacrificar sus bonos para ayudarla a mantener su trabajo .', NULL, '2015-06-23', 'imagenes/peliculas/2dias1noche_270x377_jmRIAHU.jpg', 3, ' ', 'https://www.youtube.com/embed/Wd0OBcrZUwU', '', '', '2015-01-01');
 
 -- --------------------------------------------------------
 
@@ -999,6 +1004,28 @@ INSERT INTO `cinealtiro_showtime_horarios` (`id`, `showtime_id`, `horario_id`) V
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `cinealtiro_voto`
+--
+
+CREATE TABLE IF NOT EXISTS `cinealtiro_voto` (
+  `id` int(11) NOT NULL,
+  `voto` int(11) NOT NULL,
+  `pelicula_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cinealtiro_voto`
+--
+
+INSERT INTO `cinealtiro_voto` (`id`, `voto`, `pelicula_id`, `usuario_id`) VALUES
+(1, 3, 18, 1),
+(2, 5, 18, 9),
+(3, 1, 18, 10);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `django_admin_log`
 --
 
@@ -1264,7 +1291,7 @@ CREATE TABLE IF NOT EXISTS `django_content_type` (
   `id` int(11) NOT NULL,
   `app_label` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `django_content_type`
@@ -1284,6 +1311,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (24, 'CineAltiro', 'location'),
 (10, 'CineAltiro', 'pelicula'),
 (22, 'CineAltiro', 'showtime'),
+(25, 'CineAltiro', 'voto'),
 (5, 'contenttypes', 'contenttype'),
 (17, 'registration', 'registrationprofile'),
 (6, 'sessions', 'session'),
@@ -1300,7 +1328,7 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `applied` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `django_migrations`
@@ -1344,7 +1372,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (35, 'CineAltiro', '0018_pointofinterest', '2015-06-26 16:42:28'),
 (36, 'CineAltiro', '0019_auto_20150626_1843', '2015-06-26 18:43:47'),
 (37, 'CineAltiro', '0020_cine_contacto', '2015-06-26 21:40:41'),
-(38, 'CineAltiro', '0021_auto_20150626_2151', '2015-06-26 21:51:58');
+(38, 'CineAltiro', '0021_auto_20150626_2151', '2015-06-26 21:51:58'),
+(39, 'CineAltiro', '0022_voto', '2015-06-28 04:44:18');
 
 -- --------------------------------------------------------
 
@@ -1364,10 +1393,10 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('1e6xf6nlobxcjdq1cv6fl65jllf5sqgd', 'NGFiNjUzZDU3NWY2ZDViZTI5ZWNhZGIyOWQxNzA5MTljZWVmYWNmNTp7Il9zZXNzaW9uX2V4cGlyeSI6MzAwLCJfYXV0aF91c2VyX2hhc2giOiJlM2RhMmNmMzQ2MGRlZDkxNTU0NmNlNGY2MDBkZmZjNmJjNzdmN2MwIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoiNCJ9', '2015-06-23 00:51:18'),
-('1fyeq23a9zfqcubi5hetn77ze3z1jsbn', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-09 22:44:04'),
+('4eja9hk0acjjdw3l9nr21lx6j0kmuvjn', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-12 18:21:44'),
 ('9rglww7d98lt2rvr7ze1og2h63ydw1dm', 'NGFiNjUzZDU3NWY2ZDViZTI5ZWNhZGIyOWQxNzA5MTljZWVmYWNmNTp7Il9zZXNzaW9uX2V4cGlyeSI6MzAwLCJfYXV0aF91c2VyX2hhc2giOiJlM2RhMmNmMzQ2MGRlZDkxNTU0NmNlNGY2MDBkZmZjNmJjNzdmN2MwIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoiNCJ9', '2015-06-23 00:45:25'),
 ('dv39pvxp1zz32mkm12fw0dfakcga1ke1', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-01 17:14:10'),
-('lfaoi1ffy8tfx8jpmo7l3xqglkf9vqdq', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-10 06:00:42'),
+('e41pe7qijpx8ligfha5k2sslbfbfkp4o', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-12 04:49:33'),
 ('to9duuqprw0zhl134h7cgx8htnk2ogah', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-06 01:04:15');
 
 -- --------------------------------------------------------
@@ -1508,6 +1537,12 @@ ALTER TABLE `cinealtiro_showtime_horarios`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `showtime_id` (`showtime_id`,`horario_id`), ADD KEY `CineAltiro_showtime_horario_id_10f8c6e4_fk_CineAltiro_horario_id` (`horario_id`);
 
 --
+-- Indices de la tabla `cinealtiro_voto`
+--
+ALTER TABLE `cinealtiro_voto`
+  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_voto_pelicula_id_64193c09_fk_CineAltiro_pelicula_id` (`pelicula_id`), ADD KEY `CineAltiro_voto_usuario_id_38388d31_fk_auth_user_id` (`usuario_id`);
+
+--
 -- Indices de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
@@ -1561,12 +1596,12 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT de la tabla `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=76;
 --
 -- AUTO_INCREMENT de la tabla `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `auth_user_groups`
 --
@@ -1633,6 +1668,11 @@ ALTER TABLE `cinealtiro_showtime`
 ALTER TABLE `cinealtiro_showtime_horarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
 --
+-- AUTO_INCREMENT de la tabla `cinealtiro_voto`
+--
+ALTER TABLE `cinealtiro_voto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
@@ -1641,12 +1681,12 @@ ALTER TABLE `django_admin_log`
 -- AUTO_INCREMENT de la tabla `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT de la tabla `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT de la tabla `django_site`
 --
@@ -1733,6 +1773,13 @@ ADD CONSTRAINT `CineAltiro_showtime_cines_id_1bf92fad_fk_CineAltiro_cine_id` FOR
 ALTER TABLE `cinealtiro_showtime_horarios`
 ADD CONSTRAINT `CineAltiro_showtim_showtime_id_f3a4f2d_fk_CineAltiro_showtime_id` FOREIGN KEY (`showtime_id`) REFERENCES `cinealtiro_showtime` (`id`),
 ADD CONSTRAINT `CineAltiro_showtime_horario_id_10f8c6e4_fk_CineAltiro_horario_id` FOREIGN KEY (`horario_id`) REFERENCES `cinealtiro_horario` (`id`);
+
+--
+-- Filtros para la tabla `cinealtiro_voto`
+--
+ALTER TABLE `cinealtiro_voto`
+ADD CONSTRAINT `CineAltiro_voto_pelicula_id_64193c09_fk_CineAltiro_pelicula_id` FOREIGN KEY (`pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`),
+ADD CONSTRAINT `CineAltiro_voto_usuario_id_38388d31_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Filtros para la tabla `django_admin_log`
