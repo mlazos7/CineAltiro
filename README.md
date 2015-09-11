@@ -31,10 +31,18 @@ https://www.apachefriends.org/xampp-files/5.5.24/xampp-win32-5.5.24-0-VC11-insta
 
 10) tickeen la base de datos y importen el "cinealtiro.sql" que esta dentro de la carpeta CineAltiro del rar, con eso poblan toda la bd.
 
-11) Ingresen desde la consola a la ruta C:/Python27/Lib/site-pachages/CineAltiro/Pinkys
+
+
+11) instalar djnago geoposition https://github.com/philippbosch/django-geoposition/
+
+12) instalar django disqus http://django-disqus.readthedocs.org/en/latest/installation.html
+
+13) instalar django easy registration https://github.com/hcosta/django-easyregistration
+
+ Ingresen desde la consola a la ruta C:/Python27/Lib/site-pachages/CineAltiro/Pinkys
 y  ponen: python manage.py migrate y luego: python manage.py runserver .
 
-12) Si hicieron todo bien  , pueden ver la aplicacion en el navegador ingresando localhost:8000/home 
+ Si hicieron todo bien  , pueden ver la aplicacion en el navegador ingresando localhost:8000/home 
 
 
 
