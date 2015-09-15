@@ -54,7 +54,7 @@
                   </ul>
                   <!-- DERECHA -->
                   <ul class="nav navbar-nav navbar-right">
-                  <li>  <a href="#"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
+                  <li>  <a href="/perfil"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
                   <li>  <a href="/accounts/logout"><i>Salir</i></a></li>
                   
                 </ul>
@@ -82,12 +82,13 @@
  
     <!-- ENCABEZADO -->
       <div class="container">
-      <div class="jumbotron ">
+      <div class="jumbotron " style = "background-color: rgba(27, 109, 98, 0.368627);">
           
-                <h1 style="color: rgb(222, 240, 227);">
-                Cine Altiro</h1>
+                <!-- <h1 style="color: rgb(222, 240, 227);"> -->
+                <h2>
+               <i><strong>Cine Altiro</strong> </i></h2>
                 <!-- <img src="/media/imagenes/logo8.jpg"> -->
-                <p style = "color: white;"> Cine altiro es una plataforma virtual gratuita de información y opiniones de las distintas peliculas que se encuentran en cartelera en los cines del país</p>
+                <p> <i>Cine altiro es una plataforma virtual gratuita de información y opiniones de las distintas peliculas que se encuentran en cartelera en los cines del país</i></p>
 
                 <a class="btn btn-default btn-lg" href="/cines" role="button"><i class="fa fa-film"></i> Cines </a>
                 <a class="btn btn-default btn-lg" href="/peliculas" role="button">
@@ -101,8 +102,10 @@
 
      <!--  PELICULAS -->
       <div class="container ">
+
         <div class="jumbotron " style= "background-color: rgba(191, 170, 171, 0.05);">        
-        
+                  <h2> <i>Recientemente</i></h2>
+                  <br>
                   <div class="row">
                     {% for Pelicula in pelis reversed %}
                     {% if forloop.counter0 < 12 %}
@@ -128,15 +131,17 @@
             <div class  ="navbar-text pull-left">
         
 
-                  <p><strong>Cine Altiro ® 2015 <strong> </p>
-                   <a href="/quienes-somos"><strong>Acerca de Nosotros</strong> </a>
+                  <p><strong><i>Cine Altiro ® 2015 </i><strong> </p>
+                   <a href="/quienes-somos"><strong><i>Acerca de Nosotros</i></strong> </a>
             </div>
 
 
             <div class ="navbar-text pull-right">
+                  <p><i>Síguenos en las redes sociales</i></p>
                   <a href="#"><i class="fa fa-facebook-square fa-4x"></i></a>
                   <a href="#"><i class="fa fa-twitter-square fa-4x"></i></a>
                   <a href="#"><i class="fa fa-google-plus-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-instagram fa-4x"></i></a>
             </div>    
         </footer>
       </div>

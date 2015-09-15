@@ -82,11 +82,11 @@
 
    		<!-- ENCABEZADO -->
    		<div class =" container">
-	    	<div class="jumbotron text-center" >
+	    	<div class="jumbotron" style = "background-color: rgba(27, 109, 98, 0.368627);" >
 	    		<div class="container">
-			        <h1>Cines</h1>
-			        <p>Cine Altiro trabaja con los tres cines principales del país, teniendo un total de
-			        	{%with total=dicCines.count %}{{total}} cines a lo largo del país{%endwith%} </p>
+			        <h2><i><strong>Cines</strong></i></h2>
+			        <p><i>Cine Altiro trabaja con los tres cines principales del país, teniendo un total de
+			        	{%with total=dicCines.count %}{{total}} cines a lo largo del país{%endwith%}</i> </p>
 			    </div>
 			</div>
 		</div>
@@ -231,16 +231,28 @@
 
 		<br>
       
-	    <footer>
-	      <div class="container">
-	        <hr>
-	          <p> <small><a href="http://facebook.com/askorama">Like me</a> On facebook</small></p>
-	          <p> <small><a href="http://twitter.com/wiredwiki">Ask whatever </a> On Twitter</small></p>
-	          <p> <small><a href="http://youtube.com/wiredwiki">Subscribe me</a> On Youtube</small></p>
-	        
-	   
-	      </div> 
-	    </footer>
+      <!-- PIE DE PAGINA  -->
+
+      <div class ="container">
+        <footer>
+
+            <div class  ="navbar-text pull-left">
+        
+
+                  <p><strong><i>Cine Altiro ® 2015 </i><strong> </p>
+                   <a href="/quienes-somos"><strong><i>Acerca de Nosotros</i></strong> </a>
+            </div>
+
+
+            <div class ="navbar-text pull-right">
+                  <p><i>Síguenos en las redes sociales</i></p>
+                  <a href="#"><i class="fa fa-facebook-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-twitter-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-google-plus-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-instagram fa-4x"></i></a>
+            </div>    
+        </footer>
+      </div>
 	    
 
 

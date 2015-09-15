@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response,render, get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.template import Context,loader, RequestContext
-from .models import Categoria,Pelicula,Cine,ShowTime,Location,Voto
+from .models import Categoria,Pelicula,Cine,ShowTime,Location,Voto,Profile
 from .forms import  SignUpForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -47,7 +47,7 @@ def estrellitas(request):
 	except:
 		num = 0
 	if (num != 0):
-		print "caca"
+		print ""
 	else: 
 		rela= Voto(pelicula = pelicula_real, usuario= usuario, voto=nota)	
 		dato.save()
@@ -64,3 +64,8 @@ def estrellitas(request):
 
 def contacto(request):
 	return render(request,"contacto.html")
+
+def perfil(request):
+	perfil = Profile.objects.all()
+	
+	return render(request,"perfil.html",{'dperfil':perfil})

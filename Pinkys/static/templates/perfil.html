@@ -80,35 +80,43 @@
       </nav>
 
 
-      <div class = "container">
-        <h1>¿Quiénes somos?</h1>
-            <p>Hola somos  Narf, el grupo desarrollador de  Cine Altiro, nuestro grupo está conformado por 6 personas con  diferentes talentos, los cuales a través de  nuestras fortalezas y debilidades hemos creado esta web para mantenerte informado sobre las películas de los cines nacionales, si bien comenzamos este proyecto bajo la exigencia de una asignatura de la universidad, somos alumnos de la universidad de Santiago de chile (USACH) y nuestra pasión por el cine hizo que nos decidiésemos por hacer Cine Altiro. A continuación te presento a los integrantes  del grupo.
-            Angus  (jefe de proyecto): de gran carácter, supo llevar el proyecto poner mano dura y comprender cuando se necesito.
-            Matias (Desarrollador): destino todo el tiempo que necesito para lograr la calidad presente en esta página, no se rindió cuando las cosas no funcionaron.
-            Diego/PUC (Diseñador): le dio una cara creativa y entretenida al proyecto.
-            Rosa (Diseñador): participo en la creación y control del proyecto.
-            Roció (Control de calidad): supo ver y pronunciar errores cuando los detecto, supo hacerlo con tacto y delicadeza.
-            Pablo (Analista): supo detectar el problema y modelarlo al lenguaje empleado por las maquinas atendiendo al detalle requerido. </p>
-
-        <h2>Contacto</h2>
-            <p>Te damos la bienvenida a la sección de contacto de Cine Altiro. Aquí podrás solicitar información, dejar tus sugerencias, reclamos o felicitaciones respecto al contenido presentado en esta  web. Este espacio garantiza un contacto directo y privado con los administradores de la web.  Para ponerte en contacto con ellos  debes completar el siguiente formulario.</p>
-         
-      </div>
-
-
-
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <hr>
-      
+      {{user.id}}
       
 
+      {%for elemento in dperfil%}
+
+        {%ifequal elemento.id_usuario.id user.id %}
+
+          {{elemento.nombre}}
+
+
+
+        {%endifequal%}
+      {%endfor%}
+
+     
+
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-md-4">
+        <form role="form">
+          <div class="form-group">
+            <label for="ejemplo_email_1">Nombre</label>
+            <input type="name" class="form-control" id="ejemplo_email_1"
+                   placeholder="Introduce tu nombre">
+          </div>
+          <div class="form-group">
+            <label for="ejemplo_password_1">Apellido</label>
+            <input type="name" class="form-control" id="ejemplo_password_1" 
+                   placeholder="Intrduce tu apellido">
+          </div>
+          <button type="submit" class="btn btn-default">Guardar</button>
+          </form>
+    </div>
+  </div>
+</div>
+
+     
       <!-- PIE DE PAGINA  -->
 
       <div class ="container">

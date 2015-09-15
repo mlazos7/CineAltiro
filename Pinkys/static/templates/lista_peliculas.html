@@ -82,16 +82,16 @@
 
 
    <div class="container">
-	   <div class="jumbotron">	     
-			        <h2 style="color: rgb(255, 128, 128);">Nuestra Cartelera</h2>
-					<p style="color: rgb(252, 229, 229);">Contamos con{%with total=pelis.count %}
-					{{total}} peliculas en cartelera a lo largo del país.{%endwith%}</p>
+	   <div class="jumbotron" style = "background-color: rgba(27, 109, 98, 0.368627);">	     
+			        <h2><i><strong>Nuestra Cartelera</strong><i/></h2>
+					<p><i>Contamos con{%with total=pelis.count %}
+					{{total}} peliculas en cartelera a lo largo del país.{%endwith%}</i></p>
 		      </div> <!-- END CONTAINER -->
 	    </div>	<!-- END JUMBOTRON -->
 
 
 	    <div class="container">
-	    <div class="jumbotron">
+	    <div class="jumbotron" style= "background-color: rgba(191, 170, 171, 0.05);">
 	          <!-- Example row of columns -->
 	          <div class="row">
 	          	{% for Pelicula in pelis reversed %}
@@ -108,15 +108,25 @@
 	   
 	    
 
+      <!-- PIE DE PAGINA  -->
+
       <div class ="container">
         <footer>
+
             <div class  ="navbar-text pull-left">
-                  <p> © CineAltiro 2015,Todos los Derechos Reservados.</p>
+        
+
+                  <p><strong><i>Cine Altiro ® 2015 </i><strong> </p>
+                   <a href="/quienes-somos"><strong><i>Acerca de Nosotros</i></strong> </a>
             </div>
+
+
             <div class ="navbar-text pull-right">
-                  <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>
-                  <a href="#"><i class="fa fa-twitter fa-3x"></i></a>
-                  <a href="#"><i class="fa fa-google-plus fa-3x"></i></a>
+                  <p><i>Síguenos en las redes sociales</i></p>
+                  <a href="#"><i class="fa fa-facebook-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-twitter-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-google-plus-square fa-4x"></i></a>
+                  <a href="#"><i class="fa fa-instagram fa-4x"></i></a>
             </div>    
         </footer>
       </div>

@@ -13,13 +13,6 @@ class Categoria(models.Model):
 		return self.nombre
 
 
-class Categoria_Usuario(models.Model):
-
-	
-	id_categoria = models.ForeignKey(Categoria)
-
-
-
 
 
 class Cine(models.Model):
@@ -108,3 +101,15 @@ class Voto(models.Model):
 	voto 		= models.IntegerField(default=0)
 
 
+
+class Profile(models.Model):
+	id_usuario	= models.ForeignKey(User) 
+	nombre		= models.CharField(max_length=200, default= '')
+	apellido	= models.CharField(max_length=200, default= '')
+	categoria  	= models.ForeignKey(Categoria)
+
+
+
+
+	def __unicode__(self):
+		return self.nombre
