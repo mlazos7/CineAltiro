@@ -103,13 +103,9 @@ class Voto(models.Model):
 
 
 class Profile(models.Model):
-	id_usuario	= models.ForeignKey(User) 
+	id_2 		= models.IntegerField(default=0, unique=True)
 	nombre		= models.CharField(max_length=200, default= '')
 	apellido	= models.CharField(max_length=200, default= '')
 	categoria  	= models.ForeignKey(Categoria)
-
-
-
-
 	def __unicode__(self):
 		return self.nombre

@@ -16,6 +16,7 @@ Including another URLconf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 from django.conf.urls import include, url
 from django.contrib import admin
+admin.autodiscover()
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -31,6 +32,7 @@ urlpatterns = [
     url(r'^accounts/', include('registration.urls')),
     url(r'^quienes-somos/$','CineAltiro.views.contacto'),
     url(r'^perfil/$','CineAltiro.views.perfil'),
+    url(r'^$', 'CineAltiro.views.test_view'),
 
 ]
 

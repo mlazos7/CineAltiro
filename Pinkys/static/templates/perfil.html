@@ -79,24 +79,43 @@
           </div>
       </nav>
 
-
-      {{user.id}}
+      
       
 
       {%for elemento in dperfil%}
 
-        {%ifequal elemento.id_usuario.id user.id %}
 
-          {{elemento.nombre}}
-
-
-
-        {%endifequal%}
-      {%endfor%}
-
+        {% ifnotequal elemento.id_2 user.id %}
+        <form action="/perfil/" method="post">{% csrf_token %}
+          <ul>
+            <ul>Nombre: {{ form.nombre}} </ul>
+            <ul>Apellido: {{ form.apellido}}</ul>
+            <ul>Categoria: {{ form.categoria}}</ul>
+          </ul>
+          <input type="submit" name="guardar" value="Guardar">
+          </form>
      
+        {%endifnotequal%}
+      {%endfor%}  
 
-  <div class = "container">
+       {%for elemento in dperfil%}
+
+
+        {%ifequal elemento.id_2 user.id %}
+          <ul>
+            <ul>Nombre: {{ elemento.nombre}} </ul>
+            <ul>Apellido: {{ elemento.apellido}}</ul>
+            <ul>Categoria: {{ elemento.categoria}}</ul>
+          </ul>
+    
+        {% endifequal %}
+
+
+       {%endfor%} 
+
+          
+  
+  <!--<div class = "container">
     <div class = "row">
       <div class = "col-md-4">
         <form role="form">
@@ -114,7 +133,7 @@
           </form>
     </div>
   </div>
-</div>
+</div>-->
 
      
       <!-- PIE DE PAGINA  -->

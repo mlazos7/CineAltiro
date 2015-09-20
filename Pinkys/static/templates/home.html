@@ -121,7 +121,26 @@
         </div> 
       </div>
   
-
+      <br>
+      <br>
+    <div class="container" style="margin-bottom: 20px;">
+        
+        <form method="POST">{% csrf_token %}
+            <div class="form-group">
+             {{ form.typeahead }}
+              {{ form.typeahead.errors }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% for message in messages %}        
+        <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {{ message }}
+          <a href ="/pelicula/{{dpelis.id}}" > Click</a>
+        </div>
+        {% endfor %}
+        
+    </div>
 
       <!-- PIE DE PAGINA  -->
 
@@ -153,6 +172,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
+     {{ form.media }}
    <!--  IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/jsie10-viewport-bug-workaround.js"></script>
   </body>

@@ -3,9 +3,10 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.template import Context,loader, RequestContext
 from .models import Categoria,Pelicula,Cine,ShowTime,Location,Voto,Profile
-from .forms import  SignUpForm
+from .forms import  SignUpForm,TestForm,PerfilForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from django.contrib import messages
 import json
 
 
@@ -66,6 +67,32 @@ def contacto(request):
 	return render(request,"contacto.html")
 
 def perfil(request):
-	perfil = Profile.objects.all()
-	
-	return render(request,"perfil.html",{'dperfil':perfil})
+	perfil = Profile.objects.all()	
+	usuario=request.user.id
+	if request.POST:
+		form = PerfilForm(request.POST.copy())
+		form.data['id_2']=usuario
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/home')
+		else:
+			return HttpResponseRedirect('/quienes-somos/')
+	else:
+		form = PerfilForm()
+	return render(request,"perfil.html",{'dperfil':perfil, 'form':form})
+
+
+def test_view(request):
+	dato = "test"
+	if request.method == 'POST':
+		form = TestForm(request.POST)
+		if form.is_valid():
+			if form.cleaned_data['typeahead']:
+				messages.success(
+					request,
+					form.cleaned_data['typeahead']
+				)
+				dato = get_object_or_404(Pelicula, titulo=form.cleaned_data['typeahead'])
+	else:
+		form = TestForm()
+	return render(request, 'test.html', {'form': form, 'dpelis': dato })

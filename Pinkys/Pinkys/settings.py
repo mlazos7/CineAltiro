@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'registration',
     'CineAltiro',
     'geoposition',
+    'django_bootstrap_typeahead',
 
 )
 DISQUS_API_KEY = 'QODkAJfDTnAiyZXhgGFlgF0cj7XjQCGIhy6TvcOdapuOBNbeFbh7UJUO1zfhru8g'
