@@ -81,9 +81,12 @@
 
  
     <!-- ENCABEZADO -->
+
+
       <div class="container">
-      <div class="jumbotron " style = "background-color: rgba(27, 109, 98, 0.368627);">
-          
+          <div class = "col-md-8">
+
+          <div class="jumbotron " style = "background-color: rgba(27, 109, 98, 0.368627);">           
                 <!-- <h1 style="color: rgb(222, 240, 227);"> -->
                 <h2>
                <i><strong>Cine Altiro</strong> </i></h2>
@@ -91,17 +94,38 @@
                 <p> <i>Cine altiro es una plataforma virtual gratuita de información y opiniones de las distintas peliculas que se encuentran en cartelera en los cines del país</i></p>
 
                 <a class="btn btn-default btn-lg" href="/cines" role="button"><i class="fa fa-film"></i> Cines </a>
-                <a class="btn btn-default btn-lg" href="/peliculas" role="button">
-                  <i class="fa fa-play"></i> Cartelera</a>
-                
-          </div>  <!-- END CONTAINER -->
-      </div> <!-- END JUMBOTROM-->
+                <a class="btn btn-default btn-lg" href="/peliculas" role="button"><i class="fa fa-play"></i> Cartelera</a>
+          </div>  <!-- END JUMBOTROM -->
+        </div>
+        <div class = "col-md-4">
+          <div class = "jumbotron">
 
+              <h4 style="color:white"><strong><i>&nbsp &nbsp Busca tu película aqui</i></strong></h4>
+              <form method="POST">{% csrf_token %}
+                <div class="form-group">
+                   {{ form.typeahead }}
+                   {{ form.typeahead.errors }}
+                </div>
+                   <button type="submit" class="btn btn-default"> <i class="fa fa-search"></i> Buscar </button>
+              </form>
+                <br>
+               {% for message in messages %}        
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      {{ message }}
+                      <a href ="/pelicula/{{dpelis.id}}" > Ir </a>
+                </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div> <!-- END CONTAINER-->
 
 
 
      <!--  PELICULAS -->
       <div class="container ">
+
+
 
         <div class="jumbotron " style= "background-color: rgba(191, 170, 171, 0.05);">        
                   <h2> <i>Recientemente</i></h2>
@@ -114,36 +138,28 @@
                             <img src="{{Pelicula.imagen.url}}"/> 
                         </a>
                       </div>
+
                     {% endif %}
-                    {% endfor %}  
+                    {% endfor %}
+
+
                   </div>
-                  <hr>
+                  
         </div> 
       </div>
   
+    
       <br>
-      <br>
-    <div class="container" style="margin-bottom: 20px;">
-        
-        <form method="POST">{% csrf_token %}
-            <div class="form-group">
-             {{ form.typeahead }}
-              {{ form.typeahead.errors }}
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        {% for message in messages %}        
-        <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          {{ message }}
-          <a href ="/pelicula/{{dpelis.id}}" > Click</a>
-        </div>
-        {% endfor %}
-        
-    </div>
+
+      
+   
+    
+    
+
+  
 
       <!-- PIE DE PAGINA  -->
-
+      <hr>
       <div class ="container">
         <footer>
 

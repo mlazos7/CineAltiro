@@ -12,8 +12,20 @@ import json
 
 
 def home(request):
+	dato = "test"
+	if request.method == 'POST':
+		form = TestForm(request.POST)
+		if form.is_valid():
+			if form.cleaned_data['typeahead']:
+				messages.success(
+					request,
+					form.cleaned_data['typeahead']
+				)
+				dato = get_object_or_404(Pelicula, titulo=form.cleaned_data['typeahead'])
+	else:
+		form = TestForm()
 	usuario=User.objects.all()
-	return render(request,"home.html",{"pelis": Pelicula.objects.all(), "usuario":User.objects.all()})
+	return render(request,"home.html",{"pelis": Pelicula.objects.all(), "usuario":User.objects.all(),'form': form, 'dpelis': dato})
 
 def peliculas(request,idPel):
 
@@ -82,17 +94,3 @@ def perfil(request):
 	return render(request,"perfil.html",{'dperfil':perfil, 'form':form})
 
 
-def test_view(request):
-	dato = "test"
-	if request.method == 'POST':
-		form = TestForm(request.POST)
-		if form.is_valid():
-			if form.cleaned_data['typeahead']:
-				messages.success(
-					request,
-					form.cleaned_data['typeahead']
-				)
-				dato = get_object_or_404(Pelicula, titulo=form.cleaned_data['typeahead'])
-	else:
-		form = TestForm()
-	return render(request, 'test.html', {'form': form, 'dpelis': dato })

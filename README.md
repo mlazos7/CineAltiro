@@ -39,6 +39,9 @@ https://www.apachefriends.org/xampp-files/5.5.24/xampp-win32-5.5.24-0-VC11-insta
 
 13) instalar django easy registration https://github.com/hcosta/django-easyregistration
 
+14) pip install dj-static
+pip install django-bootstrap-typeahead para el buscador
+
  Ingresen desde la consola a la ruta C:/Python27/Lib/site-pachages/CineAltiro/Pinkys
 y  ponen: python manage.py migrate y luego: python manage.py runserver .
 
