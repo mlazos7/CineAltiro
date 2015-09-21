@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2015 a las 00:48:33
--- Versión del servidor: 5.6.24
--- Versión de PHP: 5.6.8
+-- Tiempo de generación: 21-09-2015 a las 03:13:28
+-- Versión del servidor: 5.6.26
+-- Versión de PHP: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `cinealtiro`
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `auth_permission` (
   `name` varchar(255) NOT NULL,
   `content_type_id` int(11) NOT NULL,
   `codename` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `auth_permission`
@@ -82,9 +82,6 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (19, 'Can add categoria', 7, 'add_categoria'),
 (20, 'Can change categoria', 7, 'change_categoria'),
 (21, 'Can delete categoria', 7, 'delete_categoria'),
-(25, 'Can add categoria_ usuario', 9, 'add_categoria_usuario'),
-(26, 'Can change categoria_ usuario', 9, 'change_categoria_usuario'),
-(27, 'Can delete categoria_ usuario', 9, 'delete_categoria_usuario'),
 (28, 'Can add pelicula', 10, 'add_pelicula'),
 (29, 'Can change pelicula', 10, 'change_pelicula'),
 (30, 'Can delete pelicula', 10, 'delete_pelicula'),
@@ -114,7 +111,10 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (72, 'Can delete location', 24, 'delete_location'),
 (73, 'Can add voto', 25, 'add_voto'),
 (74, 'Can change voto', 25, 'change_voto'),
-(75, 'Can delete voto', 25, 'delete_voto');
+(75, 'Can delete voto', 25, 'delete_voto'),
+(76, 'Can add profile', 26, 'add_profile'),
+(77, 'Can change profile', 26, 'change_profile'),
+(78, 'Can delete profile', 26, 'delete_profile');
 
 -- --------------------------------------------------------
 
@@ -134,22 +134,23 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$20000$61XAD0upWpHY$crPmnyfcK0IelDOOn7IhwKwb+C1/GaLAaM+G8IJVtTk=', '2015-06-28 18:21:44', 1, 'matias', '', '', 'matias.lazos@gmail.com', 1, 1, '2015-06-17 17:13:54'),
-(3, 'pbkdf2_sha256$20000$v3y9pN4FJJem$VuQA5HVbtXGBHKnYFYtiuy+Yntx1lvi61iGq1SUW64s=', NULL, 0, 'caca', 'cacaca', 'cacacaca', 'caca@gmail.com', 0, 1, '2015-06-20 17:40:07'),
+(1, 'pbkdf2_sha256$20000$61XAD0upWpHY$crPmnyfcK0IelDOOn7IhwKwb+C1/GaLAaM+G8IJVtTk=', '2015-09-20 21:48:23', 1, 'matias', '', '', 'matias.lazos@gmail.com', 1, 1, '2015-06-17 17:13:54'),
+(3, 'pbkdf2_sha256$20000$v3y9pN4FJJem$VuQA5HVbtXGBHKnYFYtiuy+Yntx1lvi61iGq1SUW64s=', '2015-09-20 02:28:42', 0, 'caca', 'cacaca', 'cacacaca', 'caca@gmail.com', 0, 1, '2015-06-20 17:40:07'),
 (4, 'pbkdf2_sha256$20000$Gmc7HgKgKPar$4FJ5J59ECYETY01I3di5A1QhWJMHD5gLwzG6RXBM3Fo=', '2015-06-23 00:46:18', 0, 'pablomon', '', '', 'p@p.com', 0, 1, '2015-06-22 22:10:25'),
 (5, 'pbkdf2_sha256$20000$Yo9z7bNt1U4I$xU1345KklgGxuBV8U5yCSWIz9zyLYw12Yaox5tfFAHg=', '2015-06-24 03:43:37', 0, 'p', '', '', 'p@p.com', 0, 1, '2015-06-22 22:32:00'),
 (6, 'pbkdf2_sha256$20000$zWIgtOSUak17$bSXfFmqAl7jDnjaq5DVLLIeJhXHnCczwcqTG5itkEIQ=', '2015-06-23 03:36:16', 0, 'Carlos', '', '', 'c@c.com', 0, 1, '2015-06-23 02:59:49'),
 (7, 'pbkdf2_sha256$20000$brInnKJHHi6q$wT0Ef2oM0EcD2ytyW/aE0bXCw6BOsq9tV22sEWpTlPs=', NULL, 0, 'pico', '', '', 'pico@gmail.com', 0, 1, '2015-06-24 01:53:12'),
 (8, 'pbkdf2_sha256$20000$WeHr1YH3lxpp$a0c3WGro0EPP7GTRdUG/3m4vnfxErfuadihR58OHYPY=', '2015-06-24 18:49:06', 0, 'Daniela', '', '', 'danielasotov@hotmail.com', 0, 1, '2015-06-24 18:48:48'),
 (9, 'pbkdf2_sha256$20000$7ZJwLWYfhOqN$qXyjBqMKUf0CVyDFyKE6kp7XWp7oplpSCrRWmGeQ788=', '2015-06-28 04:46:32', 0, 'test1', '', '', 'test1@test.com', 0, 1, '2015-06-28 04:46:21'),
-(10, 'pbkdf2_sha256$20000$6lhJakj9qyKw$E7A2tv4sizdANDAcf3Nmu5W1rluQ0cOd2qBwm6OHuIU=', '2015-06-28 04:48:24', 0, 'test2', '', '', 'test2@test.com', 0, 1, '2015-06-28 04:48:15');
+(10, 'pbkdf2_sha256$20000$6lhJakj9qyKw$E7A2tv4sizdANDAcf3Nmu5W1rluQ0cOd2qBwm6OHuIU=', '2015-06-28 04:48:24', 0, 'test2', '', '', 'test2@test.com', 0, 1, '2015-06-28 04:48:15'),
+(11, 'pbkdf2_sha256$20000$bhehu21yM65v$dZmrA+Tfmvjwc2Ic2eS/xrVvY8L80VUHvP9N2iMeh8Q=', '2015-09-20 22:09:20', 0, 'andres', '', '', 'andres@gmail.com', 0, 1, '2015-09-20 22:09:12');
 
 -- --------------------------------------------------------
 
@@ -198,17 +199,6 @@ INSERT INTO `cinealtiro_categoria` (`id`, `nombre`) VALUES
 (5, 'Animación'),
 (6, 'Aventura'),
 (7, 'Deporte');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cinealtiro_categoria_usuario`
---
-
-CREATE TABLE IF NOT EXISTS `cinealtiro_categoria_usuario` (
-  `id` int(11) NOT NULL,
-  `id_categoria_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -576,10 +566,10 @@ CREATE TABLE IF NOT EXISTS `cinealtiro_pelicula` (
 --
 
 INSERT INTO `cinealtiro_pelicula` (`id`, `titulo`, `calificacion`, `cantidad_comentarios`, `sinopsis`, `detalles`, `fecha_publicacion`, `imagen`, `categoria_id`, `subtitulo`, `trailer`, `director`, `elenco`, `estreno`) VALUES
-(1, 'Jurassic World', -1, -1, 'Veintidós años después de los acontecimientos de Jurassic Park (1993), Isla Nubla ahora cuenta con un parque temático de dinosaurios en pleno funcionamiento, Mundo Jurásico, como se había previsto por John Hammond. Después de 10 años de funcionamiento y las tasas de los visitantes en declive, con el fin de cumplir con el mandato corporativo, se crea una nueva atracción para volver a despertar el interés de los visitantes, lo que resulta brutalmente contraproducente.', NULL, '2015-06-17', 'imagenes/peliculas/Jurassicworld_270x370.jpg', 6, '  ', 'https://www.youtube.com/embed/-2Vx77hbtx4', '', '', '2015-01-01'),
+(1, 'Jurassic World', -1, -1, 'Veintidós años después de los acontecimientos de Jurassic Park (1993), Isla Nubla ahora cuenta con un parque temático de dinosaurios en pleno funcionamiento, Mundo Jurásico, como se había previsto por John Hammond. Después de 10 años de funcionamiento y las tasas de los visitantes en declive, con el fin de cumplir con el mandato corporativo, se crea una nueva atracción para volver a despertar el interés de los visitantes, lo que resulta brutalmente contraproducente.', ' ', '2015-06-17', 'imagenes/peliculas/Jurassicworld_270x370.jpg', 6, '  ', 'https://www.youtube.com/embed/-2Vx77hbtx4', 'Colin Trevorrow', 'Chris Pratt, Bryce Dallas Howard, Nick Robinson, Ty Simpkins, B.D. Wong, Judy Greer, Irrfan Khan, Vincent D''Onofrio', '2015-01-01'),
 (2, 'Terremoto', -1, -1, 'Después de que un devastador terremoto golpea California, destruyendo la ciudad y todo a su paso, el piloto del helicóptero de rescate del departamento de bomberos de Los Ángeles (Dwayne Johnson, La Roca) y su ex esposa (Carla Gugino) intentan salir de Los Ángeles para ir a San Francisco a encontrar y rescatar a su hija adolescente, que se encuentra a merced de las fuerzas de la naturaleza. El tiempo apremia, las comunicaciones son nulas, y deben apurarse antes de que un gran tsunami azote la costera ciudad.', NULL, '2015-06-18', 'imagenes/peliculas/Tsanandreas_270x370.jpg', 6, 'La falla de San Andrés', 'https://www.youtube.com/embed/-9AKU0MFSzg', '', '', '2015-01-01'),
-(3, 'Dragon Ball Z', -1, -1, 'Después de que Bills, el Dios de la destrucción, decidiera no destruir la Tierra, se vive una gran época de paz. Hasta que Sorbet y Tagoma, antiguos miembros élite de la armada de Freezer, llegan a la Tierra con el objetivo de revivir a su líder por medio de las Bolas de Dragón. Su deseo es concedido y ahora Freezer planea su venganza en contra de los Saiyajin. La historia hace que una gran oleada de hombres bajo el mando de Freezer lo acompañe.', NULL, '2015-06-18', 'imagenes/peliculas/Dragonballz2_270x370.jpg', 5, 'La resurección de Freezer', 'https://www.youtube.com/embed/cD8Vv5bdmbI', '', '', '2015-01-01'),
-(4, 'El Bosque de Karadima', -1, -1, 'Fernando Karadima, párroco y líder de la Iglesia más poderosa de la clase alta chilena, entre los años 80 y los 2000, es considerado un “Santo” en vida. Thomas, un adolescente en busca de su vocación, encontrará en el sacerdote a su Director Espiritual. Durante 20 años, Thomy vivirá paulatinamente en carne propia los abusos físicos y sicológicos por parte del cura, hasta decidir hablar y enfrentar las redes de poder que protegen al cura y desenmascarar definitivamente al verdadero Karadima bajo la envestidura de representante de Dios en la Tierra.', NULL, '2015-06-19', 'imagenes/peliculas/karadimaoficial_270x370.jpg', 3, '  ', 'https://www.youtube.com/embed/Qmwq_3LJeN8', '', '', '2015-01-01'),
+(3, 'Dragon Ball Z', -1, -1, 'Después de que Bills, el Dios de la destrucción, decidiera no destruir la Tierra, se vive una gran época de paz. Hasta que Sorbet y Tagoma, antiguos miembros élite de la armada de Freezer, llegan a la Tierra con el objetivo de revivir a su líder por medio de las Bolas de Dragón. Su deseo es concedido y ahora Freezer planea su venganza en contra de los Saiyajin. La historia hace que una gran oleada de hombres bajo el mando de Freezer lo acompañe.', ' ', '2015-06-18', 'imagenes/peliculas/Dragonballz2_270x370.jpg', 5, 'La resurección de Freezer', 'https://www.youtube.com/embed/cD8Vv5bdmbI', 'Tadayoshi Yamamuro', 'Ry?sei Nakao, Ry? Horikawa, Masako Nozawa, Takeshi Kusao, Toshio Furukawa', '2015-01-01'),
+(4, 'El Bosque de Karadima', -1, -1, 'Fernando Karadima, párroco y líder de la Iglesia más poderosa de la clase alta chilena, entre los años 80 y los 2000, es considerado un “Santo” en vida. Thomas, un adolescente en busca de su vocación, encontrará en el sacerdote a su Director Espiritual. Durante 20 años, Thomy vivirá paulatinamente en carne propia los abusos físicos y sicológicos por parte del cura, hasta decidir hablar y enfrentar las redes de poder que protegen al cura y desenmascarar definitivamente al verdadero Karadima bajo la envestidura de representante de Dios en la Tierra.', ' ', '2015-06-19', 'imagenes/peliculas/karadimaoficial_270x370.jpg', 3, '  ', 'https://www.youtube.com/embed/Qmwq_3LJeN8', ' Matías Lira', 'Luis Gnecco, Benjamín Vicuña, Ingrid Isensee, Aline Kuppenheim, Gloria Münchmeyer, Pedro Campos, Marcial Tagle, Francisco Melo, Osvaldo Santoro, Renato Jofré.', '2015-01-01'),
 (5, 'Mad Max', -1, -1, 'Del director George Miller, fundador del género post apocalíptico y la mente maestra detrás de la legendaria franquicia de “Mad Max”, llega “Mad Max: Furia en el Camino”, un regreso al mundo del Guerrero del Camino. Así, Max Rockatansky, acosado por su pasado, buscará una nueva forma de sobrevivencia uniéndose a la emperatriz Furiosa, en un mundo que colapsa a cada segundo y está lleno de locura y desazón. Con las actuaciones de la ganadora del Oscar, Charlize Theron (Monster), Tom Hardy (El Origen) y a Nicholas Hoult (X-Men: días del futuro pasado)', NULL, '2015-06-19', 'imagenes/peliculas/Madmax_270x370.jpg', 4, 'El futuro le pertenece a los locos', 'https://www.youtube.com/embed/udJT30XAPMA', '', '', '2015-01-01'),
 (6, 'Avengers', -1, -1, 'Marvel Studios presenta AVENGERS: ERA DE ULTRÓN, la épica secuela de la película de Súper Héroes más extraordinaria de todos los tiempos. Cuando Tony Stark intenta reiniciar un programa inactivo para mantener la paz, las cosas salen mal y los héroes más poderosos de la Tierra, incluidos Iron Man, Capitán América, Thor, Hulk, Black Widow y Hawkeye son puestos a prueba mientras el destino del planeta pende de un hilo. Cuando el villano Ultrón emerge, dependerá de Los Vengadores impedir que lleve a cabo sus terribles planes y pronto, incómodas alianzas y acciones inesperadas darán lugar a una aventura épica, global y única. AVENGERS: ERA DE ULTRÓN, de Marvel, es protagonizada por Robert Downey Jr., quien regresa como Iron Man; Chris Evans, como Capitán América; Chris Hemsworth, como Thor y Mark Ruffalo, como Hulk. Junto con Scarlett Johansson en su papel de Black Widow y Jeremy Renner como Hawkeye, y con la ayuda de Samuel L. Jackson como Nick Fury y Cobie Smulders como la agente Maria Hill. El equipo debe reunirse nuevamente para derrotar a James Spader en su papel de Ultrón: un temible villano tecnológico empecinado en extinguir la raza humana. En el camino se enfrentan a dos misteriosos y poderosos recién llegados: Wanda Maximoff, interpretada por Elizabeth Olsen, y Pietro Maximoff, interpretado por Aaron Taylor-Johnson, y se reencuentran con un viejo amigo bajo una nueva forma cuando Paul Bettany se convierte en Visión. Escrita y dirigida por Joss Whedon y producida por Kevin Feige, AVENGERS: ERA DE ULTRÓN,de Marvel, está basada en la popular saga de libros de historietas de Marvel: Los Vengadores, publicada por primera vez en 1963. Prepárate para vivir una emocionante experiencia repleta de acción cuando Los Vengadores regresen en AVENGERS: ERA DE ULTRÓN a partir del 30 de abril de 2015.', NULL, '2015-06-19', 'imagenes/peliculas/Avengers_270x370.jpg', 4, 'Era de Ultrón', 'https://www.youtube.com/embed/gwNzUWSNhiY', '', '', '2015-01-01'),
 (7, 'Desastres naturales', -1, -1, 'Raquel, una profesora que se niega a la idea de jubilar, vuelve un día a hacer clases a su antiguo colegio, encontrándose con que la han remplazado por alguien mucho más joven. Pero insiste en hacer clases y con el apoyo de sus ex alumnos, se toma la sala exigiendo que sea reintegrada, desatando una pequeña revolución que amenaza la estabilidad del establecimiento.', NULL, '2015-06-19', 'imagenes/peliculas/Desastrenatu_270x370.jpg', 2, ' ', 'https://www.youtube.com/embed/7CKimnVw82M', '', '', '2015-01-01'),
@@ -588,7 +578,7 @@ INSERT INTO `cinealtiro_pelicula` (`id`, `titulo`, `calificacion`, `cantidad_com
 (10, 'Tomorrowland', -1, -1, 'De Disney llega la fascinante aventura de misterio del ganador de dos premios Oscar Brad Bird: TOMORROWLAND, protagonizada por, también ganador de un premio de la Academia, George Clooney. Unidos por un mismo destino, Frank (George Clooney) quien fuera un niño prodigio, ahora hastiado de tantas desilusiones y Casey (Britt Robertson) una brillante y optimista adolescente llena de curiosidad científica se embarcan en una peligrosa misión para develar los secretos de un enigmático lugar perdido en algún punto del tiempo y el espacio conocido como TOMORROWLAND. Y su misión allí cambiará al mundo y a ellos para siempre.', NULL, '2015-06-19', 'imagenes/peliculas/Tomorrowland_270x370.jpg', 6, 'Imagina un lugar donde todo e imposible', 'https://www.youtube.com/embed/mXhn-kvB1JU', '', '', '2015-01-01'),
 (11, 'El Septimo Enanito', -1, -1, 'El séptimo enano Bubi viaja hacia el futuro con sus compañeros enanos para detener una maldición provocada por una reina de hielo mal.', NULL, '2015-06-19', 'imagenes/peliculas/The7thdwarf_270x370.jpg', 5, 'Siete Heores... Siete veces divertida.', 'https://www.youtube.com/embed/lEWs-Arn1U4', '', '', '2015-01-01'),
 (12, 'La Once', -1, -1, 'Cinco mujeres ya ancianas se juntan a tomar el té, sagradamente, una vez al mes desde hace sesenta años. En estas reuniones se encuentran y desencuentran, evocan el pasado común y se esfuerzan en demostrar que aún están vigentes, olvidando por un momento los males que padecen. Mientras comen, interpretan la actualidad, pese a no entender algunas tendencias las comentan con autoridad y se las tratan de explicar entre ellas. En instancias de discrepancias son las historias personales las que salen a relucir y marcan las diferencias de opinión. Aunque tuvieron una formación común en un colegio religioso, les tocó vivir un período de cambios históricos radicales que provocaron polarizaciones al interior grupo. Así, pese a tener biografías y personalidades muy distintas a la larga logran comprenderse, complementarse y acompañarse. Pasan las tardes, días, meses y años, hasta que se preguntan: ¿Han notado que el grupo se ha mermado un poquito?', NULL, '2015-06-19', 'imagenes/peliculas/Laonce_270x370.jpg', 2, 'Intimidades que sólo se dicen entre amigas', 'https://www.youtube.com/embed/TSRz2a4d9Ss', '', '', '2015-01-01'),
-(13, 'Resusitados', -1, -1, 'Un equipo de médicos ambiciosos encontraron una manera de traer a los pacientes muertos a la vida, mediante un suero llamado “Lázaro”. Después de varias pruebas exitosas en animales, Zoe (Olivia Wilde), uno de los principales investigadores, muere en un accidente de laboratorio. En su desesperación, el equipo utiliza el suero “Lázaro” para traerla a la vida. Todo resulta tal cual lo planeado, pero a medida que Zoe empieza a mostrar habilidades inusuales, el equipo comienza a darse cuenta de que en su intento de resucitar a los muertos, ellos abrieron la puerta al mal.', NULL, '2015-06-20', 'imagenes/peliculas/Lazarus_270x370.jpg', 1, ' ', 'https://www.youtube.com/embed/snbKSa2FwZk', '', '', '2015-01-01'),
+(13, 'Resusitados', -1, -1, 'Un equipo de médicos ambiciosos encontraron una manera de traer a los pacientes muertos a la vida, mediante un suero llamado “Lázaro”. Después de varias pruebas exitosas en animales, Zoe (Olivia Wilde), uno de los principales investigadores, muere en un accidente de laboratorio. En su desesperación, el equipo utiliza el suero “Lázaro” para traerla a la vida. Todo resulta tal cual lo planeado, pero a medida que Zoe empieza a mostrar habilidades inusuales, el equipo comienza a darse cuenta de que en su intento de resucitar a los muertos, ellos abrieron la puerta al mal.', ' ', '2015-06-20', 'imagenes/peliculas/Lazarus_270x370.jpg', 1, ' ', 'https://www.youtube.com/embed/snbKSa2FwZk', ' David Gelb', ' Olivia Wilde, Evan Peters, Mark Duplass.', '2015-01-01'),
 (14, 'El Club', -1, -1, 'Cuatro hombres viven aislados en una pequeña casa de un pueblo costero. Cada uno de ellos cometió un pecado que lo ha convertido en fugitivo. Ahora deben vivir de acuerdo a un estricto régimen, bajo la atenta mirada de una mujer que los cuida. La frágil estabilidad de su rutina se verá interrumpida por la llegada de un quinto hombre, un nuevo compañero de desgracias, quien traerá consigo el pasado del cual todos creen haber escapado.', NULL, '2015-06-23', 'imagenes/peliculas/Elclub_270x370.jpg', 3, ' ', 'https://www.youtube.com/embed/Wqv8PPDfiyw"', '', '', '2015-01-01'),
 (15, 'La Noche del Demonio 3', -1, -1, 'El más reciente episodio en la terrorífica serie de horror fue escrito y dirigido por Leigh Whannell, co-creador de la franquicia. Esta escalofriante precuela, ubicada antes de que la familia Lambert sea hechizada, revela cómo la dotada psíquica Elise Rainier (Lin Shaye) accede renuentemente a usar su capacidad para contactar a los muertos con el fin de ayudar a una chica adolescente (Stefanie Scott) que es víctima de un peligroso ente sobrenatural.', NULL, '2015-06-23', 'imagenes/peliculas/Insidious3_270x370.jpg', 1, ' ', 'https://www.youtube.com/embed/Xhlxi0FY27E', '', '', '2015-01-01'),
 (16, 'Dios Mio: Que Hemos Hecho', -1, -1, 'Claude y Marie Verneuil, un matrimonio católico y muy conservador, tienen cuatro hijas, a las que han tratado de inculcar sus valores y principios. Sin embargo, las chicas sólo les han dado disgustos: la mayor se casó con un musulmán; la segunda, con un judío, y la tercera, con un chino. El matrimonio deposita todas sus esperanzas en la hija menor, esperando que al menos ella, se case por la iglesia.', NULL, '2015-06-23', 'imagenes/peliculas/Diosmio_270x370.jpg', 2, ' ', 'https://www.youtube.com/embed/0GQsvlHufbs', '', '', '2015-01-01'),
@@ -605,40 +595,64 @@ CREATE TABLE IF NOT EXISTS `cinealtiro_pelicula_cines` (
   `id` int(11) NOT NULL,
   `pelicula_id` int(11) NOT NULL,
   `cine_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=630 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=715 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cinealtiro_pelicula_cines`
 --
 
 INSERT INTO `cinealtiro_pelicula_cines` (`id`, `pelicula_id`, `cine_id`) VALUES
-(457, 1, 46),
-(458, 1, 47),
-(456, 1, 48),
+(630, 1, 1),
+(631, 1, 3),
+(632, 1, 7),
+(633, 1, 8),
+(634, 1, 9),
+(635, 1, 10),
+(636, 1, 13),
+(637, 1, 14),
+(638, 1, 15),
+(639, 1, 19),
+(640, 1, 20),
+(641, 1, 21),
+(642, 1, 25),
+(643, 1, 26),
+(644, 1, 30),
+(645, 1, 31),
+(646, 1, 32),
+(647, 1, 35),
+(648, 1, 37),
+(649, 1, 38),
+(650, 1, 41),
+(651, 1, 42),
+(652, 1, 43),
+(653, 1, 44),
+(654, 1, 46),
+(655, 1, 47),
+(656, 1, 48),
 (454, 2, 1),
 (455, 2, 2),
-(621, 3, 1),
-(622, 3, 2),
-(623, 3, 4),
-(627, 3, 25),
-(628, 3, 29),
-(629, 3, 30),
-(624, 3, 44),
-(625, 3, 45),
-(626, 3, 46),
-(441, 4, 2),
-(442, 4, 5),
-(444, 4, 8),
-(446, 4, 14),
-(448, 4, 17),
-(449, 4, 23),
-(450, 4, 25),
-(452, 4, 28),
-(451, 4, 31),
-(453, 4, 37),
-(443, 4, 39),
-(445, 4, 45),
-(447, 4, 47),
+(657, 3, 1),
+(658, 3, 2),
+(659, 3, 4),
+(663, 3, 25),
+(664, 3, 29),
+(665, 3, 30),
+(660, 3, 44),
+(661, 3, 45),
+(662, 3, 46),
+(692, 4, 2),
+(693, 4, 5),
+(695, 4, 8),
+(697, 4, 14),
+(699, 4, 17),
+(700, 4, 23),
+(701, 4, 25),
+(703, 4, 28),
+(702, 4, 31),
+(704, 4, 37),
+(694, 4, 39),
+(696, 4, 45),
+(698, 4, 47),
 (439, 5, 45),
 (440, 5, 46),
 (438, 6, 1),
@@ -774,16 +788,16 @@ INSERT INTO `cinealtiro_pelicula_cines` (`id`, `pelicula_id`, `cine_id`) VALUES
 (328, 12, 46),
 (329, 12, 47),
 (330, 12, 48),
-(331, 13, 1),
-(332, 13, 2),
-(333, 13, 3),
-(334, 13, 4),
-(335, 13, 9),
-(336, 13, 10),
-(337, 13, 11),
-(338, 13, 46),
-(339, 13, 47),
-(340, 13, 48),
+(705, 13, 1),
+(706, 13, 2),
+(707, 13, 3),
+(708, 13, 4),
+(709, 13, 9),
+(710, 13, 10),
+(711, 13, 11),
+(712, 13, 46),
+(713, 13, 47),
+(714, 13, 48),
 (459, 14, 1),
 (460, 14, 2),
 (461, 14, 3),
@@ -918,6 +932,20 @@ INSERT INTO `cinealtiro_pelicula_cines` (`id`, `pelicula_id`, `cine_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `cinealtiro_profile`
+--
+
+CREATE TABLE IF NOT EXISTS `cinealtiro_profile` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `apellido` varchar(200) NOT NULL,
+  `categoria_id` int(11) NOT NULL,
+  `id_2` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `cinealtiro_showtime`
 --
 
@@ -927,7 +955,7 @@ CREATE TABLE IF NOT EXISTS `cinealtiro_showtime` (
   `date` date NOT NULL,
   `cines_id` int(11) NOT NULL,
   `peliculas_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cinealtiro_showtime`
@@ -944,7 +972,25 @@ INSERT INTO `cinealtiro_showtime` (`id`, `tipo`, `date`, `cines_id`, `peliculas_
 (8, 'Normal', '2015-06-25', 46, 3),
 (9, 'Normal', '2015-06-25', 45, 3),
 (10, 'Normal', '2015-06-24', 44, 3),
-(11, '3D', '2015-06-24', 48, 9);
+(11, '3D', '2015-06-24', 48, 9),
+(12, 'Normal', '2015-09-20', 2, 1),
+(13, '3D', '2015-09-20', 6, 1),
+(14, 'Normal', '2015-09-20', 44, 1),
+(15, 'Normal', '2015-09-20', 25, 1),
+(16, '3D', '2015-09-20', 15, 3),
+(17, 'Normal', '2015-09-20', 1, 3),
+(18, 'Normal', '2015-09-20', 2, 4),
+(19, 'Normal', '2015-09-20', 6, 4),
+(20, 'Normal', '2015-09-20', 16, 4),
+(21, 'Normal', '2015-09-20', 47, 4),
+(22, 'Normal', '2015-09-20', 36, 4),
+(23, 'Normal', '2015-09-20', 10, 4),
+(24, 'Normal', '2015-09-20', 30, 4),
+(25, '3D', '2015-09-20', 4, 13),
+(26, 'Normal', '2015-09-20', 6, 13),
+(27, 'Normal', '2015-09-20', 42, 13),
+(28, 'Normal', '2015-09-20', 36, 13),
+(29, 'Normal', '2015-09-20', 38, 13);
 
 -- --------------------------------------------------------
 
@@ -956,7 +1002,7 @@ CREATE TABLE IF NOT EXISTS `cinealtiro_showtime_horarios` (
   `id` int(11) NOT NULL,
   `showtime_id` int(11) NOT NULL,
   `horario_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cinealtiro_showtime_horarios`
@@ -999,7 +1045,64 @@ INSERT INTO `cinealtiro_showtime_horarios` (`id`, `showtime_id`, `horario_id`) V
 (34, 11, 40),
 (36, 11, 68),
 (35, 11, 96),
-(37, 11, 124);
+(37, 11, 124),
+(39, 12, 3),
+(40, 12, 21),
+(38, 12, 41),
+(41, 12, 71),
+(44, 13, 16),
+(46, 13, 22),
+(42, 13, 38),
+(47, 13, 60),
+(43, 13, 78),
+(45, 13, 115),
+(49, 14, 4),
+(48, 14, 10),
+(52, 15, 93),
+(54, 16, 5),
+(57, 16, 16),
+(59, 16, 31),
+(56, 16, 47),
+(58, 16, 62),
+(55, 16, 78),
+(53, 16, 97),
+(61, 17, 4),
+(63, 17, 22),
+(60, 17, 34),
+(62, 17, 46),
+(65, 17, 63),
+(64, 17, 93),
+(66, 18, 12),
+(68, 18, 38),
+(67, 18, 69),
+(69, 18, 103),
+(71, 19, 93),
+(70, 19, 132),
+(72, 20, 28),
+(73, 20, 84),
+(74, 21, 6),
+(75, 21, 63),
+(77, 22, 25),
+(78, 22, 37),
+(79, 22, 47),
+(76, 22, 136),
+(82, 23, 15),
+(81, 23, 44),
+(80, 23, 98),
+(83, 24, 107),
+(84, 24, 149),
+(87, 25, 116),
+(86, 25, 131),
+(85, 25, 160),
+(90, 26, 143),
+(88, 26, 152),
+(89, 26, 174),
+(91, 27, 148),
+(92, 28, 136),
+(94, 28, 159),
+(93, 28, 173),
+(95, 29, 156),
+(96, 29, 172);
 
 -- --------------------------------------------------------
 
@@ -1038,7 +1141,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=249 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=274 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `django_admin_log`
@@ -1279,7 +1382,32 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (245, '2015-06-26 19:20:51', '23', 'Hoyts Los Ángeles', 1, '', 24, 1),
 (246, '2015-06-26 19:22:46', '24', 'Hoyts Temuco', 1, '', 24, 1),
 (247, '2015-06-26 19:23:33', '25', 'Hoyts Puerto Montt', 1, '', 24, 1),
-(248, '2015-06-26 21:16:53', '24', 'Hoyts Temuco', 2, 'Changed cine.', 24, 1);
+(248, '2015-06-26 21:16:53', '24', 'Hoyts Temuco', 2, 'Changed cine.', 24, 1),
+(249, '2015-09-20 20:22:57', '1', 'Jurassic World', 2, 'Modificado/a detalles, elenco, director y cines.', 10, 1),
+(250, '2015-09-20 20:41:24', '12', 'ShowTime object', 1, '', 22, 1),
+(251, '2015-09-20 20:42:46', '13', 'ShowTime object', 1, '', 22, 1),
+(252, '2015-09-20 20:49:45', '14', 'ShowTime object', 1, '', 22, 1),
+(253, '2015-09-20 20:51:00', '15', 'ShowTime object', 1, '', 22, 1),
+(254, '2015-09-20 20:51:13', '15', 'ShowTime object', 2, 'Modificado/a cines y horarios.', 22, 1),
+(255, '2015-09-20 20:56:56', '3', 'Dragon Ball Z', 2, 'Modificado/a detalles, elenco y director.', 10, 1),
+(256, '2015-09-20 20:58:35', '16', 'ShowTime object', 1, '', 22, 1),
+(257, '2015-09-20 21:49:48', '17', 'ShowTime object', 1, '', 22, 1),
+(258, '2015-09-20 21:50:10', '18', 'ShowTime object', 1, '', 22, 1),
+(259, '2015-09-20 21:50:28', '19', 'ShowTime object', 1, '', 22, 1),
+(260, '2015-09-20 21:51:04', '20', 'ShowTime object', 1, '', 22, 1),
+(261, '2015-09-20 21:51:29', '21', 'ShowTime object', 1, '', 22, 1),
+(262, '2015-09-20 21:52:04', '22', 'ShowTime object', 1, '', 22, 1),
+(263, '2015-09-20 21:53:04', '23', 'ShowTime object', 1, '', 22, 1),
+(264, '2015-09-20 21:53:22', '24', 'ShowTime object', 1, '', 22, 1),
+(265, '2015-09-20 21:54:18', '4', 'El Bosque de Karadima', 2, 'Modificado/a detalles, elenco y director.', 10, 1),
+(266, '2015-09-20 21:54:57', '4', 'El Bosque de Karadima', 2, 'Modificado/a elenco y director.', 10, 1),
+(267, '2015-09-20 21:55:23', '4', 'El Bosque de Karadima', 2, 'Modificado/a director.', 10, 1),
+(268, '2015-09-20 21:57:54', '13', 'Resusitados', 2, 'Modificado/a detalles, elenco y director.', 10, 1),
+(269, '2015-09-20 22:01:26', '25', 'ShowTime object', 1, '', 22, 1),
+(270, '2015-09-20 22:02:00', '26', 'ShowTime object', 1, '', 22, 1),
+(271, '2015-09-20 22:02:20', '27', 'ShowTime object', 1, '', 22, 1),
+(272, '2015-09-20 22:02:49', '28', 'ShowTime object', 1, '', 22, 1),
+(273, '2015-09-20 22:03:23', '29', 'ShowTime object', 1, '', 22, 1);
 
 -- --------------------------------------------------------
 
@@ -1291,7 +1419,7 @@ CREATE TABLE IF NOT EXISTS `django_content_type` (
   `id` int(11) NOT NULL,
   `app_label` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `django_content_type`
@@ -1303,13 +1431,13 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
 (7, 'CineAltiro', 'categoria'),
-(9, 'CineAltiro', 'categoria_usuario'),
 (14, 'CineAltiro', 'cine'),
 (12, 'CineAltiro', 'comentario'),
 (13, 'CineAltiro', 'comentario_pelicula'),
 (21, 'CineAltiro', 'horario'),
 (24, 'CineAltiro', 'location'),
 (10, 'CineAltiro', 'pelicula'),
+(26, 'CineAltiro', 'profile'),
 (22, 'CineAltiro', 'showtime'),
 (25, 'CineAltiro', 'voto'),
 (5, 'contenttypes', 'contenttype'),
@@ -1328,7 +1456,7 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `applied` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `django_migrations`
@@ -1373,7 +1501,10 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (36, 'CineAltiro', '0019_auto_20150626_1843', '2015-06-26 18:43:47'),
 (37, 'CineAltiro', '0020_cine_contacto', '2015-06-26 21:40:41'),
 (38, 'CineAltiro', '0021_auto_20150626_2151', '2015-06-26 21:51:58'),
-(39, 'CineAltiro', '0022_voto', '2015-06-28 04:44:18');
+(39, 'CineAltiro', '0022_voto', '2015-06-28 04:44:18'),
+(40, 'CineAltiro', '0023_auto_20150915_1746', '2015-09-20 01:31:39'),
+(41, 'CineAltiro', '0024_auto_20150919_1541', '2015-09-20 02:27:57'),
+(42, 'CineAltiro', '0025_auto_20150919_2317', '2015-09-20 02:27:58');
 
 -- --------------------------------------------------------
 
@@ -1394,6 +1525,7 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('1e6xf6nlobxcjdq1cv6fl65jllf5sqgd', 'NGFiNjUzZDU3NWY2ZDViZTI5ZWNhZGIyOWQxNzA5MTljZWVmYWNmNTp7Il9zZXNzaW9uX2V4cGlyeSI6MzAwLCJfYXV0aF91c2VyX2hhc2giOiJlM2RhMmNmMzQ2MGRlZDkxNTU0NmNlNGY2MDBkZmZjNmJjNzdmN2MwIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoiNCJ9', '2015-06-23 00:51:18'),
 ('4eja9hk0acjjdw3l9nr21lx6j0kmuvjn', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-12 18:21:44'),
+('995vu3ee5bq7usrmnnbhg95c0efuwy4k', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-10-04 21:48:23'),
 ('9rglww7d98lt2rvr7ze1og2h63ydw1dm', 'NGFiNjUzZDU3NWY2ZDViZTI5ZWNhZGIyOWQxNzA5MTljZWVmYWNmNTp7Il9zZXNzaW9uX2V4cGlyeSI6MzAwLCJfYXV0aF91c2VyX2hhc2giOiJlM2RhMmNmMzQ2MGRlZDkxNTU0NmNlNGY2MDBkZmZjNmJjNzdmN2MwIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoiNCJ9', '2015-06-23 00:45:25'),
 ('dv39pvxp1zz32mkm12fw0dfakcga1ke1', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-01 17:14:10'),
 ('e41pe7qijpx8ligfha5k2sslbfbfkp4o', 'NWJmMzM1MjI4NjJjMTNiODIzNTkzYzgxYTE3ZGE5ZWM3Y2EzYWIyMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE0NWNhZTdmMzdjZGMzMDE5OTQwZjZhMGUzYWNjYjhiZmEyOGQ0MTUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2015-07-12 04:49:33'),
@@ -1438,49 +1570,52 @@ CREATE TABLE IF NOT EXISTS `registration_registrationprofile` (
 -- Indices de la tabla `auth_group`
 --
 ALTER TABLE `auth_group`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indices de la tabla `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `group_id` (`group_id`,`permission_id`), ADD KEY `auth_group_permissi_permission_id_23962d04_fk_auth_permission_id` (`permission_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `group_id` (`group_id`,`permission_id`),
+  ADD KEY `auth_group_permissi_permission_id_23962d04_fk_auth_permission_id` (`permission_id`);
 
 --
 -- Indices de la tabla `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `content_type_id` (`content_type_id`,`codename`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `content_type_id` (`content_type_id`,`codename`);
 
 --
 -- Indices de la tabla `auth_user`
 --
 ALTER TABLE `auth_user`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indices de la tabla `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`,`group_id`), ADD KEY `auth_user_groups_group_id_30a071c9_fk_auth_group_id` (`group_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_id` (`user_id`,`group_id`),
+  ADD KEY `auth_user_groups_group_id_30a071c9_fk_auth_group_id` (`group_id`);
 
 --
 -- Indices de la tabla `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`,`permission_id`), ADD KEY `auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id` (`permission_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_id` (`user_id`,`permission_id`),
+  ADD KEY `auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id` (`permission_id`);
 
 --
 -- Indices de la tabla `cinealtiro_categoria`
 --
 ALTER TABLE `cinealtiro_categoria`
   ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `cinealtiro_categoria_usuario`
---
-ALTER TABLE `cinealtiro_categoria_usuario`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_c_id_categoria_id_7d36b634_fk_CineAltiro_categoria_id` (`id_categoria_id`);
 
 --
 -- Indices de la tabla `cinealtiro_cine`
@@ -1492,13 +1627,16 @@ ALTER TABLE `cinealtiro_cine`
 -- Indices de la tabla `cinealtiro_comentario`
 --
 ALTER TABLE `cinealtiro_comentario`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_comentario_49ef5164` (`id_pelicula_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `CineAltiro_comentario_49ef5164` (`id_pelicula_id`);
 
 --
 -- Indices de la tabla `cinealtiro_comentario_pelicula`
 --
 ALTER TABLE `cinealtiro_comentario_pelicula`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_id_comentario_id_7d7b60b6_fk_CineAltiro_comentario_id` (`id_comentario_id`), ADD KEY `CineAltiro_comentario_pelicula_49ef5164` (`id_pelicula_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `CineAltiro_id_comentario_id_7d7b60b6_fk_CineAltiro_comentario_id` (`id_comentario_id`),
+  ADD KEY `CineAltiro_comentario_pelicula_49ef5164` (`id_pelicula_id`);
 
 --
 -- Indices de la tabla `cinealtiro_horario`
@@ -1510,49 +1648,70 @@ ALTER TABLE `cinealtiro_horario`
 -- Indices de la tabla `cinealtiro_location`
 --
 ALTER TABLE `cinealtiro_location`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_location_cine_id_8da7074_fk_CineAltiro_cine_id` (`cine_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `CineAltiro_location_cine_id_8da7074_fk_CineAltiro_cine_id` (`cine_id`);
 
 --
 -- Indices de la tabla `cinealtiro_pelicula`
 --
 ALTER TABLE `cinealtiro_pelicula`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_pelicula_daf3833b` (`categoria_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `CineAltiro_pelicula_daf3833b` (`categoria_id`);
 
 --
 -- Indices de la tabla `cinealtiro_pelicula_cines`
 --
 ALTER TABLE `cinealtiro_pelicula_cines`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `pelicula_id` (`pelicula_id`,`cine_id`), ADD KEY `CineAltiro_pelicula_cines_cine_id_1f02bdf3_fk_CineAltiro_cine_id` (`cine_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `pelicula_id` (`pelicula_id`,`cine_id`),
+  ADD KEY `CineAltiro_pelicula_cines_cine_id_1f02bdf3_fk_CineAltiro_cine_id` (`cine_id`);
+
+--
+-- Indices de la tabla `cinealtiro_profile`
+--
+ALTER TABLE `cinealtiro_profile`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `CineAltiro_profile_id_2_668f2653_uniq` (`id_2`),
+  ADD KEY `CineAltiro_prof_categoria_id_58296cae_fk_CineAltiro_categoria_id` (`categoria_id`);
 
 --
 -- Indices de la tabla `cinealtiro_showtime`
 --
 ALTER TABLE `cinealtiro_showtime`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_showtime_cines_id_1bf92fad_fk_CineAltiro_cine_id` (`cines_id`), ADD KEY `CineAltiro_showt_peliculas_id_159ec23d_fk_CineAltiro_pelicula_id` (`peliculas_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `CineAltiro_showtime_cines_id_1bf92fad_fk_CineAltiro_cine_id` (`cines_id`),
+  ADD KEY `CineAltiro_showt_peliculas_id_159ec23d_fk_CineAltiro_pelicula_id` (`peliculas_id`);
 
 --
 -- Indices de la tabla `cinealtiro_showtime_horarios`
 --
 ALTER TABLE `cinealtiro_showtime_horarios`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `showtime_id` (`showtime_id`,`horario_id`), ADD KEY `CineAltiro_showtime_horario_id_10f8c6e4_fk_CineAltiro_horario_id` (`horario_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `showtime_id` (`showtime_id`,`horario_id`),
+  ADD KEY `CineAltiro_showtime_horario_id_10f8c6e4_fk_CineAltiro_horario_id` (`horario_id`);
 
 --
 -- Indices de la tabla `cinealtiro_voto`
 --
 ALTER TABLE `cinealtiro_voto`
-  ADD PRIMARY KEY (`id`), ADD KEY `CineAltiro_voto_pelicula_id_64193c09_fk_CineAltiro_pelicula_id` (`pelicula_id`), ADD KEY `CineAltiro_voto_usuario_id_38388d31_fk_auth_user_id` (`usuario_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `CineAltiro_voto_pelicula_id_64193c09_fk_CineAltiro_pelicula_id` (`pelicula_id`),
+  ADD KEY `CineAltiro_voto_usuario_id_38388d31_fk_auth_user_id` (`usuario_id`);
 
 --
 -- Indices de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  ADD PRIMARY KEY (`id`), ADD KEY `django_admin__content_type_id_5151027a_fk_django_content_type_id` (`content_type_id`), ADD KEY `django_admin_log_user_id_1c5f563_fk_auth_user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `django_admin__content_type_id_5151027a_fk_django_content_type_id` (`content_type_id`),
+  ADD KEY `django_admin_log_user_id_1c5f563_fk_auth_user_id` (`user_id`);
 
 --
 -- Indices de la tabla `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `django_content_type_app_label_3ec8c61c_uniq` (`app_label`,`model`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `django_content_type_app_label_3ec8c61c_uniq` (`app_label`,`model`);
 
 --
 -- Indices de la tabla `django_migrations`
@@ -1564,7 +1723,8 @@ ALTER TABLE `django_migrations`
 -- Indices de la tabla `django_session`
 --
 ALTER TABLE `django_session`
-  ADD PRIMARY KEY (`session_key`), ADD KEY `django_session_de54fa62` (`expire_date`);
+  ADD PRIMARY KEY (`session_key`),
+  ADD KEY `django_session_de54fa62` (`expire_date`);
 
 --
 -- Indices de la tabla `django_site`
@@ -1576,7 +1736,8 @@ ALTER TABLE `django_site`
 -- Indices de la tabla `registration_registrationprofile`
 --
 ALTER TABLE `registration_registrationprofile`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -1596,12 +1757,12 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT de la tabla `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=79;
 --
 -- AUTO_INCREMENT de la tabla `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `auth_user_groups`
 --
@@ -1617,11 +1778,6 @@ ALTER TABLE `auth_user_user_permissions`
 --
 ALTER TABLE `cinealtiro_categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT de la tabla `cinealtiro_categoria_usuario`
---
-ALTER TABLE `cinealtiro_categoria_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `cinealtiro_cine`
 --
@@ -1656,17 +1812,22 @@ ALTER TABLE `cinealtiro_pelicula`
 -- AUTO_INCREMENT de la tabla `cinealtiro_pelicula_cines`
 --
 ALTER TABLE `cinealtiro_pelicula_cines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=630;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=715;
+--
+-- AUTO_INCREMENT de la tabla `cinealtiro_profile`
+--
+ALTER TABLE `cinealtiro_profile`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `cinealtiro_showtime`
 --
 ALTER TABLE `cinealtiro_showtime`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT de la tabla `cinealtiro_showtime_horarios`
 --
 ALTER TABLE `cinealtiro_showtime_horarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=97;
 --
 -- AUTO_INCREMENT de la tabla `cinealtiro_voto`
 --
@@ -1676,17 +1837,17 @@ ALTER TABLE `cinealtiro_voto`
 -- AUTO_INCREMENT de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=249;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=274;
 --
 -- AUTO_INCREMENT de la tabla `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT de la tabla `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT de la tabla `django_site`
 --
@@ -1705,94 +1866,94 @@ ALTER TABLE `registration_registrationprofile`
 -- Filtros para la tabla `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-ADD CONSTRAINT `auth_group_permissi_permission_id_23962d04_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-ADD CONSTRAINT `auth_group_permissions_group_id_58c48ba9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
+  ADD CONSTRAINT `auth_group_permissi_permission_id_23962d04_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  ADD CONSTRAINT `auth_group_permissions_group_id_58c48ba9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
 
 --
 -- Filtros para la tabla `auth_permission`
 --
 ALTER TABLE `auth_permission`
-ADD CONSTRAINT `auth_permissi_content_type_id_51277a81_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
+  ADD CONSTRAINT `auth_permissi_content_type_id_51277a81_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
 
 --
 -- Filtros para la tabla `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
-ADD CONSTRAINT `auth_user_groups_group_id_30a071c9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
-ADD CONSTRAINT `auth_user_groups_user_id_24702650_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `auth_user_groups_group_id_30a071c9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  ADD CONSTRAINT `auth_user_groups_user_id_24702650_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Filtros para la tabla `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-ADD CONSTRAINT `auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-ADD CONSTRAINT `auth_user_user_permissions_user_id_7cd7acb6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
-
---
--- Filtros para la tabla `cinealtiro_categoria_usuario`
---
-ALTER TABLE `cinealtiro_categoria_usuario`
-ADD CONSTRAINT `CineAltiro_c_id_categoria_id_7d36b634_fk_CineAltiro_categoria_id` FOREIGN KEY (`id_categoria_id`) REFERENCES `cinealtiro_categoria` (`id`);
+  ADD CONSTRAINT `auth_user_user_perm_permission_id_3d7071f0_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  ADD CONSTRAINT `auth_user_user_permissions_user_id_7cd7acb6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Filtros para la tabla `cinealtiro_comentario`
 --
 ALTER TABLE `cinealtiro_comentario`
-ADD CONSTRAINT `CineAltiro_com_id_pelicula_id_1fb4e38d_fk_CineAltiro_pelicula_id` FOREIGN KEY (`id_pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`);
+  ADD CONSTRAINT `CineAltiro_com_id_pelicula_id_1fb4e38d_fk_CineAltiro_pelicula_id` FOREIGN KEY (`id_pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`);
 
 --
 -- Filtros para la tabla `cinealtiro_comentario_pelicula`
 --
 ALTER TABLE `cinealtiro_comentario_pelicula`
-ADD CONSTRAINT `CineAltiro_com_id_pelicula_id_4948ebd6_fk_CineAltiro_pelicula_id` FOREIGN KEY (`id_pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`),
-ADD CONSTRAINT `CineAltiro_id_comentario_id_7d7b60b6_fk_CineAltiro_comentario_id` FOREIGN KEY (`id_comentario_id`) REFERENCES `cinealtiro_comentario` (`id`);
+  ADD CONSTRAINT `CineAltiro_com_id_pelicula_id_4948ebd6_fk_CineAltiro_pelicula_id` FOREIGN KEY (`id_pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`),
+  ADD CONSTRAINT `CineAltiro_id_comentario_id_7d7b60b6_fk_CineAltiro_comentario_id` FOREIGN KEY (`id_comentario_id`) REFERENCES `cinealtiro_comentario` (`id`);
 
 --
 -- Filtros para la tabla `cinealtiro_location`
 --
 ALTER TABLE `cinealtiro_location`
-ADD CONSTRAINT `CineAltiro_location_cine_id_8da7074_fk_CineAltiro_cine_id` FOREIGN KEY (`cine_id`) REFERENCES `cinealtiro_cine` (`id`);
+  ADD CONSTRAINT `CineAltiro_location_cine_id_8da7074_fk_CineAltiro_cine_id` FOREIGN KEY (`cine_id`) REFERENCES `cinealtiro_cine` (`id`);
 
 --
 -- Filtros para la tabla `cinealtiro_pelicula_cines`
 --
 ALTER TABLE `cinealtiro_pelicula_cines`
-ADD CONSTRAINT `CineAltiro_pelicu_pelicula_id_42d01fc1_fk_CineAltiro_pelicula_id` FOREIGN KEY (`pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`),
-ADD CONSTRAINT `CineAltiro_pelicula_cines_cine_id_1f02bdf3_fk_CineAltiro_cine_id` FOREIGN KEY (`cine_id`) REFERENCES `cinealtiro_cine` (`id`);
+  ADD CONSTRAINT `CineAltiro_pelicu_pelicula_id_42d01fc1_fk_CineAltiro_pelicula_id` FOREIGN KEY (`pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`),
+  ADD CONSTRAINT `CineAltiro_pelicula_cines_cine_id_1f02bdf3_fk_CineAltiro_cine_id` FOREIGN KEY (`cine_id`) REFERENCES `cinealtiro_cine` (`id`);
+
+--
+-- Filtros para la tabla `cinealtiro_profile`
+--
+ALTER TABLE `cinealtiro_profile`
+  ADD CONSTRAINT `CineAltiro_prof_categoria_id_58296cae_fk_CineAltiro_categoria_id` FOREIGN KEY (`categoria_id`) REFERENCES `cinealtiro_categoria` (`id`);
 
 --
 -- Filtros para la tabla `cinealtiro_showtime`
 --
 ALTER TABLE `cinealtiro_showtime`
-ADD CONSTRAINT `CineAltiro_showt_peliculas_id_159ec23d_fk_CineAltiro_pelicula_id` FOREIGN KEY (`peliculas_id`) REFERENCES `cinealtiro_pelicula` (`id`),
-ADD CONSTRAINT `CineAltiro_showtime_cines_id_1bf92fad_fk_CineAltiro_cine_id` FOREIGN KEY (`cines_id`) REFERENCES `cinealtiro_cine` (`id`);
+  ADD CONSTRAINT `CineAltiro_showt_peliculas_id_159ec23d_fk_CineAltiro_pelicula_id` FOREIGN KEY (`peliculas_id`) REFERENCES `cinealtiro_pelicula` (`id`),
+  ADD CONSTRAINT `CineAltiro_showtime_cines_id_1bf92fad_fk_CineAltiro_cine_id` FOREIGN KEY (`cines_id`) REFERENCES `cinealtiro_cine` (`id`);
 
 --
 -- Filtros para la tabla `cinealtiro_showtime_horarios`
 --
 ALTER TABLE `cinealtiro_showtime_horarios`
-ADD CONSTRAINT `CineAltiro_showtim_showtime_id_f3a4f2d_fk_CineAltiro_showtime_id` FOREIGN KEY (`showtime_id`) REFERENCES `cinealtiro_showtime` (`id`),
-ADD CONSTRAINT `CineAltiro_showtime_horario_id_10f8c6e4_fk_CineAltiro_horario_id` FOREIGN KEY (`horario_id`) REFERENCES `cinealtiro_horario` (`id`);
+  ADD CONSTRAINT `CineAltiro_showtim_showtime_id_f3a4f2d_fk_CineAltiro_showtime_id` FOREIGN KEY (`showtime_id`) REFERENCES `cinealtiro_showtime` (`id`),
+  ADD CONSTRAINT `CineAltiro_showtime_horario_id_10f8c6e4_fk_CineAltiro_horario_id` FOREIGN KEY (`horario_id`) REFERENCES `cinealtiro_horario` (`id`);
 
 --
 -- Filtros para la tabla `cinealtiro_voto`
 --
 ALTER TABLE `cinealtiro_voto`
-ADD CONSTRAINT `CineAltiro_voto_pelicula_id_64193c09_fk_CineAltiro_pelicula_id` FOREIGN KEY (`pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`),
-ADD CONSTRAINT `CineAltiro_voto_usuario_id_38388d31_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `CineAltiro_voto_pelicula_id_64193c09_fk_CineAltiro_pelicula_id` FOREIGN KEY (`pelicula_id`) REFERENCES `cinealtiro_pelicula` (`id`),
+  ADD CONSTRAINT `CineAltiro_voto_usuario_id_38388d31_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Filtros para la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-ADD CONSTRAINT `django_admin__content_type_id_5151027a_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
-ADD CONSTRAINT `django_admin_log_user_id_1c5f563_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `django_admin__content_type_id_5151027a_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  ADD CONSTRAINT `django_admin_log_user_id_1c5f563_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Filtros para la tabla `registration_registrationprofile`
 --
 ALTER TABLE `registration_registrationprofile`
-ADD CONSTRAINT `registration_registrationprofil_user_id_3f7685bb_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `registration_registrationprofil_user_id_3f7685bb_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
