@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Cine Altiro</title>
+    <title>Profile</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +54,7 @@
                   </ul>
                   <!-- DERECHA -->
                   <ul class="nav navbar-nav navbar-right">
-                  <li>  <a href="#"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
+                  <li>  <a href="/perfil"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
                   <li>  <a href="/accounts/logout"><i>Salir</i></a></li>
                   
                 </ul>
@@ -78,6 +78,7 @@
             {% endif %}
           </div>
       </nav>
+
 
       
       

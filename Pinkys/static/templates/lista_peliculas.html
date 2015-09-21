@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Cine Altiro</title>
+    <title>Cartelera-Peliculas</title>
 
      <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -50,12 +50,12 @@
                   <!-- IZQUERDA -->
                   <ul class="nav navbar-nav">
                       <li><a href="/cines"><i>Cines</i></a></li>
-                      <li class = "active"><a href="/peliculas"><i>Cartelera</i></a></li>
+                      <li><a href="/peliculas"><i>Cartelera</i></a></li>
                       <li class="dropdown">
                   </ul>
                   <!-- DERECHA -->
                   <ul class="nav navbar-nav navbar-right">
-                  <li>  <a href="#"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
+                  <li>  <a href="/perfil"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
                   <li>  <a href="/accounts/logout"><i>Salir</i></a></li>
                   
                 </ul>
@@ -67,7 +67,7 @@
               <!-- IZQUERDA -->
               <ul class="nav navbar-nav">
                   <li><a href="/cines"><i>Cines</i></a></li>
-                  <li class ="active"><a href="/peliculas"><i>Cartelera</i></a></li>
+                  <li><a href="/peliculas"><i>Cartelera</i></a></li>
                   <li class="dropdown">
               </ul>
               <!-- DERECHA -->
@@ -79,6 +79,7 @@
             {% endif %}
           </div>
       </nav>
+
 
 
    <div class="container">

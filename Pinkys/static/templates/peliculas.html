@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Cine Altiro</title>
+    <title>Película</title>
 
      <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -81,7 +81,7 @@
                   </ul>
                   <!-- DERECHA -->
                   <ul class="nav navbar-nav navbar-right">
-                  <li>  <a href="#"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
+                  <li>  <a href="/perfil"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
                   <li>  <a href="/accounts/logout"><i>Salir</i></a></li>
                   
                 </ul>
@@ -132,7 +132,7 @@
         </form>      
         <p style="font-size:30%">:Calificación de los usuarios </p>
         {% ifequal dpelis.calificacion -1 %} 
-          <a style="font-size:70%" class="rating" >Pelicula sin calificaciones</a> 
+          <a style="font-size:50%" class="rating" >Película sin calificaciones</a> 
         {% endifequal %} 
         {% ifequal dpelis.calificacion 1 %} 
           <a style="font-size:70%" class="rating" >★</a> 
@@ -278,12 +278,12 @@
                            <p><strong><i>Función</i></strong></p>
                         </div>
 
-                        <div class ="col-md-2">
+                        <div class ="col-md-3">
                             <p><strong><i>Día</i></strong></p>
                         </div>
 
                         
-                        <div class ="col-md-5">
+                        <div class ="col-md-4">
                              <p><strong><i>Hora</i></strong></p>
                         </div>
                  
@@ -302,11 +302,11 @@
                                 <p>{{item.tipo}}</p>
                         </div>
 
-                        <div class ="col-md-2">
+                        <div class ="col-md-3">
                                 <p>{{item.date}}</p>
                         </div>
 
-                        <div class ="col-md-5">
+                        <div class ="col-md-4">
                           <p>{%for elemento in item.horarios.all%} 
                               {{elemento.horario}}&nbsp;  
                           {%endfor%}</p>
@@ -345,12 +345,12 @@
                            <p><strong><i>Función</i></strong></p>
                         </div>
 
-                        <div class ="col-md-2">
+                        <div class ="col-md-3">
                             <p><strong><i>Día</i></strong></p>
                         </div>
 
                         
-                        <div class ="col-md-5">
+                        <div class ="col-md-4">
                              <p><strong><i>Hora</i></strong></p>
                         </div>
                  
@@ -369,11 +369,11 @@
                                 <p>{{item.tipo}}</p>
                         </div>
 
-                        <div class ="col-md-2">
+                        <div class ="col-md-3">
                                 <p>{{item.date}}</p>
                         </div>
 
-                        <div class ="col-md-5">
+                        <div class ="col-md-4">
                           <p>{%for elemento in item.horarios.all%} 
                               {{elemento.horario}}&nbsp; 
                           {%endfor%}</p>
@@ -411,12 +411,12 @@
                            <p><strong><i>Función</i></strong></p>
                         </div>
 
-                        <div class ="col-md-2">
+                        <div class ="col-md-3">
                             <p><strong><i>Día</i></strong></p>
                         </div>
 
                         
-                        <div class ="col-md-5">
+                        <div class ="col-md-4">
                              <p><strong><i>Hora</i></strong></p>
                         </div>
                  
@@ -435,11 +435,11 @@
                                 <p>{{item.tipo}}</p>
                         </div>
 
-                        <div class ="col-md-2">
+                        <div class ="col-md-3">
                                 <p>{{item.date}}</p>
                         </div>
 
-                        <div class ="col-md-5">
+                        <div class ="col-md-4">
                           <p>{%for elemento in item.horarios.all%} 
                               {{elemento.horario}}&nbsp; 
                           {%endfor%}

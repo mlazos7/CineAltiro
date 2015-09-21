@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Cine Altiro</title>
+    <title>Cartelera Cine</title>
     <style>
     #map-canvas {
         height: 250px;
@@ -37,7 +37,6 @@
   <body>
 
  
-    <!-- NAVBAR -->
       <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-static-top">
           <div class="container">
@@ -61,7 +60,7 @@
                   </ul>
                   <!-- DERECHA -->
                   <ul class="nav navbar-nav navbar-right">
-                  <li>  <a href="#"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
+                  <li>  <a href="/perfil"><strong><i>Bienvenido {{user.username|capfirst}}</strong> </i></a></li>        
                   <li>  <a href="/accounts/logout"><i>Salir</i></a></li>
                   
                 </ul>
@@ -85,6 +84,7 @@
             {% endif %}
           </div>
       </nav>
+
 
     <br>
     <br>
